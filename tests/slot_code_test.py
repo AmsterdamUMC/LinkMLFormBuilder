@@ -44,3 +44,15 @@ def test_simple_boolean_slot_default_range(default_range_yaml_boolean, simple_bo
 
 def test_simple_datetime_slot_default_range(default_range_yaml_datetime, simple_datetime_slot_default_range_expected, default_range_slot):
     assert normalize(getSlotFormCode(default_range_slot, default_range_yaml_datetime, "datetime", [], 1)) == normalize(simple_datetime_slot_default_range_expected)
+
+def test_dynamic_enum_slot(yamlfile, default_range, dynamic_enum_slot, dynamic_enum_slot_expected):
+    assert normalize(getSlotFormCode(dynamic_enum_slot, yamlfile, default_range, [], 1)) == normalize(dynamic_enum_slot_expected)
+    assert normalize(getEnumSlotCode(dynamic_enum_slot, yamlfile, extractDescription(dynamic_enum_slot), "", dynamic_enum_slot.get("name"), extractSlotName(dynamic_enum_slot))) == normalize(dynamic_enum_slot_expected)
+
+def test_inlined_static_enum_slot(yamlfile, default_range, inlined_static_enum_slot, inlined_static_enum_slot_expected):
+    assert normalize(getSlotFormCode(inlined_static_enum_slot, yamlfile, default_range, [], 1)) == normalize(inlined_static_enum_slot_expected)
+    assert normalize(getInlineEnumSlotCode(inlined_static_enum_slot, extractDescription(inlined_static_enum_slot), "", inlined_static_enum_slot.get("name"), extractSlotName(inlined_static_enum_slot))) == normalize(inlined_static_enum_slot_expected)
+
+def test_inlined_dynamic_enum_slot(yamlfile, default_range, inlined_dynamic_enum_slot, inlined_dynamic_enum_slot_expected):
+    assert normalize(getSlotFormCode(inlined_dynamic_enum_slot, yamlfile, default_range, [], 1)) == normalize(inlined_dynamic_enum_slot_expected)
+    assert normalize(getInlineEnumSlotCode(inlined_dynamic_enum_slot, extractDescription(inlined_dynamic_enum_slot), "", inlined_dynamic_enum_slot.get("name"), extractSlotName(inlined_dynamic_enum_slot))) == normalize(inlined_dynamic_enum_slot_expected)
