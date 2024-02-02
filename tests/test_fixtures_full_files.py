@@ -29,6 +29,7 @@ def yamlfile():
                 - measurement_datetime
                 - measurement_location
                 - diastolic_endpoint
+                - diastolic_endpoint2
                 - average_systolic_pressure
                 - average_diastolic_pressure
                 - patient_body_position
@@ -83,6 +84,19 @@ def yamlfile():
             definition_uri: snomed:85549003
             values_from:
                 - diastolic_endpoint_valueset
+        diastolic_endpoint2:
+            name: diastolic_endpoint2
+            title: Diastolic endpoint2
+            description: The diastolic endpoint, also called Korotkoff sounds
+            definition_uri: snomed:85549003
+            enum_range: 
+                reachable_from:
+                    source_ontology: snomed
+                    source_nodes:
+                        - snomed:272108007
+                    include_self: false
+                    relationship_types:
+                        - rdfs:subClassOf
         average_systolic_pressure:
             name: average_systolic_pressure
             title: Average systolic pressure
@@ -106,8 +120,18 @@ def yamlfile():
             title: Patient body position
             description: The position of the patient's body during the measurement
             definition_uri: snomed:424724000
-            values_from:
-                - body_position_valueset
+            enum_range:
+                permissible_values:
+                    sitting position:
+                        meaning: snomed:33586001
+                    lying position:
+                        meaning: snomed:102538003
+                    standing position:
+                        meaning: snomed:10904000
+                    tilted position:
+                        meaning: snomed:272587006
+                    trendelenburg position:
+                        meaning: snomed:34106002
         cuff_size:
             name: cuff_size
             title: Cuff size
@@ -151,25 +175,13 @@ def yamlfile():
         diastolic_endpoint_valueset:
             name: diastolic_endpoint_valueset
             title: Diastolic endpoint valueset
-            permissible_values:
-                phase 4:
-                    meaning: snomed:255271000
-                phase 5:
-                    meaning: snomed:255272007
-        body_position_valueset:
-            name: body_position_valueset
-            title: Body position valueset
-            permissible_values:
-                sitting position:
-                    meaning: snomed:33586001
-                lying position:
-                    meaning: snomed:102538003
-                standing position:
-                    meaning: snomed:10904000
-                tilted position:
-                    meaning: snomed:272587006
-                trendelenburg position:
-                    meaning: snomed:34106002
+            reachable_from:
+                source_ontology: snomed
+                source_nodes:
+                    - snomed:272108007
+                include_self: false
+                relationship_types:
+                    - rdfs:subClassOf
         cuff_size_valueset:
             name: cuff_size_valueset
             title: Cuff size valueset
@@ -785,6 +797,13 @@ def patient_partial_form_expected():
         margin-right: 5px;
     }
 
+    .values-from-dynamic {
+        font-weight: bold;
+        margin-right: 5px;
+        float: left;
+        width: calc(20% - 5px);
+    }
+
     h2 {
         width: 100vw;
     }
@@ -988,6 +1007,13 @@ def three_zibs_form_expected():
     .values-from {
         font-weight: bold;
         margin-right: 5px;
+    }
+
+    .values-from-dynamic {
+        font-weight: bold;
+        margin-right: 5px;
+        float: left;
+        width: calc(20% - 5px);
     }
 
     h2 {
