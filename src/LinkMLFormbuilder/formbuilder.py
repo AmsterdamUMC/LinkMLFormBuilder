@@ -25,6 +25,7 @@ def getSlotFormCode(slotCode, content, default_range, subclasses, level):
     required = "required" if ("required" in slotCode and slotCode.get("required") == True) else ""
     propertyName = slotCode.get("name")
     title = utils.extractSlotName(slotCode)
+    
     if ("values_from" in slotCode or ("range" in slotCode and slotCode.get("range") in content.get("enums"))):
         return slot_code_generators.getEnumSlotCode(slotCode, content, desc, required, propertyName, title)
     elif ("enum_range" in slotCode): # inlined enum
