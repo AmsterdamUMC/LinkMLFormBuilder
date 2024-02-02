@@ -152,6 +152,113 @@ def simple_enum_slot_expected():
 </div>'''
 
 @pytest.fixture(scope='session')
+def dynamic_enum_slot():
+    return yaml.safe_load('''
+    name: diastolic_endpoint
+    title: Diastolic endpoint
+    description: The diastolic endpoint, also called Korotkoff sounds
+    definition_uri: snomed:85549003
+    values_from:
+        - diastolic_endpoint_valueset
+''')
+
+@pytest.fixture(scope='session')
+def dynamic_enum_slot_expected():
+    return '''<div class="mb-3">
+        <div class="input-group">
+<span class="input-group-text">Diastolic endpoint</span>
+<input type="text" class="form-control hidden">
+</div>
+<div class="form-text" id="diastolic_endpoint-description">The diastolic endpoint, also called Korotkoff sounds</div>
+<div class='answer-options'>
+<span class='values-from-dynamic'>Diastolic endpoint valueset:</span>
+<textarea rows="6" class="form-control" id="diastolic_endpoint_valueset"></textarea>
+</div>
+</div>'''
+
+@pytest.fixture(scope='session')
+def inlined_static_enum_slot():
+    return yaml.safe_load('''
+    name: patient_body_position
+    title: Patient body position
+    description: The position of the patient's body during the measurement
+    definition_uri: snomed:424724000
+    enum_range:
+        permissible_values:
+            sitting position:
+                meaning: snomed:33586001
+            lying position:
+                meaning: snomed:102538003
+            standing position:
+                meaning: snomed:10904000
+            tilted position:
+                meaning: snomed:272587006
+            trendelenburg position:
+                meaning: snomed:34106002
+''')
+
+@pytest.fixture(scope='session')
+def inlined_static_enum_slot_expected():
+    return '''
+    <div class="mb-3">
+        <div class="input-group">
+<span class="input-group-text">Patient body position</span>
+<input type="text" class="form-control hidden">
+</div>
+<div class="form-text" id="patient_body_position-description">The position of the patient's body during the measurement</div>
+<div class='answer-options'>
+<span class='values-from'>Patient body position valueset:</span>
+<div class="form-check">
+                <input class="form-check-input" type="radio" name="Patient body position valueset" id="sitting position" >
+                <label class="form-check-label" for="sitting position">sitting position</label></div>
+<div class="form-check">
+                <input class="form-check-input" type="radio" name="Patient body position valueset" id="lying position" >
+                <label class="form-check-label" for="lying position">lying position</label></div>
+<div class="form-check">
+                <input class="form-check-input" type="radio" name="Patient body position valueset" id="standing position" >
+                <label class="form-check-label" for="standing position">standing position</label></div>
+<div class="form-check">
+                <input class="form-check-input" type="radio" name="Patient body position valueset" id="tilted position" >
+                <label class="form-check-label" for="tilted position">tilted position</label></div>
+<div class="form-check">
+                <input class="form-check-input" type="radio" name="Patient body position valueset" id="trendelenburg position" >
+                <label class="form-check-label" for="trendelenburg position">trendelenburg position</label></div>
+</div>
+</div>
+'''
+
+@pytest.fixture(scope='session')
+def inlined_dynamic_enum_slot():
+    return yaml.safe_load('''
+    name: diastolic_endpoint2
+    title: Diastolic endpoint2
+    description: The diastolic endpoint, also called Korotkoff sounds
+    definition_uri: snomed:85549003
+    enum_range: 
+        reachable_from:
+            source_ontology: snomed
+            source_nodes:
+                - snomed:272108007
+            include_self: false
+            relationship_types:
+                - rdfs:subClassOf
+''')
+
+@pytest.fixture(scope='session')
+def inlined_dynamic_enum_slot_expected():
+    return '''<div class="mb-3">
+        <div class="input-group">
+<span class="input-group-text">Diastolic endpoint2</span>
+<input type="text" class="form-control hidden">
+</div>
+<div class="form-text" id="diastolic_endpoint2-description">The diastolic endpoint, also called Korotkoff sounds</div>
+<div class='answer-options'>
+<span class='values-from-dynamic'>Diastolic endpoint2 valueset:</span>
+<textarea rows="6" class="form-control" id="Diastolic endpoint2 valueset"></textarea>
+</div>
+</div>'''
+
+@pytest.fixture(scope='session')
 def simple_float_slot():
     return yaml.safe_load('''
     name: mean_arterial_pressure

@@ -48,7 +48,10 @@ optional arguments:
 ```
 
 ## Changelog
+### Version 0.1.4
+- Improve support for inlined enums
+- Add support for dynamic enums
 ### Version 0.1.1 - Version 0.1.3
-Fix entry point
+- Fix entry point
 ### Version 0.1.0
-Initial commit
+- Initial commit

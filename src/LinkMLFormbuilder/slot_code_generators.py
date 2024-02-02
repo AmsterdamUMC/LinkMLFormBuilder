@@ -41,41 +41,26 @@ def getEnumSlotCode(slotCode, content, desc, required, propertyName, title):
     code += '''<span class="input-group-text">{slotName}</span>\n'''.format(slotName = title)
     code += '''<input type="text" class="form-control hidden">\n</div>\n'''
     code += '''<div class="form-text" id="{propertyName}-description">{desc}</div>\n'''.format(propertyName = propertyName, desc = desc)
-    for enum in slotCode.get("values_from"):
-        if (enum not in content.get("enums")):
-           return getTextareaSlotCode(desc, required, propertyName, title)
-        enumCode = content.get("enums").get(enum)
-        enumName = utils.extractName(enumCode)
-        # code += '''<h3>{enumName}</h3>\n'''.format(enumName = enumName)
-        code += "<div class='answer-options'>\n<span class='values-from'>" + enumName + ":</span>\n"
-        
-        for value in enumCode.get("permissible_values"): # TODO: work with enum permissible value slots
-            if (not multivalued):
-              code += '''<div class="form-check">
-                  <input class="form-check-input" type="radio" name="{enumName}" id="{item}" {required}>
-                  <label class="form-check-label" for="{item}">{item}</label></div>\n'''.format(enumName = enumName, item = value, required = required)
-            else:
-                 code += '''<div class="form-check">
-                  <input class="form-check-input" type="checkbox" name="{enumName}" id="{item}" {required}>
-                  <label class="form-check-label" for="{item}">{item}</label></div>\n'''.format(enumName = enumName, item = value, required = required)
-        code += "</div>\n"
+    enumList = []
+    if ("values_from" in slotCode):
+       for enum in slotCode.get("values_from"): enumList.append(enum)
+    if ("range" in slotCode and "range" in content.get("enums")): enumList.append(slotCode.get("range"))
+    
+    for enum in enumList:
+      if (enum not in content.get("enums")):
+          return getTextareaSlotCode(desc, required, propertyName, title)
+      enumCode = content.get("enums").get(enum)
+      enumName = utils.extractName(enumCode)
+      if ("permissible_values" in enumCode):
+        code += getPermissibleValuesCode(enumCode.get("permissible_values"), enumName, multivalued, required)
+      else:
+        code += '''<div class='answer-options'>\n<span class='values-from-dynamic'>{enumName}:</span>\n<textarea rows="6" class="form-control" id="{propertyName}"></textarea></div>'''.format(enumName = enumName, propertyName = enumCode.get("name"))
     code += "</div>\n"        
     return code
 
-def getInlineEnumSlotCode(slotCode, desc, required, propertyName, title):
-    multivalued = True if (("multivalued" in slotCode and slotCode.get("multivalued") == True) or ("maximum_cardinality" in slotCode and slotCode.get("maximum_cardinality") > 1)) else False
-    if ("permissible_values" not in slotCode):
-        return getTextareaSlotCode(desc, required, propertyName, title)
-
-    code = '''<div class="mb-3">
-            <div class="input-group">\n'''
-    code += '''<span class="input-group-text">{slotName}</span>\n'''.format(slotName = title)
-    code += '''<input type="text" class="form-control hidden">\n</div>\n'''
-    code += '''<div class="form-text" id="{propertyName}-description">{desc}</div>\n'''.format(propertyName = propertyName, desc = desc)
-    enumCode = slotCode.get("enum_range")
-    enumName = utils.extractName(enumCode)
-    code += "<div class='answer-options'>\n<span class='values-from'>" + enumName + ":</span>\n"
-    for value in enumCode.get("permissible_values"):
+def getPermissibleValuesCode(permissible_values, enumName, multivalued, required):
+    code = "<div class='answer-options'>\n<span class='values-from'>" + enumName + ":</span>\n"
+    for value in permissible_values:
       if (not multivalued):
         code += '''<div class="form-check">
             <input class="form-check-input" type="radio" name="{enumName}" id="{item}" {required}>
@@ -84,7 +69,26 @@ def getInlineEnumSlotCode(slotCode, desc, required, propertyName, title):
             code += '''<div class="form-check">
             <input class="form-check-input" type="checkbox" name="{enumName}" id="{item}" {required}>
             <label class="form-check-label" for="{item}">{item}</label></div>\n'''.format(enumName = enumName, item = value, required = required)
-    code += "</div>\n</div>\n"        
+    return code + "</div>\n"
+
+def getInlineEnumSlotCode(slotCode, desc, required, propertyName, title):
+    multivalued = True if (("multivalued" in slotCode and slotCode.get("multivalued") == True) or ("maximum_cardinality" in slotCode and slotCode.get("maximum_cardinality") > 1)) else False
+
+    if ("enum_range" not in slotCode or ("permissible_values" not in slotCode.get("enum_range") and "reachable_from" not in slotCode.get("enum_range"))):
+        return getTextareaSlotCode(desc, required, propertyName, title)
+
+    code = '''<div class="mb-3">
+            <div class="input-group">\n'''
+    code += '''<span class="input-group-text">{slotName}</span>\n'''.format(slotName = title)
+    code += '''<input type="text" class="form-control hidden">\n</div>\n'''
+    code += '''<div class="form-text" id="{propertyName}-description">{desc}</div>\n'''.format(propertyName = propertyName, desc = desc)
+    enumCode = slotCode.get("enum_range")
+    enumName = utils.extractName(slotCode) + " valueset" #inlined enums don't have names and titles, so it's generated from the slot itself
+    if ("permissible_values" in enumCode):
+        code += getPermissibleValuesCode(enumCode.get("permissible_values"), enumName, multivalued, required)
+    else:
+      code += '''<div class='answer-options'>\n<span class='values-from-dynamic'>{enumName}:</span>\n<textarea rows="6" class="form-control" id="{enumName}"></textarea>\n</div>\n'''.format(enumName = enumName, propertyName = enumCode.get("name"))
+    code += "</div>\n"     
     return code
 
 def getStringSlotCode(desc, required, propertyName, title):
