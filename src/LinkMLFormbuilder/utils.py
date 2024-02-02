@@ -100,6 +100,13 @@ HTML_START_HTML_ONLY = '''<!DOCTYPE html>
         margin-right: 5px;
     }
 
+    .values-from-dynamic {
+        font-weight: bold;
+        margin-right: 5px;
+        float: left;
+        width: calc(20% - 5px);
+    }
+
     h2 {
         width: 100vw;
     }
