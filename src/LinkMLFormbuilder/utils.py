@@ -172,3 +172,7 @@ def extractSlotName(slotCode):
 def normalize_description(desc): # remove html tags <p><div>, remove anything in <i> and <img>
     p = re.compile(r'<.*?>')
     return p.sub('', desc).strip()
+
+def capitalizeLabel(label):
+    if (len(label) == 0): return label
+    return label[0].upper() + label[1:]

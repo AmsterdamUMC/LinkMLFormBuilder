@@ -1097,13 +1097,13 @@ def three_zibs_form_expected():
 <span class='values-from'>AlertNaamCodelijst:</span>
 <div class="form-check">
                   <input class="form-check-input" type="radio" name="AlertNaamCodelijst" id="drager_van_infectie" >
-                  <label class="form-check-label" for="drager_van_infectie">drager_van_infectie</label></div>
+                  <label class="form-check-label" for="drager_van_infectie">Drager_van_infectie</label></div>
 <div class="form-check">
                   <input class="form-check-input" type="radio" name="AlertNaamCodelijst" id="drager_van_carbapenemresistente_Enterobacteriaceae" >
-                  <label class="form-check-label" for="drager_van_carbapenemresistente_Enterobacteriaceae">drager_van_carbapenemresistente_Enterobacteriaceae</label></div>
+                  <label class="form-check-label" for="drager_van_carbapenemresistente_Enterobacteriaceae">Drager_van_carbapenemresistente_Enterobacteriaceae</label></div>
 <div class="form-check">
                   <input class="form-check-input" type="radio" name="AlertNaamCodelijst" id="slachtoffer_van_kindermishandeling" >
-                  <label class="form-check-label" for="slachtoffer_van_kindermishandeling">slachtoffer_van_kindermishandeling</label></div>
+                  <label class="form-check-label" for="slachtoffer_van_kindermishandeling">Slachtoffer_van_kindermishandeling</label></div>
 <div class="form-check">
                   <input class="form-check-input" type="radio" name="AlertNaamCodelijst" id="Other" >
                   <label class="form-check-label" for="Other">Other</label></div>
@@ -1148,13 +1148,13 @@ def three_zibs_form_expected():
 <span class='values-from'>WoningAanpassingCodelijst:</span>
 <div class="form-check">
                   <input class="form-check-input" type="radio" name="WoningAanpassingCodelijst" id="badstoel_en/of_douchestoel" >
-                  <label class="form-check-label" for="badstoel_en/of_douchestoel">badstoel_en/of_douchestoel</label></div>
+                  <label class="form-check-label" for="badstoel_en/of_douchestoel">Badstoel_en/of_douchestoel</label></div>
 <div class="form-check">
                   <input class="form-check-input" type="radio" name="WoningAanpassingCodelijst" id="traplift" >
-                  <label class="form-check-label" for="traplift">traplift</label></div>
+                  <label class="form-check-label" for="traplift">Traplift</label></div>
 <div class="form-check">
                   <input class="form-check-input" type="radio" name="WoningAanpassingCodelijst" id="aangepast_toilet" >
-                  <label class="form-check-label" for="aangepast_toilet">aangepast_toilet</label></div>
+                  <label class="form-check-label" for="aangepast_toilet">Aangepast_toilet</label></div>
 </div>
 </div>
 <div class="mb-3">
@@ -1167,7 +1167,7 @@ def three_zibs_form_expected():
 <span class='values-from'>WoonOmstandigheidCodelijst:</span>
 <div class="form-check">
                   <input class="form-check-input" type="radio" name="WoonOmstandigheidCodelijst" id="huis_bevat_trap" >
-                  <label class="form-check-label" for="huis_bevat_trap">huis_bevat_trap</label></div>
+                  <label class="form-check-label" for="huis_bevat_trap">Huis_bevat_trap</label></div>
 </div>
 </div>
 </body>

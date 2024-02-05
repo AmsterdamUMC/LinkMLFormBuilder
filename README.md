@@ -48,6 +48,9 @@ optional arguments:
 ```
 
 ## Changelog
+### Version 0.1.5
+- Capitalize visible names, values, and descriptions
+- Remove spaces in ids and enum names
 ### Version 0.1.4
 - Improve support for inlined enums
 - Add support for dynamic enums
