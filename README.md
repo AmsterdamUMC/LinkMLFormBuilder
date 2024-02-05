@@ -48,6 +48,8 @@ optional arguments:
 ```
 
 ## Changelog
+### Version 0.1.6
+- Overwrite existing output file(s) instead of throwing fileExists errors
 ### Version 0.1.5
 - Capitalize visible names, values, and descriptions
 - Remove spaces in ids and enum names
