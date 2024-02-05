@@ -57,7 +57,7 @@ def getSlotFormCode(slotCode, content, default_range, subclasses, level):
 def getClassFormCode(classCode, content, default_range, subclasses, level):
     title = utils.extractName(classCode)
     code = '''<h{level}>{title}</h{level}>\n'''.format(level = level + 1, title = title)
-    code += "<p class='form-description'>Form description: " + utils.extractDescription(classCode) + "</p>\n"
+    code += "<p class='form-description'>Form description: " + utils.capitalizeLabel(utils.extractDescription(classCode)) + "</p>\n"
     if ("is_a" in classCode): # process superclass first
         superClassName = classCode.get("is_a")
         superClassCode = content.get("classes").get(superClassName)
