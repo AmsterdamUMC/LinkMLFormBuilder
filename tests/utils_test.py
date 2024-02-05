@@ -1,4 +1,4 @@
-from LinkMLFormbuilder.utils import extractDescription, extractSlotName
+from LinkMLFormbuilder.utils import extractDescription, extractSlotName, capitalizeLabel
 from utils import *
 from test_fixtures import *
 from test_fixtures_full_files import *
@@ -61,3 +61,12 @@ def test_title_absent_local_names(title_absent_local_names_slot, title_absent_lo
 
 def test_title_absent_aliases_structured_aliases_local_names(title_absent_aliases_structured_aliases_local_names_slot, title_absent_aliases_structured_aliases_local_names_slot_expected):
     assert extractSlotName(title_absent_aliases_structured_aliases_local_names_slot) == title_absent_aliases_structured_aliases_local_names_slot_expected
+
+def test_capitalize_label(capitalize_label_source, capitalize_label_expected):
+    assert capitalizeLabel(capitalize_label_source) == capitalize_label_expected
+
+def test_capitalize_label2(capitalize_label_source2, capitalize_label_expected2):
+    assert capitalizeLabel(capitalize_label_source2) == capitalize_label_expected2
+
+def test_capitalize_label_empty(capitalize_label_empty, capitalize_label_empty_expected):
+    assert capitalizeLabel(capitalize_label_empty) == capitalize_label_empty_expected
