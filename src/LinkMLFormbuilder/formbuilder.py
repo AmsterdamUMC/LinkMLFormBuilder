@@ -94,7 +94,7 @@ def buildForm(content, html_only, output_directory, name, testEnv = False):
     NAME = name if (name != "default") else content.get("name")
     OUTPUT_DIR = os.getcwd() if (output_directory == "cwd") else os.path.abspath(output_directory)
     HTML_PATH = os.path.join(OUTPUT_DIR, NAME + ".html")
-    f = open(HTML_PATH, "x", encoding="utf-8")
+    f = open(HTML_PATH, "w", encoding="utf-8")
     if (html_only == True):
         f.write(utils.HTML_START_HTML_ONLY)
     else:
