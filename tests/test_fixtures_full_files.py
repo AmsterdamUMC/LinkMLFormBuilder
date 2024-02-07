@@ -782,7 +782,7 @@ def patient_partial_form_expected():
         width: 100%;
     }
 
-    .hidden {
+    .hideField {
         visibility: hidden;
     }
 
@@ -815,7 +815,7 @@ def patient_partial_form_expected():
 <div class="mb-3">
             <div class="input-group">
 <span class="input-group-text">Geslacht (Geslacht / Gender)</span>
-<input type="text" class="form-control hidden">
+<input type="text" class="form-control hideField">
 </div>
 <div class="form-text" id="nl_zorg_Patient_Geslacht-description"></div>
 <div class='answer-options'>
@@ -837,7 +837,7 @@ def patient_partial_form_expected():
 <div class="mb-3">
             <div class="input-group">
 <span class="input-group-text">MeerlingIndicator (MeerlingIndicator / MultipleBirthIndicator)</span>
-<input type="text" class="form-control hidden">
+<input type="text" class="form-control hideField">
 </div>
 <div class="form-text" id="nl_zorg_Patient_MeerlingIndicator-description"></div>
 <div class='answer-options'>
@@ -852,7 +852,7 @@ def patient_partial_form_expected():
 <div class="mb-3">
             <div class="input-group">
 <span class="input-group-text">OverlijdensIndicator (OverlijdensIndicator / DeathIndicator)</span>
-<input type="text" class="form-control hidden">
+<input type="text" class="form-control hideField">
 </div>
 <div class="form-text" id="nl_zorg_Patient_OverlijdensIndicator-description"></div>
 <div class='answer-options'>
@@ -890,7 +890,7 @@ def patient_partial_form_expected():
 <div class="mb-3">
             <div class="input-group">
 <span class="input-group-text">AanduidingBijNummer (AanduidingBijNummer / HouseNumberIndication)</span>
-<input type="text" class="form-control hidden">
+<input type="text" class="form-control hideField">
 </div>
 <div class="form-text" id="nl_zorg_part_Adresgegevens_AanduidingBijNummer-description"></div>
 <div class='answer-options'>
@@ -994,7 +994,7 @@ def three_zibs_form_expected():
         width: 100%;
     }
 
-    .hidden {
+    .hideField {
         visibility: hidden;
     }
 
@@ -1027,7 +1027,7 @@ def three_zibs_form_expected():
 <div class="mb-3">
             <div class="input-group">
 <span class="input-group-text">Geslacht (Geslacht / Gender)</span>
-<input type="text" class="form-control hidden">
+<input type="text" class="form-control hideField">
 </div>
 <div class="form-text" id="nl_zorg_Patient_Geslacht-description"></div>
 <div class='answer-options'>
@@ -1043,7 +1043,7 @@ def three_zibs_form_expected():
 <div class="mb-3">
             <div class="input-group">
 <span class="input-group-text">OverlijdensIndicator (OverlijdensIndicator / DeathIndicator)</span>
-<input type="text" class="form-control hidden">
+<input type="text" class="form-control hideField">
 </div>
 <div class="form-text" id="nl_zorg_Patient_OverlijdensIndicator-description"></div>
 <div class='answer-options'>
@@ -1090,7 +1090,7 @@ def three_zibs_form_expected():
 <div class="mb-3">
             <div class="input-group">
 <span class="input-group-text">AlertNaam (AlertNaam / AlertName)</span>
-<input type="text" class="form-control hidden">
+<input type="text" class="form-control hideField">
 </div>
 <div class="form-text" id="nl_zorg_Alert_AlertNaam-description"></div>
 <div class='answer-options'>
@@ -1119,7 +1119,7 @@ def three_zibs_form_expected():
 <div class="mb-3">
             <div class="input-group">
 <span class="input-group-text">AlertType (AlertType)</span>
-<input type="text" class="form-control hidden">
+<input type="text" class="form-control hideField">
 </div>
 <div class="form-text" id="nl_zorg_Alert_AlertType-description"></div>
 <div class='answer-options'>
@@ -1141,7 +1141,7 @@ def three_zibs_form_expected():
 <div class="mb-3">
             <div class="input-group">
 <span class="input-group-text">WoningAanpassing (WoningAanpassing / HomeAdaption)</span>
-<input type="text" class="form-control hidden">
+<input type="text" class="form-control hideField">
 </div>
 <div class="form-text" id="nl_zorg_Woonsituatie_WoningAanpassing-description"></div>
 <div class='answer-options'>
@@ -1160,7 +1160,7 @@ def three_zibs_form_expected():
 <div class="mb-3">
             <div class="input-group">
 <span class="input-group-text">WoonOmstandigheid (WoonOmstandigheid / LivingCondition)</span>
-<input type="text" class="form-control hidden">
+<input type="text" class="form-control hideField">
 </div>
 <div class="form-text" id="nl_zorg_Woonsituatie_WoonOmstandigheid-description"></div>
 <div class='answer-options'>

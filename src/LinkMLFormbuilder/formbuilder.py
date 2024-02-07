@@ -36,21 +36,21 @@ def getSlotFormCode(slotCode, content, default_range, subclasses, level):
         elif (slotCode.get("range") == "integer" or slotCode.get("range") == "float"):
             return slot_code_generators.getNumberSlotCode(slotCode, desc, required, propertyName, title)
         elif (slotCode.get("range") == "string"): #assume textarea
-            return slot_code_generators.getTextareaSlotCode(desc, required, propertyName, title)
+            return slot_code_generators.getTextareaSlotCode(desc, required, propertyName, title, slotCode)
         elif (slotCode.get("range") == "boolean"):
             return slot_code_generators.getBooleanSlotCode(desc, required, propertyName, title)
         else: # this is a basic pdf, so datetime should not be a datetime field, but a textfield
-            return slot_code_generators.getStringSlotCode(desc, required, propertyName, title)
+            return slot_code_generators.getStringSlotCode(desc, required, propertyName, title, slotCode)
     else: # rely on default range
         if (default_range is not None):
             if (default_range == "integer" or default_range == "float"):
                 return slot_code_generators.getNumberSlotCode(slotCode, desc, required, propertyName, title)
             elif (default_range == "string"): #assume textarea
-                return slot_code_generators.getTextareaSlotCode(desc, required, propertyName, title)
+                return slot_code_generators.getTextareaSlotCode(desc, required, propertyName, title, slotCode)
             elif (default_range == "boolean"):
                 return slot_code_generators.getBooleanSlotCode(desc, required, propertyName, title)
             else: # this is a basic pdf, so datetime should not be a datetime field, but a textfield
-                return slot_code_generators.getStringSlotCode(desc, required, propertyName, title)
+                return slot_code_generators.getStringSlotCode(desc, required, propertyName, title, slotCode)
         else:
             raise Exception("Invalid LinkML. There should either be a explicitly defined range for slot {slot}, or a default_range.".format(slot=slotCode.get("name")))
 
