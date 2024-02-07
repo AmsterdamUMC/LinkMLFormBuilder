@@ -58,7 +58,7 @@ label {
     width: 100%;
 }
 
-.hidden {
+.hideField {
     visibility: hidden;
 }
 
