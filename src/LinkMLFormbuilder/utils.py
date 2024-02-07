@@ -85,7 +85,7 @@ HTML_START_HTML_ONLY = '''<!DOCTYPE html>
         width: 100%;
     }
 
-    .hidden {
+    .hideField {
         visibility: hidden;
     }
 
@@ -176,3 +176,29 @@ def normalize_description(desc): # remove html tags <p><div>, remove anything in
 def capitalizeLabel(label):
     if (len(label) == 0): return label
     return label[0].upper() + label[1:]
+
+def isMultivalued(slotCode):
+    multivalued = True if (("multivalued" in slotCode and slotCode.get("multivalued") == True) or ("maximum_cardinality" in slotCode and slotCode.get("maximum_cardinality") > 1)) else False
+    return multivalued
+
+def getMinCardinality(slotCode):
+    if ("minimum_cardinality" in slotCode): return slotCode.get("minimum_cardinality")
+    elif (MULTIVALUED in slotCode): return 1
+    elif ("required" in slotCode and slotCode.get("required") == True): return 1
+    return 0
+
+def getMaxCardinality(slotCode):
+    if ("maximum_cardinality" in slotCode): return slotCode.get("maximum_cardinality")
+    elif (MULTIVALUED not in slotCode): return 1
+    elif (MULTIVALUED in slotCode and slotCode.get("multivalued") == True): return 2 # no max cardinality specified
+    else: return 1
+
+def getRangeDeclaration(slotCode):
+    rangeDeclaration = ""
+    if ("minimum_value" in slotCode and "maximum_value" in slotCode):
+      rangeDeclaration = "The value for this field should be between {min} and {max}".format(min = slotCode.get("minimum_value"), max = slotCode.get("maximum_value"))
+    elif ("minimum_value" in slotCode):
+      rangeDeclaration = "The value for this field should be equal to or greater than {min}".format(min = slotCode.get("minimum_value"))
+    elif ("maximum_value" in slotCode):
+       rangeDeclaration = "The value for this field should be equal to or smaller than {max}".format(max = slotCode.get("maximum_value"))
+    return rangeDeclaration
