@@ -2,26 +2,36 @@ from LinkMLFormbuilder import utils
 # import utils
 
 def getNumberSlotCode(slotCode, desc, required, propertyName, title):
-    rangeDeclaration = ""
-    if ("minimum_value" in slotCode and "maximum_value" in slotCode):
-      rangeDeclaration = "The value for this field should be between {min} and {max}".format(min = slotCode.get("minimum_value"), max = slotCode.get("maximum_value"))
-    elif ("minimum_value" in slotCode):
-      rangeDeclaration = "The value for this field should be equal to or greater than {min}".format(min = slotCode.get("minimum_value"))
-    elif ("maximum_value" in slotCode):
-       rangeDeclaration = "The value for this field should be equal to or smaller than {max}".format(max = slotCode.get("maximum_value"))
-    return '''<div class="mb-3">
+    rangeDeclaration = utils.getRangeDeclaration(slotCode)
+    multivalued = utils.isMultivalued(slotCode)
+    minCardinality = utils.getMinCardinality(slotCode)
+    maxCardinality = utils.getMaxCardinality(slotCode)   
+    cardinalityStatement = ""
+    
+    code = '''<div class="mb-3">
     <div class="input-group">
       <span class="input-group-text" id="{propertyName}-addon">{title}</span>
       <input type="number" class="form-control" id="{propertyName}" aria-describedby="{propertyName}-addon {propertyName}-description" {required}>
-    </div>
-    <div class="form-text" id="{propertyName}-description">{desc} {rangeDeclaration}</div>
-  </div>\n'''.format(propertyName = propertyName, required = required, desc = utils.capitalizeLabel(desc), title = utils.capitalizeLabel(title), rangeDeclaration = rangeDeclaration)
+    </div>'''.format(propertyName = propertyName, required = required, desc = utils.capitalizeLabel(desc), title = utils.capitalizeLabel(title), rangeDeclaration = rangeDeclaration)
+
+    if (multivalued):
+        for i in range(maxCardinality-1):
+            code += '''<div class="input-group">
+        <span class="input-group-text hideField" id="{propertyName}-addon">{title}</span>
+        <input type="number" class="form-control" id="{propertyName}{n}" aria-describedby="{propertyName}-addon {propertyName}-description">
+        </div>'''.format(propertyName = propertyName, required = required, title = utils.capitalizeLabel(title), n = i+2)
+        cardinalityStatement = ''' This field requires at least {minCardinality} values'''.format(minCardinality = minCardinality)
+
+    code += '''
+    <div class="form-text" id="{propertyName}-description">{desc} {rangeDeclaration}{cardinalityStatement}</div>
+  </div>\n'''.format(propertyName = propertyName, required = required, desc = utils.capitalizeLabel(desc), title = utils.capitalizeLabel(title), rangeDeclaration = rangeDeclaration, cardinalityStatement = cardinalityStatement)
+    return code
 
 def getBooleanSlotCode(desc, required, propertyName, title):
     code = '''<div class="mb-3">
             <div class="input-group">\n'''
     code += '''<span class="input-group-text">{slotName}</span>\n'''.format(slotName = utils.capitalizeLabel(title))
-    code += '''<input type="text" class="form-control hidden">\n</div>\n'''
+    code += '''<input type="text" class="form-control hideField">\n</div>\n'''
     code += '''<div class="form-text" id="{propertyName}-description">{desc}</div>\n'''.format(propertyName = propertyName, desc = utils.capitalizeLabel(desc))
     code += "<div class='answer-options'>\n"
     code += '''<div class="form-check">
@@ -34,12 +44,12 @@ def getBooleanSlotCode(desc, required, propertyName, title):
     return code
 
 def getEnumSlotCode(slotCode, content, desc, required, propertyName, title):
-    multivalued = True if (("multivalued" in slotCode and slotCode.get("multivalued") == True) or ("maximum_cardinality" in slotCode and slotCode.get("maximum_cardinality") > 1)) else False
+    multivalued = utils.isMultivalued(slotCode)
     
     code = '''<div class="mb-3">
             <div class="input-group">\n'''
     code += '''<span class="input-group-text">{slotName}</span>\n'''.format(slotName = utils.capitalizeLabel(title))
-    code += '''<input type="text" class="form-control hidden">\n</div>\n'''
+    code += '''<input type="text" class="form-control hideField">\n</div>\n'''
     code += '''<div class="form-text" id="{propertyName}-description">{desc}</div>\n'''.format(propertyName = propertyName, desc = utils.capitalizeLabel(desc))
     enumList = []
     if ("values_from" in slotCode):
@@ -48,7 +58,7 @@ def getEnumSlotCode(slotCode, content, desc, required, propertyName, title):
     
     for enum in enumList:
       if (enum not in content.get("enums")):
-          return getTextareaSlotCode(desc, required, propertyName, title)
+          return getTextareaSlotCode(desc, required, propertyName, title, slotCode)
       enumCode = content.get("enums").get(enum)
       enumName = utils.extractName(enumCode)
       if ("permissible_values" in enumCode):
@@ -72,15 +82,15 @@ def getPermissibleValuesCode(permissible_values, enumName, multivalued, required
     return code + "</div>\n"
 
 def getInlineEnumSlotCode(slotCode, desc, required, propertyName, title):
-    multivalued = True if (("multivalued" in slotCode and slotCode.get("multivalued") == True) or ("maximum_cardinality" in slotCode and slotCode.get("maximum_cardinality") > 1)) else False
+    multivalued = utils.isMultivalued(slotCode)
 
     if ("enum_range" not in slotCode or ("permissible_values" not in slotCode.get("enum_range") and "reachable_from" not in slotCode.get("enum_range"))):
-        return getTextareaSlotCode(desc, required, propertyName, title)
+        return getTextareaSlotCode(desc, required, propertyName, title, slotCode)
 
     code = '''<div class="mb-3">
             <div class="input-group">\n'''
     code += '''<span class="input-group-text">{slotName}</span>\n'''.format(slotName = utils.capitalizeLabel(title))
-    code += '''<input type="text" class="form-control hidden">\n</div>\n'''
+    code += '''<input type="text" class="form-control hideField">\n</div>\n'''
     code += '''<div class="form-text" id="{propertyName}-description">{desc}</div>\n'''.format(propertyName = propertyName, desc = utils.capitalizeLabel(desc))
     enumCode = slotCode.get("enum_range")
     enumName = utils.extractName(slotCode) + " valueset" #inlined enums don't have names and titles, so it's generated from the slot itself
@@ -91,20 +101,52 @@ def getInlineEnumSlotCode(slotCode, desc, required, propertyName, title):
     code += "</div>\n"     
     return code
 
-def getStringSlotCode(desc, required, propertyName, title):
-    return '''<div class="mb-3">
+def getStringSlotCode(desc, required, propertyName, title, slotCode):
+    multivalued = utils.isMultivalued(slotCode)
+    minCardinality = utils.getMinCardinality(slotCode)
+    maxCardinality = utils.getMaxCardinality(slotCode)   
+    cardinalityStatement = ""
+
+    code =  '''<div class="mb-3">
     <div class="input-group">
       <span class="input-group-text" id="{propertyName}-addon">{title}</span>
       <input type="text" class="form-control" id="{propertyName}" aria-describedby="{propertyName}-addon {propertyName}-description" {required}>
     </div>
-    <div class="form-text" id="{propertyName}-description">{desc}</div>
-  </div>\n'''.format(propertyName = propertyName, required = required, desc = utils.capitalizeLabel(desc), title = utils.capitalizeLabel(title))
+    '''.format(propertyName = propertyName, required = required, title = utils.capitalizeLabel(title))
+    if (multivalued):
+        for i in range(maxCardinality-1):
+            code += '''<div class="input-group">
+      <span class="input-group-text hideField" id="{propertyName}-addon">{title}</span>
+      <input type="text" class="form-control" id="{propertyName}{n}" aria-describedby="{propertyName}-addon {propertyName}-description">
+    </div>'''.format(propertyName = propertyName, required = required, title = utils.capitalizeLabel(title), n = i+2)
+        cardinalityStatement = ''' This field requires at least {minCardinality} values'''.format(minCardinality = minCardinality)
 
-def getTextareaSlotCode(desc, required, propertyName, title):
-   return '''<div class="mb-3">
+
+    code += '''<div class="form-text" id="{propertyName}-description">{desc}{cardinalityStatement}</div>
+  </div>\n'''.format(propertyName = propertyName, desc = utils.capitalizeLabel(desc), cardinalityStatement = cardinalityStatement)
+    return code
+
+def getTextareaSlotCode(desc, required, propertyName, title, slotCode):
+    multivalued = utils.isMultivalued(slotCode)
+    minCardinality = utils.getMinCardinality(slotCode)
+    maxCardinality = utils.getMaxCardinality(slotCode)   
+    cardinalityStatement = ""
+
+    code = '''<div class="mb-3">
     <div class="input-group">
       <span class="input-group-text" id="{propertyName}-addon">{title}</span>
       <textarea rows="6" class="form-control" id="{propertyName}" aria-describedby="{propertyName}-addon {propertyName}-description" {required}></textarea>
-    </div>
-    <div class="form-text" id="{propertyName}-description">{desc}</div>
-  </div>\n'''.format(propertyName = propertyName, required = required, desc = utils.capitalizeLabel(desc), title = utils.capitalizeLabel(title))
+    </div>'''.format(propertyName = propertyName, required = required, desc = utils.capitalizeLabel(desc), title = utils.capitalizeLabel(title))
+
+    if (multivalued):
+        for i in range(maxCardinality-1):
+            code += '''<div class="input-group">
+      <span class="input-group-text hideField" id="{propertyName}-addon">{title}</span>
+      <textarea rows="6" class="form-control" id="{propertyName}{n}" aria-describedby="{propertyName}-addon {propertyName}-description"></textarea>
+    </div>'''.format(propertyName = propertyName, required = required, title = utils.capitalizeLabel(title), n = i+2)
+        cardinalityStatement = ''' This field requires at least {minCardinality} values'''.format(minCardinality = minCardinality)
+
+
+    code += '''<div class="form-text" id="{propertyName}-description">{desc}{cardinalityStatement}</div>
+  </div>\n'''.format(propertyName = propertyName, required = required, desc = utils.capitalizeLabel(desc), title = utils.capitalizeLabel(title), cardinalityStatement = cardinalityStatement)
+    return code
