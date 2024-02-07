@@ -27,8 +27,8 @@ def simple_int_slot():
     definition_uri: snomed:271649006
     range: integer
     unit: 
-    exact_mappings: 
-        - snomed:259018001
+        exact_mappings: 
+            - snomed:259018001
     ''')
 
 @pytest.fixture(scope='session')
@@ -52,6 +52,116 @@ def simple_int_slot_default_range_expected():
   </div>'''
 
 @pytest.fixture(scope='session')
+def min_and_max_range_int_slot():
+    return yaml.safe_load('''
+    name: systolic_pressure
+    title: Systolic pressure
+    required: true
+    minimum_value: 0
+    maximum_value: 250
+    description: Systolic pressure in mmHg
+    definition_uri: snomed:271649006
+    range: integer
+    unit: 
+        exact_mappings: 
+            - snomed:259018001
+    ''')
+
+@pytest.fixture(scope='session')
+def min_and_max_range_int_slot_expected():
+    return '''<div class="mb-3">
+    <div class="input-group">
+      <span class="input-group-text" id="systolic_pressure-addon">Systolic pressure</span>
+      <input type="number" class="form-control" id="systolic_pressure" aria-describedby="systolic_pressure-addon systolic_pressure-description" required>
+    </div>
+    <div class="form-text" id="systolic_pressure-description">Systolic pressure in mmHg The value for this field should be between 0 and 250</div>
+  </div>'''
+
+@pytest.fixture(scope='session')
+def min_range_int_slot():
+    return yaml.safe_load('''
+    name: systolic_pressure
+    title: Systolic pressure
+    required: true
+    minimum_value: 0
+    description: Systolic pressure in mmHg
+    definition_uri: snomed:271649006
+    range: integer
+    unit: 
+        exact_mappings: 
+            - snomed:259018001
+    ''')
+
+@pytest.fixture(scope='session')
+def min_range_int_slot_expected():
+    return '''<div class="mb-3">
+    <div class="input-group">
+      <span class="input-group-text" id="systolic_pressure-addon">Systolic pressure</span>
+      <input type="number" class="form-control" id="systolic_pressure" aria-describedby="systolic_pressure-addon systolic_pressure-description" required>
+    </div>
+    <div class="form-text" id="systolic_pressure-description">Systolic pressure in mmHg The value for this field should be equal to or greater than 0</div>
+  </div>'''
+
+@pytest.fixture(scope='session')
+def max_range_int_slot():
+    return yaml.safe_load('''
+    name: systolic_pressure
+    title: Systolic pressure
+    required: true
+    maximum_value: 250
+    description: Systolic pressure in mmHg
+    definition_uri: snomed:271649006
+    range: integer
+    unit: 
+        exact_mappings: 
+            - snomed:259018001
+    ''')
+
+@pytest.fixture(scope='session')
+def max_range_int_slot_expected():
+    return '''<div class="mb-3">
+    <div class="input-group">
+      <span class="input-group-text" id="systolic_pressure-addon">Systolic pressure</span>
+      <input type="number" class="form-control" id="systolic_pressure" aria-describedby="systolic_pressure-addon systolic_pressure-description" required>
+    </div>
+    <div class="form-text" id="systolic_pressure-description">Systolic pressure in mmHg The value for this field should be equal to or smaller than 250</div>
+  </div>'''
+
+@pytest.fixture(scope='session')
+def multivalued_int_slot():
+    return yaml.safe_load('''
+    name: systolic_pressure
+    title: Systolic pressure
+    required: true
+    multivalued: true
+    maximum_cardinality: 3
+    description: Systolic pressure in mmHg
+    definition_uri: snomed:271649006
+    range: integer
+    unit: 
+        exact_mappings: 
+            - snomed:259018001
+    ''')
+
+@pytest.fixture(scope='session')
+def multivalued_int_slot_expected():
+    return '''<div class="mb-3">
+    <div class="input-group">
+      <span class="input-group-text" id="systolic_pressure-addon">Systolic pressure</span>
+      <input type="number" class="form-control" id="systolic_pressure" aria-describedby="systolic_pressure-addon systolic_pressure-description" required>
+    </div>
+    <div class="input-group">
+      <span class="input-group-text hideField" id="systolic_pressure-addon">Systolic pressure</span>
+      <input type="number" class="form-control" id="systolic_pressure2" aria-describedby="systolic_pressure-addon systolic_pressure-description">
+    </div>
+    <div class="input-group">
+      <span class="input-group-text hideField" id="systolic_pressure-addon">Systolic pressure</span>
+      <input type="number" class="form-control" id="systolic_pressure3" aria-describedby="systolic_pressure-addon systolic_pressure-description">
+    </div>
+    <div class="form-text" id="systolic_pressure-description">Systolic pressure in mmHg This field requires at least 1 values</div>
+  </div>'''
+
+@pytest.fixture(scope='session')
 def simple_datetime_slot():
     return yaml.safe_load('''
     name: measurement_datetime
@@ -70,6 +180,37 @@ def simple_datetime_slot_expected():
     <input type="text" class="form-control" id="measurement_datetime" aria-describedby="measurement_datetime-addon measurement_datetime-description" required>
     </div>
     <div class="form-text" id="measurement_datetime-description">The date and time at which the measurement took place</div>
+</div>'''
+
+@pytest.fixture(scope='session')
+def multivalued_datetime_slot():
+    return yaml.safe_load('''
+    name: measurement_datetime
+    title: Measurement datetime
+    required: true
+    multivalued: true
+    maximum_cardinality: 3
+    description: The date and time at which the measurement took place
+    definition_uri: snomed:118575009
+    range: datetime
+    ''')
+
+@pytest.fixture(scope='session')
+def multivalued_datetime_slot_expected():
+    return '''<div class="mb-3">
+    <div class="input-group">
+    <span class="input-group-text" id="measurement_datetime-addon">Measurement datetime</span>
+    <input type="text" class="form-control" id="measurement_datetime" aria-describedby="measurement_datetime-addon measurement_datetime-description" required>
+    </div>
+    <div class="input-group">
+    <span class="input-group-text hideField" id="measurement_datetime-addon">Measurement datetime</span>
+    <input type="text" class="form-control" id="measurement_datetime2" aria-describedby="measurement_datetime-addon measurement_datetime-description">
+    </div>
+    <div class="input-group">
+    <span class="input-group-text hideField" id="measurement_datetime-addon">Measurement datetime</span>
+    <input type="text" class="form-control" id="measurement_datetime3" aria-describedby="measurement_datetime-addon measurement_datetime-description">
+    </div>
+    <div class="form-text" id="measurement_datetime-description">The date and time at which the measurement took place This field requires at least 1 values</div>
 </div>'''
 
 @pytest.fixture(scope='session')
@@ -98,7 +239,7 @@ def simple_enum_slot_expected():
     return '''<div class="mb-3">
         <div class="input-group">
 <span class="input-group-text">Measurement location</span>
-<input type="text" class="form-control hidden">
+<input type="text" class="form-control hideField">
 </div>
 <div class="form-text" id="measurement_location-description">The anatomical location of the blood pressure cuff on the patient during the measurement</div>
 <div class='answer-options'>
@@ -167,7 +308,7 @@ def dynamic_enum_slot_expected():
     return '''<div class="mb-3">
         <div class="input-group">
 <span class="input-group-text">Diastolic endpoint</span>
-<input type="text" class="form-control hidden">
+<input type="text" class="form-control hideField">
 </div>
 <div class="form-text" id="diastolic_endpoint-description">The diastolic endpoint, also called Korotkoff sounds</div>
 <div class='answer-options'>
@@ -203,7 +344,7 @@ def inlined_static_enum_slot_expected():
     <div class="mb-3">
         <div class="input-group">
 <span class="input-group-text">Patient body position</span>
-<input type="text" class="form-control hidden">
+<input type="text" class="form-control hideField">
 </div>
 <div class="form-text" id="patient_body_position-description">The position of the patient's body during the measurement</div>
 <div class='answer-options'>
@@ -249,7 +390,7 @@ def inlined_dynamic_enum_slot_expected():
     return '''<div class="mb-3">
         <div class="input-group">
 <span class="input-group-text">Diastolic endpoint2</span>
-<input type="text" class="form-control hidden">
+<input type="text" class="form-control hideField">
 </div>
 <div class="form-text" id="diastolic_endpoint2-description">The diastolic endpoint, also called Korotkoff sounds</div>
 <div class='answer-options'>
@@ -312,6 +453,37 @@ def simple_textarea_slot_expected():
 </div>'''
 
 @pytest.fixture(scope='session')
+def multivalued_textarea_slot():
+    return yaml.safe_load('''
+    name: explanatory_statement
+    title: Explanatory statement
+    description: Additional information that cannot be coded
+    multivalued: true
+    maximum_cardinality: 3
+    definition_uri: snomed:900000000000519001
+    range: string
+    ''')
+
+@pytest.fixture(scope='session')
+def multivalued_textarea_slot_expected():
+    return '''<div class="mb-3">
+<div class="input-group">
+    <span class="input-group-text" id="explanatory_statement-addon">Explanatory statement</span>
+    <textarea rows="6" class="form-control" id="explanatory_statement" aria-describedby="explanatory_statement-addon explanatory_statement-description" ></textarea>
+</div>
+<div class="input-group">
+    <span class="input-group-text hideField" id="explanatory_statement-addon">Explanatory statement</span>
+    <textarea rows="6" class="form-control" id="explanatory_statement2" aria-describedby="explanatory_statement-addon explanatory_statement-description" ></textarea>
+</div>
+<div class="input-group">
+    <span class="input-group-text hideField" id="explanatory_statement-addon">Explanatory statement</span>
+    <textarea rows="6" class="form-control" id="explanatory_statement3" aria-describedby="explanatory_statement-addon explanatory_statement-description"></textarea>
+</div>
+<div class="form-text" id="explanatory_statement-description">Additional information that cannot be coded This field requires at least 1 values</div>
+</div>'''
+
+
+@pytest.fixture(scope='session')
 def simple_textarea_slot_default_range_expected():
     return '''<div class="mb-3">
 <div class="input-group">
@@ -338,7 +510,7 @@ def simple_boolean_slot_expected():
     return '''<div class="mb-3">
             <div class="input-group">
 <span class="input-group-text">MeerlingIndicator (MeerlingIndicator / MultipleBirthIndicator)</span>
-<input type="text" class="form-control hidden">
+<input type="text" class="form-control hideField">
 </div>
 <div class="form-text" id="nl_zorg_Patient_MeerlingIndicator-description"></div>
 <div class='answer-options'>
@@ -356,7 +528,7 @@ def simple_boolean_slot_default_range_expected():
     return '''<div class="mb-3">
             <div class="input-group">
 <span class="input-group-text">Default range slot</span>
-<input type="text" class="form-control hidden">
+<input type="text" class="form-control hideField">
 </div>
 <div class="form-text" id="default_range_slot-description">Default range slot description</div>
 <div class='answer-options'>
