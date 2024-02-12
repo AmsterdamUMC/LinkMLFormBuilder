@@ -9,7 +9,7 @@ This tool was built as part of a larger project by a programmer who is not part 
 Under the hood, this tool uses the python adaptation of [PDFKIT](https://pypi.org/project/pdfkit/). It requires [wkhtmltopdf](https://wkhtmltopdf.org/index.html) to be installed on your system.
 
 Installation steps:
-1. Install and add wkhtmltopath
+1. Install and add wkhtmltopdf to path
     1. [Download here](https://wkhtmltopdf.org/downloads.html)
     2. Add the /bin to the path variable in your system's environment variables
 2. ```pip install linkmlformbuilder```
