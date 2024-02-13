@@ -48,6 +48,9 @@ optional arguments:
 ```
 
 ## Changelog
+### Version 0.1.8
+- Throw error when field 'name' is missing from a model element
+- Auto close file on error (with statement)
 ### Version 0.1.7
 - Apply cardinality to slots
 ### Version 0.1.6
