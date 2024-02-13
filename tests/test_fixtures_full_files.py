@@ -1,5 +1,6 @@
 import pytest
 import yaml
+from utils import getDefaultRangeCode
 
 # The LinkML slot syntax is incomplete in these fixtures, this is on purpose as in real-world cases this is the format the called functions will receive
 
@@ -1174,27 +1175,6 @@ def three_zibs_form_expected():
 </html>
     '''
 
-def getDefaultRangeCode(default_range):
-    return '''
-    id: default_range_tests
-    name: default_range_tests
-    title: Default range tests
-    prefixes:
-        linkml: https://w3id.org/linkml
-    default_range: {default_range}
-                          
-    classes:
-        default_range_tests:
-            name: default_range_tests
-            slots:
-                - default_range_slot
-    slots:
-        default_range_slot:
-            name: default_range_slot
-            title: Default range slot
-            description: Default range slot description
-'''.format(default_range=default_range)
-
 @pytest.fixture(scope='session')
 def default_range_yaml_integer():
     return yaml.safe_load(getDefaultRangeCode("integer"))
@@ -1214,3 +1194,103 @@ def default_range_yaml_boolean():
 @pytest.fixture(scope='session')
 def default_range_yaml_datetime():
     return yaml.safe_load(getDefaultRangeCode("datetime"))
+
+@pytest.fixture(scope = 'session')
+def tutorial1_yaml():
+    return yaml.safe_load("""
+    id: https://w3id.org/linkml/examples/personinfo
+    name: personinfo
+    prefixes:
+        linkml: https://w3id.org/linkml/
+        personinfo: https://w3id.org/linkml/examples/personinfo
+    imports:
+        - linkml:types
+    default_range: string
+    default_prefix: personinfo
+
+    classes:
+        Person:
+            attributes:
+                id:
+                full_name:
+                aliases:
+                phone:
+                age:
+""")
+
+@pytest.fixture(scope='session')
+def tutorial1_yaml_expected():
+    return "Missing field: name"
+
+@pytest.fixture(scope = 'session')
+def tutorial1_no_name_yaml():
+    return yaml.safe_load("""
+    id: https://w3id.org/linkml/examples/personinfo
+    prefixes:
+        linkml: https://w3id.org/linkml/
+        personinfo: https://w3id.org/linkml/examples/personinfo
+    imports:
+        - linkml:types
+    default_range: string
+    default_prefix: personinfo
+
+    classes:
+        Person:
+            attributes:
+            id:
+            full_name:
+            aliases:
+            phone:
+            age:
+""")
+
+@pytest.fixture(scope='session')
+def tutorial1_no_name_yaml_expected():
+    return "The model metadata does not contain a 'name' field. Please make sure your model is valid"
+
+@pytest.fixture(scope = 'session')
+def tutorial5_yaml():
+    return yaml.safe_load("""
+    id: https://w3id.org/linkml/examples/personinfo
+    name: personinfo5
+    prefixes:
+        linkml: https://w3id.org/linkml/
+        schema: http://schema.org/
+        personinfo: https://w3id.org/linkml/examples/personinfo/
+        ORCID: https://orcid.org/
+    imports:
+        - linkml:types
+    default_range: string
+
+    classes:
+        Person:
+            class_uri: schema:Person
+            attributes:
+                id:
+                    identifier: true
+                full_name:
+                    required: true
+                    description: name of the person
+                    slot_uri: schema:name
+                aliases:
+                    multivalued: true
+                    description: other names for the person
+                phone:
+                    slot_uri: schema:telephone
+                age:
+                    range: integer
+                    minimum_value: 0
+                    maximum_value: 200
+            id_prefixes:
+                - ORCID
+        Container:
+            attributes:
+                persons:
+                    multivalued: true
+                    inlined_as_list: true
+                    range: Person
+""")
+
+@pytest.fixture(scope='session')
+def tutorial5_yaml_expected():
+    return "Missing field: name"
