@@ -1,4 +1,4 @@
-from LinkMLFormbuilder import utils
+from LinkMLFormbuilder import constants, utils
 # import utils
 
 def getNumberSlotCode(slotCode, desc, required, propertyName, title):
@@ -20,7 +20,7 @@ def getNumberSlotCode(slotCode, desc, required, propertyName, title):
         <span class="input-group-text hideField" id="{propertyName}-addon">{title}</span>
         <input type="number" class="form-control" id="{propertyName}{n}" aria-describedby="{propertyName}-addon {propertyName}-description">
         </div>'''.format(propertyName = propertyName, required = required, title = utils.capitalizeLabel(title), n = i+2)
-        cardinalityStatement = ''' This field requires at least {minCardinality} values'''.format(minCardinality = minCardinality)
+        cardinalityStatement = ''' This field requires at least {minCardinality} value(s)'''.format(minCardinality = minCardinality)
 
     code += '''
     <div class="form-text" id="{propertyName}-description">{desc} {rangeDeclaration}{cardinalityStatement}</div>
@@ -52,19 +52,19 @@ def getEnumSlotCode(slotCode, content, desc, required, propertyName, title):
     code += '''<input type="text" class="form-control hideField">\n</div>\n'''
     code += '''<div class="form-text" id="{propertyName}-description">{desc}</div>\n'''.format(propertyName = propertyName, desc = utils.capitalizeLabel(desc))
     enumList = []
-    if ("values_from" in slotCode):
-       for enum in slotCode.get("values_from"): enumList.append(enum)
-    if ("range" in slotCode and "range" in content.get("enums")): enumList.append(slotCode.get("range"))
+    if (constants.VALUES_FROM in slotCode):
+       for enum in slotCode.get(constants.VALUES_FROM): enumList.append(enum)
+    if (constants.RANGE in slotCode and constants.RANGE in content.get(constants.ENUMS)): enumList.append(slotCode.get(constants.RANGE))
     
     for enum in enumList:
-      if (enum not in content.get("enums")):
+      if (enum not in content.get(constants.ENUMS)):
           return getTextareaSlotCode(desc, required, propertyName, title, slotCode)
-      enumCode = content.get("enums").get(enum)
+      enumCode = content.get(constants.ENUMS).get(enum)
       enumName = utils.extractName(enumCode)
-      if ("permissible_values" in enumCode):
-        code += getPermissibleValuesCode(enumCode.get("permissible_values"), enumName, multivalued, required)
+      if (constants.PERMISSIBLE_VALUES in enumCode):
+        code += getPermissibleValuesCode(enumCode.get(constants.PERMISSIBLE_VALUES), enumName, multivalued, required)
       else:
-        code += '''<div class='answer-options'>\n<span class='values-from-dynamic'>{enumName}:</span>\n<textarea rows="6" class="form-control" id="{propertyName}"></textarea></div>'''.format(enumName = utils.capitalizeLabel(enumName), propertyName = enumCode.get("name"))
+        code += '''<div class='answer-options'>\n<span class='values-from-dynamic'>{enumName}:</span>\n<textarea rows="6" class="form-control" id="{propertyName}"></textarea></div>'''.format(enumName = utils.capitalizeLabel(enumName), propertyName = enumCode.get(constants.NAME))
     code += "</div>\n"        
     return code
 
@@ -84,7 +84,7 @@ def getPermissibleValuesCode(permissible_values, enumName, multivalued, required
 def getInlineEnumSlotCode(slotCode, desc, required, propertyName, title):
     multivalued = utils.isMultivalued(slotCode)
 
-    if ("enum_range" not in slotCode or ("permissible_values" not in slotCode.get("enum_range") and "reachable_from" not in slotCode.get("enum_range"))):
+    if (constants.ENUM_RANGE not in slotCode or (constants.PERMISSIBLE_VALUES not in slotCode.get(constants.ENUM_RANGE) and "reachable_from" not in slotCode.get(constants.ENUM_RANGE))):
         return getTextareaSlotCode(desc, required, propertyName, title, slotCode)
 
     code = '''<div class="mb-3">
@@ -92,12 +92,12 @@ def getInlineEnumSlotCode(slotCode, desc, required, propertyName, title):
     code += '''<span class="input-group-text">{slotName}</span>\n'''.format(slotName = utils.capitalizeLabel(title))
     code += '''<input type="text" class="form-control hideField">\n</div>\n'''
     code += '''<div class="form-text" id="{propertyName}-description">{desc}</div>\n'''.format(propertyName = propertyName, desc = utils.capitalizeLabel(desc))
-    enumCode = slotCode.get("enum_range")
+    enumCode = slotCode.get(constants.ENUM_RANGE)
     enumName = utils.extractName(slotCode) + " valueset" #inlined enums don't have names and titles, so it's generated from the slot itself
-    if ("permissible_values" in enumCode):
-        code += getPermissibleValuesCode(enumCode.get("permissible_values"), enumName, multivalued, required)
+    if (constants.PERMISSIBLE_VALUES in enumCode):
+        code += getPermissibleValuesCode(enumCode.get(constants.PERMISSIBLE_VALUES), enumName, multivalued, required)
     else:
-      code += '''<div class='answer-options'>\n<span class='values-from-dynamic'>{enumName}:</span>\n<textarea rows="6" class="form-control" id="{enumNameNoSpace}"></textarea>\n</div>\n'''.format(enumName = utils.capitalizeLabel(enumName), propertyName = enumCode.get("name"), enumNameNoSpace = enumName.replace(" ", "_"))
+      code += '''<div class='answer-options'>\n<span class='values-from-dynamic'>{enumName}:</span>\n<textarea rows="6" class="form-control" id="{enumNameNoSpace}"></textarea>\n</div>\n'''.format(enumName = utils.capitalizeLabel(enumName), propertyName = enumCode.get(constants.NAME), enumNameNoSpace = enumName.replace(" ", "_"))
     code += "</div>\n"     
     return code
 
@@ -119,7 +119,7 @@ def getStringSlotCode(desc, required, propertyName, title, slotCode):
       <span class="input-group-text hideField" id="{propertyName}-addon">{title}</span>
       <input type="text" class="form-control" id="{propertyName}{n}" aria-describedby="{propertyName}-addon {propertyName}-description">
     </div>'''.format(propertyName = propertyName, required = required, title = utils.capitalizeLabel(title), n = i+2)
-        cardinalityStatement = ''' This field requires at least {minCardinality} values'''.format(minCardinality = minCardinality)
+        cardinalityStatement = ''' This field requires at least {minCardinality} value(s)'''.format(minCardinality = minCardinality)
 
 
     code += '''<div class="form-text" id="{propertyName}-description">{desc}{cardinalityStatement}</div>
@@ -144,7 +144,7 @@ def getTextareaSlotCode(desc, required, propertyName, title, slotCode):
       <span class="input-group-text hideField" id="{propertyName}-addon">{title}</span>
       <textarea rows="6" class="form-control" id="{propertyName}{n}" aria-describedby="{propertyName}-addon {propertyName}-description"></textarea>
     </div>'''.format(propertyName = propertyName, required = required, title = utils.capitalizeLabel(title), n = i+2)
-        cardinalityStatement = ''' This field requires at least {minCardinality} values'''.format(minCardinality = minCardinality)
+        cardinalityStatement = ''' This field requires at least {minCardinality} value(s)'''.format(minCardinality = minCardinality)
 
 
     code += '''<div class="form-text" id="{propertyName}-description">{desc}{cardinalityStatement}</div>
