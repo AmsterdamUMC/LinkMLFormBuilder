@@ -158,7 +158,7 @@ def multivalued_int_slot_expected():
       <span class="input-group-text hideField" id="systolic_pressure-addon">Systolic pressure</span>
       <input type="number" class="form-control" id="systolic_pressure3" aria-describedby="systolic_pressure-addon systolic_pressure-description">
     </div>
-    <div class="form-text" id="systolic_pressure-description">Systolic pressure in mmHg This field requires at least 1 values</div>
+    <div class="form-text" id="systolic_pressure-description">Systolic pressure in mmHg This field requires at least 1 value(s)</div>
   </div>'''
 
 @pytest.fixture(scope='session')
@@ -210,7 +210,7 @@ def multivalued_datetime_slot_expected():
     <span class="input-group-text hideField" id="measurement_datetime-addon">Measurement datetime</span>
     <input type="text" class="form-control" id="measurement_datetime3" aria-describedby="measurement_datetime-addon measurement_datetime-description">
     </div>
-    <div class="form-text" id="measurement_datetime-description">The date and time at which the measurement took place This field requires at least 1 values</div>
+    <div class="form-text" id="measurement_datetime-description">The date and time at which the measurement took place This field requires at least 1 value(s)</div>
 </div>'''
 
 @pytest.fixture(scope='session')
@@ -479,7 +479,7 @@ def multivalued_textarea_slot_expected():
     <span class="input-group-text hideField" id="explanatory_statement-addon">Explanatory statement</span>
     <textarea rows="6" class="form-control" id="explanatory_statement3" aria-describedby="explanatory_statement-addon explanatory_statement-description"></textarea>
 </div>
-<div class="form-text" id="explanatory_statement-description">Additional information that cannot be coded This field requires at least 1 values</div>
+<div class="form-text" id="explanatory_statement-description">Additional information that cannot be coded This field requires at least 1 value(s)</div>
 </div>'''
 
 
