@@ -7,6 +7,7 @@ from LinkMLFormbuilder import slot_code_generators
 from shutil import which
 import pkg_resources
 from LinkMLFormbuilder import constants
+import warnings
 
 def retrieveFileContent(yamlfile):
     try:
@@ -19,20 +20,21 @@ def retrieveFileContent(yamlfile):
         print("Could not retrieve file content, please make sure the path is correct")
         exit(1)
 
-def getSlotFormCode(slotCode, content, default_range, subclasses, level):
-    if (constants.NAME not in slotCode): raise TypeError("Missing field: name")
+def getSlotFormCode(slotCode, content, default_range, subclasses, level, key):
+    if (slotCode is None): return ""
+    # if (constants.NAME not in slotCode): raise TypeError("Missing field: name")
     desc = utils.extractDescription(slotCode)
     required = constants.REQUIRED if (constants.REQUIRED in slotCode and slotCode.get(constants.REQUIRED) == True) else ""
     propertyName = slotCode.get(constants.NAME)
-    title = utils.extractSlotName(slotCode)
+    title = utils.extractSlotName(slotCode, key)
     
-    if (constants.VALUES_FROM in slotCode or (constants.RANGE in slotCode and slotCode.get(constants.RANGE) in content.get(constants.ENUMS))):
+    if (constants.VALUES_FROM in slotCode or (constants.RANGE in slotCode and constants.ENUMS in content and slotCode.get(constants.RANGE) in content.get(constants.ENUMS))):
         return slot_code_generators.getEnumSlotCode(slotCode, content, desc, required, propertyName, title)
     elif (constants.ENUM_RANGE in slotCode): # inlined enum
         return slot_code_generators.getInlineEnumSlotCode(slotCode, desc, required, propertyName, title)
     elif (constants.RANGE in slotCode):
         if (slotCode.get(constants.RANGE) in content.get(constants.CLASSES)):
-            return getClassFormCode(content.get(constants.CLASSES).get(slotCode.get(constants.RANGE)), content, default_range, subclasses, level + 1) # the range is a class itself and should be treated as such
+            return getClassFormCode(content.get(constants.CLASSES).get(slotCode.get(constants.RANGE)), content, default_range, subclasses, level + 1, key) # the range is a class itself and should be treated as such
         elif (slotCode.get(constants.RANGE) == "integer" or slotCode.get(constants.RANGE) == "float"):
             return slot_code_generators.getNumberSlotCode(slotCode, desc, required, propertyName, title)
         elif (slotCode.get(constants.RANGE) == "string"): #assume textarea
@@ -52,10 +54,10 @@ def getSlotFormCode(slotCode, content, default_range, subclasses, level):
             else: # this is a basic pdf, so datetime should not be a datetime field, but a textfield
                 return slot_code_generators.getStringSlotCode(desc, required, propertyName, title, slotCode)
         else:
-            raise TypeError("Invalid LinkML. There should either be a explicitly defined range for slot {slot}, or a default_range.".format(slot=utils.extractName(slotCode)))
+            raise TypeError("Invalid LinkML. There should either be a explicitly defined range for slot {slot}, or a default_range.".format(slot=utils.extractName(slotCode, key)))
 
-def getClassFormCode(classCode, content, default_range, subclasses, level):
-    title = utils.extractName(classCode)
+def getClassFormCode(classCode, content, default_range, subclasses, level, key):
+    title = utils.extractName(classCode, key)
     code = '''<h{level}>{title}</h{level}>\n'''.format(level = level + 1, title = title)
     code += "<p class='form-description'>Form description: " + utils.capitalizeLabel(utils.extractDescription(classCode)) + "</p>\n"
     if (constants.IS_A in classCode): # process superclass first
@@ -64,35 +66,36 @@ def getClassFormCode(classCode, content, default_range, subclasses, level):
         for slot in superClassCode.get(constants.SLOTS):
             if (slot not in classCode.get("slot_usage")): # this slot is not further specified in the class itself
                 slotCode = content.get(constants.SLOTS).get(slot)
-                code += getSlotFormCode(slotCode, content, default_range, subclasses, level)
+                code += getSlotFormCode(slotCode, content, default_range, subclasses, level, slot)
     if (constants.MIXINS in classCode): # then process mixins
         for key in classCode.get(constants.MIXINS):
             mixinCode = content.get(constants.CLASSES).get(key)
             for slot in mixinCode.get(constants.SLOTS):
                 if (slot not in classCode.get("slot_usage")): # this slot is not further specified in the class itself
                     slotCode = content.get(constants.SLOTS).get(slot)
-                    code += getSlotFormCode(slotCode, content, default_range, subclasses, level)
+                    code += getSlotFormCode(slotCode, content, default_range, subclasses, level, slot)
     
-    gen = (slot for slot in classCode.get(constants.SLOTS) if content.get(constants.SLOTS).get(slot).get(constants.RANGE) not in subclasses)
-    gen2 = (slot for slot in classCode.get(constants.SLOTS) if content.get(constants.SLOTS).get(slot).get(constants.RANGE) in subclasses)
     if (constants.SLOTS in classCode):
+        gen = (slot for slot in classCode.get(constants.SLOTS) if (content.get(constants.SLOTS).get(slot).get(constants.RANGE) not in subclasses and content.get(constants.SLOTS).get(slot) is not None))
         for slot in gen: #process slots of this class
             slotCode = content.get(constants.SLOTS).get(slot)
-            code += getSlotFormCode(slotCode, content, default_range, subclasses, level)
+            code += getSlotFormCode(slotCode, content, default_range, subclasses, level, slot)
     if (constants.ATTRIBUTES in classCode): #inline slots
         for slot in classCode.get(constants.ATTRIBUTES):
             slotCode = classCode.get(constants.ATTRIBUTES).get(slot)
-            code += getSlotFormCode(slotCode, content, default_range, subclasses, level)
+            code += getSlotFormCode(slotCode, content, default_range, subclasses, level, slot)
     if (constants.SLOTS in classCode):
+        gen2 = (slot for slot in classCode.get(constants.SLOTS) if (content.get(constants.SLOTS).get(slot).get(constants.RANGE) in subclasses and content.get(constants.SLOTS).get(slot) is not None))
         for slot in gen2: #process slots of this class where the range is a subclass
             slotCode = content.get(constants.SLOTS).get(slot)
-            code += getSlotFormCode(slotCode, content, default_range, subclasses, level)
+            code += getSlotFormCode(slotCode, content, default_range, subclasses, level, slot)
     return code
 
 
 def buildForm(content, html_only, output_directory, name, testEnv = False):
-    if (constants.NAME not in content and name == constants.DEFAULT): raise TypeError("The model metadata does not contain a 'name' field. Please make sure your model is valid")
-    NAME = name if (name != constants.DEFAULT) else content.get(constants.NAME)
+    if (constants.NAME not in content and name == constants.DEFAULT): 
+        warnings.warn("WARNING: The model metadata does not contain a 'name' field. Please make sure your model is valid")
+    NAME = name if (name != constants.DEFAULT) else (content.get(constants.NAME) if constants.NAME in content else "formDefault")
     OUTPUT_DIR = os.getcwd() if (output_directory == constants.CWD) else os.path.abspath(output_directory)
     HTML_PATH = os.path.join(OUTPUT_DIR, NAME + constants.HTML_EXT)
     
@@ -105,7 +108,7 @@ def buildForm(content, html_only, output_directory, name, testEnv = False):
             f.write("\n")
             f.write(pkg_resources.resource_string(__name__, "styles.css").decode('utf-8'))
             f.write(constants.HTML_START_PART2)
-        title = utils.extractName(content)
+        title = utils.extractName(content, "default")
         f.write("<h1>" + title + "</h1>\n")
         default_range = content.get(constants.DEFAULT_RANGE) if (constants.DEFAULT_RANGE in content) else None
         classes = []
@@ -137,7 +140,7 @@ def buildForm(content, html_only, output_directory, name, testEnv = False):
         for key in classes:
             classCode = content.get(constants.CLASSES).get(key)
             if ("abstract" not in classCode or classCode.get("abstract") == False): # if the class is abstract, it should not be in the form
-                f.write(getClassFormCode(classCode, content, default_range, subClasses, 1))
+                f.write(getClassFormCode(classCode, content, default_range, subClasses, 1, key))
         f.write(constants.HTML_END)
         f.close()
         if (not html_only):
