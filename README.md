@@ -48,6 +48,9 @@ optional arguments:
 ```
 
 ## Changelog
+### Version 0.1.9
+- Missing 'name' field error is now a warning
+- Default options for missing 'name' fields
 ### Version 0.1.8
 - Throw error when field 'name' is missing from a model element
 - Auto close file on error (with statement)

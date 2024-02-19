@@ -1220,7 +1220,110 @@ def tutorial1_yaml():
 
 @pytest.fixture(scope='session')
 def tutorial1_yaml_expected():
-    return "Missing field: name"
+    return """
+    <!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>LinkML JSON schema form builder</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+</head>
+<style>
+    .form-text {
+        font-style: italic;
+        width: -webkit-fill-available;
+    }
+
+    p :not(.form-description){
+        margin-bottom: 0px !important;
+    }
+
+    .form-description {
+        margin-top: 0px !important;
+        margin-bottom: 20px;
+    }
+
+    body {
+        margin-left: 10px !important;
+    }
+
+    label {
+        font-weight: normal !important;
+    }
+
+    .input-group {
+        width: -webkit-fill-available !important;
+        display: table !important;
+    }
+
+    .mb-3 {
+        margin-bottom: 1rem !important;
+    }
+
+    .input-group-text {
+        padding: .5rem .75rem;
+        font-weight: 400;
+        line-height: 1.5;
+        color: #212529;
+        text-align: center;
+        white-space: nowrap;
+        background-color: #f8f9fa;
+        border: 1px solid #dee2e6;
+        border-radius: 0.375rem;
+        width: 20%;
+        float: left;
+        min-height: 34px;
+        white-space: pre-wrap;
+    }
+
+    .form-control {
+        width: 80% !important;
+        height: 100%;
+    }
+
+    .input-group {
+        position: relative;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: stretch;
+        width: 100%;
+    }
+
+    .hideField {
+        visibility: hidden;
+    }
+
+    .form-check {
+        width: fit-content;
+        display: inline-block;
+        margin-right: 5px;
+    }
+
+    .values-from {
+        font-weight: bold;
+        margin-right: 5px;
+    }
+
+    .values-from-dynamic {
+        font-weight: bold;
+        margin-right: 5px;
+        float: left;
+        width: calc(20% - 5px);
+    }
+
+    h2 {
+        width: 100vw;
+    }
+</style>
+<body>
+<h1>personinfo</h1>
+<h2>Person</h2>
+<p class='form-description'>Form description: </p>
+</body>
+</html>
+"""
 
 @pytest.fixture(scope = 'session')
 def tutorial1_no_name_yaml():
@@ -1237,16 +1340,119 @@ def tutorial1_no_name_yaml():
     classes:
         Person:
             attributes:
-            id:
-            full_name:
-            aliases:
-            phone:
-            age:
+                id:
+                full_name:
+                aliases:
+                phone:
+                age:
 """)
 
 @pytest.fixture(scope='session')
 def tutorial1_no_name_yaml_expected():
-    return "The model metadata does not contain a 'name' field. Please make sure your model is valid"
+    return """
+    <!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>LinkML JSON schema form builder</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+</head>
+<style>
+    .form-text {
+        font-style: italic;
+        width: -webkit-fill-available;
+    }
+
+    p :not(.form-description){
+        margin-bottom: 0px !important;
+    }
+
+    .form-description {
+        margin-top: 0px !important;
+        margin-bottom: 20px;
+    }
+
+    body {
+        margin-left: 10px !important;
+    }
+
+    label {
+        font-weight: normal !important;
+    }
+
+    .input-group {
+        width: -webkit-fill-available !important;
+        display: table !important;
+    }
+
+    .mb-3 {
+        margin-bottom: 1rem !important;
+    }
+
+    .input-group-text {
+        padding: .5rem .75rem;
+        font-weight: 400;
+        line-height: 1.5;
+        color: #212529;
+        text-align: center;
+        white-space: nowrap;
+        background-color: #f8f9fa;
+        border: 1px solid #dee2e6;
+        border-radius: 0.375rem;
+        width: 20%;
+        float: left;
+        min-height: 34px;
+        white-space: pre-wrap;
+    }
+
+    .form-control {
+        width: 80% !important;
+        height: 100%;
+    }
+
+    .input-group {
+        position: relative;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: stretch;
+        width: 100%;
+    }
+
+    .hideField {
+        visibility: hidden;
+    }
+
+    .form-check {
+        width: fit-content;
+        display: inline-block;
+        margin-right: 5px;
+    }
+
+    .values-from {
+        font-weight: bold;
+        margin-right: 5px;
+    }
+
+    .values-from-dynamic {
+        font-weight: bold;
+        margin-right: 5px;
+        float: left;
+        width: calc(20% - 5px);
+    }
+
+    h2 {
+        width: 100vw;
+    }
+</style>
+<body>
+<h1>default</h1>
+<h2>Person</h2>
+<p class='form-description'>Form description: </p>
+</body>
+</html>
+"""
 
 @pytest.fixture(scope = 'session')
 def tutorial5_yaml():
@@ -1293,4 +1499,179 @@ def tutorial5_yaml():
 
 @pytest.fixture(scope='session')
 def tutorial5_yaml_expected():
-    return "Missing field: name"
+    return """
+    <!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>LinkML JSON schema form builder</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+</head>
+<style>
+    .form-text {
+        font-style: italic;
+        width: -webkit-fill-available;
+    }
+
+    p :not(.form-description){
+        margin-bottom: 0px !important;
+    }
+
+    .form-description {
+        margin-top: 0px !important;
+        margin-bottom: 20px;
+    }
+
+    body {
+        margin-left: 10px !important;
+    }
+
+    label {
+        font-weight: normal !important;
+    }
+
+    .input-group {
+        width: -webkit-fill-available !important;
+        display: table !important;
+    }
+
+    .mb-3 {
+        margin-bottom: 1rem !important;
+    }
+
+    .input-group-text {
+        padding: .5rem .75rem;
+        font-weight: 400;
+        line-height: 1.5;
+        color: #212529;
+        text-align: center;
+        white-space: nowrap;
+        background-color: #f8f9fa;
+        border: 1px solid #dee2e6;
+        border-radius: 0.375rem;
+        width: 20%;
+        float: left;
+        min-height: 34px;
+        white-space: pre-wrap;
+    }
+
+    .form-control {
+        width: 80% !important;
+        height: 100%;
+    }
+
+    .input-group {
+        position: relative;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: stretch;
+        width: 100%;
+    }
+
+    .hideField {
+        visibility: hidden;
+    }
+
+    .form-check {
+        width: fit-content;
+        display: inline-block;
+        margin-right: 5px;
+    }
+
+    .values-from {
+        font-weight: bold;
+        margin-right: 5px;
+    }
+
+    .values-from-dynamic {
+        font-weight: bold;
+        margin-right: 5px;
+        float: left;
+        width: calc(20% - 5px);
+    }
+
+    h2 {
+        width: 100vw;
+    }
+</style>
+<body>
+<h1>personinfo5</h1>
+<h2>Person</h2>
+<p class='form-description'>Form description: </p>
+<div class="mb-3">
+    <div class="input-group">
+      <span class="input-group-text" id="None-addon">Id</span>
+      <textarea rows="6" class="form-control" id="None" aria-describedby="None-addon None-description" ></textarea>
+    </div><div class="form-text" id="None-description"></div>
+  </div>
+<div class="mb-3">
+    <div class="input-group">
+      <span class="input-group-text" id="None-addon">Full_name</span>
+      <textarea rows="6" class="form-control" id="None" aria-describedby="None-addon None-description" required></textarea>
+    </div><div class="form-text" id="None-description">Name of the person</div>
+  </div>
+<div class="mb-3">
+    <div class="input-group">
+      <span class="input-group-text" id="None-addon">Aliases</span>
+      <textarea rows="6" class="form-control" id="None" aria-describedby="None-addon None-description" ></textarea>
+    </div><div class="input-group">
+      <span class="input-group-text hideField" id="None-addon">Aliases</span>
+      <textarea rows="6" class="form-control" id="None2" aria-describedby="None-addon None-description"></textarea>
+    </div><div class="form-text" id="None-description">Other names for the person This field requires at least 1 value(s)</div>
+  </div>
+<div class="mb-3">
+    <div class="input-group">
+      <span class="input-group-text" id="None-addon">Phone</span>
+      <textarea rows="6" class="form-control" id="None" aria-describedby="None-addon None-description" ></textarea>
+    </div><div class="form-text" id="None-description"></div>
+  </div>
+<div class="mb-3">
+    <div class="input-group">
+      <span class="input-group-text" id="None-addon">Age</span>
+      <input type="number" class="form-control" id="None" aria-describedby="None-addon None-description" >
+    </div>
+    <div class="form-text" id="None-description"> The value for this field should be between 0 and 200</div>
+  </div>
+<h2>Container</h2>
+<p class='form-description'>Form description: </p>
+<h3>persons</h3>
+<p class='form-description'>Form description: </p>
+<div class="mb-3">
+    <div class="input-group">
+      <span class="input-group-text" id="None-addon">Id</span>
+      <textarea rows="6" class="form-control" id="None" aria-describedby="None-addon None-description" ></textarea>
+    </div><div class="form-text" id="None-description"></div>
+  </div>
+<div class="mb-3">
+    <div class="input-group">
+      <span class="input-group-text" id="None-addon">Full_name</span>
+      <textarea rows="6" class="form-control" id="None" aria-describedby="None-addon None-description" required></textarea>
+    </div><div class="form-text" id="None-description">Name of the person</div>
+  </div>
+<div class="mb-3">
+    <div class="input-group">
+      <span class="input-group-text" id="None-addon">Aliases</span>
+      <textarea rows="6" class="form-control" id="None" aria-describedby="None-addon None-description" ></textarea>
+    </div><div class="input-group">
+      <span class="input-group-text hideField" id="None-addon">Aliases</span>
+      <textarea rows="6" class="form-control" id="None2" aria-describedby="None-addon None-description"></textarea>
+    </div><div class="form-text" id="None-description">Other names for the person This field requires at least 1 value(s)</div>
+  </div>
+<div class="mb-3">
+    <div class="input-group">
+      <span class="input-group-text" id="None-addon">Phone</span>
+      <textarea rows="6" class="form-control" id="None" aria-describedby="None-addon None-description" ></textarea>
+    </div><div class="form-text" id="None-description"></div>
+  </div>
+<div class="mb-3">
+    <div class="input-group">
+      <span class="input-group-text" id="None-addon">Age</span>
+      <input type="number" class="form-control" id="None" aria-describedby="None-addon None-description" >
+    </div>
+    <div class="form-text" id="None-description"> The value for this field should be between 0 and 200</div>
+  </div>
+</body>
+</html>
+"""

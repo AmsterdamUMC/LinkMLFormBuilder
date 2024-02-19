@@ -1,5 +1,6 @@
 import re
 from LinkMLFormbuilder import constants
+import warnings
 
 def extractAliases(sourceCode):
     name = ""
@@ -21,8 +22,10 @@ def extractAliases(sourceCode):
         name = name[:-3] + ")"
     return name
 
-def extractName(classCode):
-    if (constants.NAME not in classCode): raise TypeError("Missing field: name")
+def extractName(classCode, key):
+    if (constants.NAME not in classCode): 
+        warnings.warn("WARNING: missing field name")
+        return key
     return (classCode.get(constants.TITLE) if (constants.TITLE in classCode) else classCode.get(constants.NAME)) + extractAliases(classCode)
 
 def extractDescription(itemCode):
@@ -36,12 +39,12 @@ def extractDescription(itemCode):
         description = description[:-3] + ")"
     return description
 
-def extractSlotName(slotCode):
+def extractSlotName(slotCode, slot):
     name = ""
     if (((constants.MULTIVALUED in slotCode and slotCode.get(constants.MULTIVALUED) == False) or (constants.MAXIMUM_CARDINALITY in slotCode and slotCode.get(constants.MAXIMUM_CARDINALITY) == 1)) and constants.SINGULAR_NAME in slotCode):
         name = slotCode.get(constants.SINGULAR_NAME) # cardinality is either 0..1 or 1..1
     else:
-        name += extractName(slotCode)
+        name += extractName(slotCode, slot)
     return name
 
 def normalize_description(desc): # remove html tags <p><div>, remove anything in <i> and <img>

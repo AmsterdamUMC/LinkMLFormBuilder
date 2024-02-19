@@ -60,7 +60,7 @@ def getEnumSlotCode(slotCode, content, desc, required, propertyName, title):
       if (enum not in content.get(constants.ENUMS)):
           return getTextareaSlotCode(desc, required, propertyName, title, slotCode)
       enumCode = content.get(constants.ENUMS).get(enum)
-      enumName = utils.extractName(enumCode)
+      enumName = utils.extractName(enumCode, "")
       if (constants.PERMISSIBLE_VALUES in enumCode):
         code += getPermissibleValuesCode(enumCode.get(constants.PERMISSIBLE_VALUES), enumName, multivalued, required)
       else:
@@ -93,7 +93,7 @@ def getInlineEnumSlotCode(slotCode, desc, required, propertyName, title):
     code += '''<input type="text" class="form-control hideField">\n</div>\n'''
     code += '''<div class="form-text" id="{propertyName}-description">{desc}</div>\n'''.format(propertyName = propertyName, desc = utils.capitalizeLabel(desc))
     enumCode = slotCode.get(constants.ENUM_RANGE)
-    enumName = utils.extractName(slotCode) + " valueset" #inlined enums don't have names and titles, so it's generated from the slot itself
+    enumName = utils.extractName(slotCode, "") + " valueset" #inlined enums don't have names and titles, so it's generated from the slot itself
     if (constants.PERMISSIBLE_VALUES in enumCode):
         code += getPermissibleValuesCode(enumCode.get(constants.PERMISSIBLE_VALUES), enumName, multivalued, required)
     else:
