@@ -870,21 +870,21 @@ def patient_partial_form_expected():
 <div class="mb-3">
     <div class="input-group">
       <span class="input-group-text" id="nl_zorg_part_Adresgegevens_Huisnummer-addon">Huisnummer (Huisnummer / HouseNumber)</span>
-      <textarea rows="6" class="form-control" id="nl_zorg_part_Adresgegevens_Huisnummer" aria-describedby="nl_zorg_part_Adresgegevens_Huisnummer-addon nl_zorg_part_Adresgegevens_Huisnummer-description" ></textarea>
+      <textarea rows="6" class="form-control" id="nl_zorg_part_Adresgegevens_Huisnummer" name="nl_zorg_part_Adresgegevens_Huisnummer" aria-describedby="nl_zorg_part_Adresgegevens_Huisnummer-addon nl_zorg_part_Adresgegevens_Huisnummer-description" ></textarea>
     </div>
     <div class="form-text" id="nl_zorg_part_Adresgegevens_Huisnummer-description"></div>
   </div>
 <div class="mb-3">
     <div class="input-group">
       <span class="input-group-text" id="nl_zorg_part_Adresgegevens_Huisnummerletter-addon">Huisnummerletter (Huisnummerletter / HouseNumberLetter)</span>
-      <textarea rows="6" class="form-control" id="nl_zorg_part_Adresgegevens_Huisnummerletter" aria-describedby="nl_zorg_part_Adresgegevens_Huisnummerletter-addon nl_zorg_part_Adresgegevens_Huisnummerletter-description" ></textarea>
+      <textarea rows="6" class="form-control" id="nl_zorg_part_Adresgegevens_Huisnummerletter" name="nl_zorg_part_Adresgegevens_Huisnummerletter" aria-describedby="nl_zorg_part_Adresgegevens_Huisnummerletter-addon nl_zorg_part_Adresgegevens_Huisnummerletter-description" ></textarea>
     </div>
     <div class="form-text" id="nl_zorg_part_Adresgegevens_Huisnummerletter-description"></div>
   </div>
 <div class="mb-3">
     <div class="input-group">
       <span class="input-group-text" id="nl_zorg_part_Adresgegevens_Huisnummertoevoeging-addon">Huisnummertoevoeging (Huisnummertoevoeging / HouseNumberAddition)</span>
-      <textarea rows="6" class="form-control" id="nl_zorg_part_Adresgegevens_Huisnummertoevoeging" aria-describedby="nl_zorg_part_Adresgegevens_Huisnummertoevoeging-addon nl_zorg_part_Adresgegevens_Huisnummertoevoeging-description" ></textarea>
+      <textarea rows="6" class="form-control" id="nl_zorg_part_Adresgegevens_Huisnummertoevoeging" name="nl_zorg_part_Adresgegevens_Huisnummertoevoeging" aria-describedby="nl_zorg_part_Adresgegevens_Huisnummertoevoeging-addon nl_zorg_part_Adresgegevens_Huisnummertoevoeging-description" ></textarea>
     </div>
     <div class="form-text" id="nl_zorg_part_Adresgegevens_Huisnummertoevoeging-description"></div>
   </div>
@@ -907,14 +907,14 @@ def patient_partial_form_expected():
 <div class="mb-3">
     <div class="input-group">
       <span class="input-group-text" id="nl_zorg_part_Adresgegevens_Gemeente-addon">Gemeente (Gemeente / Municipality)</span>
-      <textarea rows="6" class="form-control" id="nl_zorg_part_Adresgegevens_Gemeente" aria-describedby="nl_zorg_part_Adresgegevens_Gemeente-addon nl_zorg_part_Adresgegevens_Gemeente-description" ></textarea>
+      <textarea rows="6" class="form-control" id="nl_zorg_part_Adresgegevens_Gemeente" name="nl_zorg_part_Adresgegevens_Gemeente" aria-describedby="nl_zorg_part_Adresgegevens_Gemeente-addon nl_zorg_part_Adresgegevens_Gemeente-description" ></textarea>
     </div>
     <div class="form-text" id="nl_zorg_part_Adresgegevens_Gemeente-description"></div>
   </div>
 <div class="mb-3">
     <div class="input-group">
       <span class="input-group-text" id="nl_zorg_part_Adresgegevens_Land-addon">Land (Land / Country)</span>
-      <textarea rows="6" class="form-control" id="nl_zorg_part_Adresgegevens_Land" aria-describedby="nl_zorg_part_Adresgegevens_Land-addon nl_zorg_part_Adresgegevens_Land-description" ></textarea>
+      <textarea rows="6" class="form-control" id="nl_zorg_part_Adresgegevens_Land" name="nl_zorg_part_Adresgegevens_Land" aria-describedby="nl_zorg_part_Adresgegevens_Land-addon nl_zorg_part_Adresgegevens_Land-description" ></textarea>
     </div>
     <div class="form-text" id="nl_zorg_part_Adresgegevens_Land-description"></div>
   </div>
@@ -1061,28 +1061,28 @@ def three_zibs_form_expected():
 <div class="mb-3">
     <div class="input-group">
       <span class="input-group-text" id="nl_zorg_part_Adresgegevens_Huisnummer-addon">Huisnummer (Huisnummer / HouseNumber)</span>
-      <textarea rows="6" class="form-control" id="nl_zorg_part_Adresgegevens_Huisnummer" aria-describedby="nl_zorg_part_Adresgegevens_Huisnummer-addon nl_zorg_part_Adresgegevens_Huisnummer-description" ></textarea>
+      <textarea rows="6" class="form-control" id="nl_zorg_part_Adresgegevens_Huisnummer" name="nl_zorg_part_Adresgegevens_Huisnummer" aria-describedby="nl_zorg_part_Adresgegevens_Huisnummer-addon nl_zorg_part_Adresgegevens_Huisnummer-description" ></textarea>
     </div>
     <div class="form-text" id="nl_zorg_part_Adresgegevens_Huisnummer-description"></div>
   </div>
 <div class="mb-3">
     <div class="input-group">
       <span class="input-group-text" id="nl_zorg_part_Adresgegevens_Huisnummerletter-addon">Huisnummerletter (Huisnummerletter / HouseNumberLetter)</span>
-      <textarea rows="6" class="form-control" id="nl_zorg_part_Adresgegevens_Huisnummerletter" aria-describedby="nl_zorg_part_Adresgegevens_Huisnummerletter-addon nl_zorg_part_Adresgegevens_Huisnummerletter-description" ></textarea>
+      <textarea rows="6" class="form-control" id="nl_zorg_part_Adresgegevens_Huisnummerletter" name="nl_zorg_part_Adresgegevens_Huisnummerletter" aria-describedby="nl_zorg_part_Adresgegevens_Huisnummerletter-addon nl_zorg_part_Adresgegevens_Huisnummerletter-description" ></textarea>
     </div>
     <div class="form-text" id="nl_zorg_part_Adresgegevens_Huisnummerletter-description"></div>
   </div>
 <div class="mb-3">
     <div class="input-group">
       <span class="input-group-text" id="nl_zorg_part_Adresgegevens_Huisnummertoevoeging-addon">Huisnummertoevoeging (Huisnummertoevoeging / HouseNumberAddition)</span>
-      <textarea rows="6" class="form-control" id="nl_zorg_part_Adresgegevens_Huisnummertoevoeging" aria-describedby="nl_zorg_part_Adresgegevens_Huisnummertoevoeging-addon nl_zorg_part_Adresgegevens_Huisnummertoevoeging-description" ></textarea>
+      <textarea rows="6" class="form-control" id="nl_zorg_part_Adresgegevens_Huisnummertoevoeging" name="nl_zorg_part_Adresgegevens_Huisnummertoevoeging"  aria-describedby="nl_zorg_part_Adresgegevens_Huisnummertoevoeging-addon nl_zorg_part_Adresgegevens_Huisnummertoevoeging-description" ></textarea>
     </div>
     <div class="form-text" id="nl_zorg_part_Adresgegevens_Huisnummertoevoeging-description"></div>
   </div>
 <div class="mb-3">
     <div class="input-group">
       <span class="input-group-text" id="nl_zorg_part_Adresgegevens_Gemeente-addon">Gemeente (Gemeente / Municipality)</span>
-      <textarea rows="6" class="form-control" id="nl_zorg_part_Adresgegevens_Gemeente" aria-describedby="nl_zorg_part_Adresgegevens_Gemeente-addon nl_zorg_part_Adresgegevens_Gemeente-description" ></textarea>
+      <textarea rows="6" class="form-control" id="nl_zorg_part_Adresgegevens_Gemeente"  name="nl_zorg_part_Adresgegevens_Gemeente" aria-describedby="nl_zorg_part_Adresgegevens_Gemeente-addon nl_zorg_part_Adresgegevens_Gemeente-description" ></textarea>
     </div>
     <div class="form-text" id="nl_zorg_part_Adresgegevens_Gemeente-description"></div>
   </div>
@@ -1113,7 +1113,7 @@ def three_zibs_form_expected():
 <div class="mb-3">
     <div class="input-group">
       <span class="input-group-text" id="nl_zorg_Alert_BeginDatumTijd-addon">BeginDatumTijd (BeginDatumTijd / StartDateTime)</span>
-      <input type="text" class="form-control" id="nl_zorg_Alert_BeginDatumTijd" aria-describedby="nl_zorg_Alert_BeginDatumTijd-addon nl_zorg_Alert_BeginDatumTijd-description" >
+      <input type="text" class="form-control" id="nl_zorg_Alert_BeginDatumTijd" name="nl_zorg_Alert_BeginDatumTijd" aria-describedby="nl_zorg_Alert_BeginDatumTijd-addon nl_zorg_Alert_BeginDatumTijd-description" >
     </div>
     <div class="form-text" id="nl_zorg_Alert_BeginDatumTijd-description"></div>
   </div>
@@ -1133,7 +1133,7 @@ def three_zibs_form_expected():
 <div class="mb-3">
     <div class="input-group">
       <span class="input-group-text" id="nl_zorg_Alert_Toelichting-addon">Toelichting (Toelichting / Comment)</span>
-      <textarea rows="6" class="form-control" id="nl_zorg_Alert_Toelichting" aria-describedby="nl_zorg_Alert_Toelichting-addon nl_zorg_Alert_Toelichting-description" ></textarea>
+      <textarea rows="6" class="form-control" id="nl_zorg_Alert_Toelichting" name="nl_zorg_Alert_Toelichting" aria-describedby="nl_zorg_Alert_Toelichting-addon nl_zorg_Alert_Toelichting-description" ></textarea>
     </div>
     <div class="form-text" id="nl_zorg_Alert_Toelichting-description"></div>
   </div>
@@ -1603,34 +1603,34 @@ def tutorial5_yaml_expected():
 <div class="mb-3">
     <div class="input-group">
       <span class="input-group-text" id="None-addon">Id</span>
-      <textarea rows="6" class="form-control" id="None" aria-describedby="None-addon None-description" ></textarea>
+      <textarea rows="6" class="form-control" id="None" name="None" aria-describedby="None-addon None-description" ></textarea>
     </div><div class="form-text" id="None-description"></div>
   </div>
 <div class="mb-3">
     <div class="input-group">
       <span class="input-group-text" id="None-addon">Full_name</span>
-      <textarea rows="6" class="form-control" id="None" aria-describedby="None-addon None-description" required></textarea>
+      <textarea rows="6" class="form-control" id="None" name="None" aria-describedby="None-addon None-description" required></textarea>
     </div><div class="form-text" id="None-description">Name of the person</div>
   </div>
 <div class="mb-3">
     <div class="input-group">
       <span class="input-group-text" id="None-addon">Aliases</span>
-      <textarea rows="6" class="form-control" id="None" aria-describedby="None-addon None-description" ></textarea>
+      <textarea rows="6" class="form-control" id="None" name="None" aria-describedby="None-addon None-description" ></textarea>
     </div><div class="input-group">
       <span class="input-group-text hideField" id="None-addon">Aliases</span>
-      <textarea rows="6" class="form-control" id="None2" aria-describedby="None-addon None-description"></textarea>
+      <textarea rows="6" class="form-control" id="None2" name="None2" aria-describedby="None-addon None-description"></textarea>
     </div><div class="form-text" id="None-description">Other names for the person This field requires at least 1 value(s)</div>
   </div>
 <div class="mb-3">
     <div class="input-group">
       <span class="input-group-text" id="None-addon">Phone</span>
-      <textarea rows="6" class="form-control" id="None" aria-describedby="None-addon None-description" ></textarea>
+      <textarea rows="6" class="form-control" id="None" name="None" aria-describedby="None-addon None-description" ></textarea>
     </div><div class="form-text" id="None-description"></div>
   </div>
 <div class="mb-3">
     <div class="input-group">
       <span class="input-group-text" id="None-addon">Age</span>
-      <input type="number" class="form-control" id="None" aria-describedby="None-addon None-description" >
+      <input type="number" class="form-control" id="None" name="None" aria-describedby="None-addon None-description" >
     </div>
     <div class="form-text" id="None-description"> The value for this field should be between 0 and 200</div>
   </div>
@@ -1641,34 +1641,34 @@ def tutorial5_yaml_expected():
 <div class="mb-3">
     <div class="input-group">
       <span class="input-group-text" id="None-addon">Id</span>
-      <textarea rows="6" class="form-control" id="None" aria-describedby="None-addon None-description" ></textarea>
+      <textarea rows="6" class="form-control" id="None" name="None" aria-describedby="None-addon None-description" ></textarea>
     </div><div class="form-text" id="None-description"></div>
   </div>
 <div class="mb-3">
     <div class="input-group">
       <span class="input-group-text" id="None-addon">Full_name</span>
-      <textarea rows="6" class="form-control" id="None" aria-describedby="None-addon None-description" required></textarea>
+      <textarea rows="6" class="form-control" id="None" name="None" aria-describedby="None-addon None-description" required></textarea>
     </div><div class="form-text" id="None-description">Name of the person</div>
   </div>
 <div class="mb-3">
     <div class="input-group">
       <span class="input-group-text" id="None-addon">Aliases</span>
-      <textarea rows="6" class="form-control" id="None" aria-describedby="None-addon None-description" ></textarea>
+      <textarea rows="6" class="form-control" id="None" name="None" aria-describedby="None-addon None-description" ></textarea>
     </div><div class="input-group">
       <span class="input-group-text hideField" id="None-addon">Aliases</span>
-      <textarea rows="6" class="form-control" id="None2" aria-describedby="None-addon None-description"></textarea>
+      <textarea rows="6" class="form-control" id="None2" name="None2" aria-describedby="None-addon None-description"></textarea>
     </div><div class="form-text" id="None-description">Other names for the person This field requires at least 1 value(s)</div>
   </div>
 <div class="mb-3">
     <div class="input-group">
       <span class="input-group-text" id="None-addon">Phone</span>
-      <textarea rows="6" class="form-control" id="None" aria-describedby="None-addon None-description" ></textarea>
+      <textarea rows="6" class="form-control" id="None" name="None" aria-describedby="None-addon None-description" ></textarea>
     </div><div class="form-text" id="None-description"></div>
   </div>
 <div class="mb-3">
     <div class="input-group">
       <span class="input-group-text" id="None-addon">Age</span>
-      <input type="number" class="form-control" id="None" aria-describedby="None-addon None-description" >
+      <input type="number" class="form-control" id="None" name="None" aria-describedby="None-addon None-description" >
     </div>
     <div class="form-text" id="None-description"> The value for this field should be between 0 and 200</div>
   </div>
