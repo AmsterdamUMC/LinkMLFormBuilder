@@ -9,7 +9,7 @@ include = [
 
 [project]
 name = "LinkMLFormbuilder"
-version = "0.1.10"
+version = "0.1.11"
 authors = [
   { name="N. van Brummelen" },
 ]
