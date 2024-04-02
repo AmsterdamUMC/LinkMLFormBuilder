@@ -48,6 +48,8 @@ optional arguments:
 ```
 
 ## Changelog
+### Version 0.1.10
+- Add name fields to input and textareas
 ### Version 0.1.9
 - Missing 'name' field error is now a warning
 - Default options for missing 'name' fields
