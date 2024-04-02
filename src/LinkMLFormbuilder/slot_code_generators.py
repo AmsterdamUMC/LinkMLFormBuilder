@@ -102,8 +102,6 @@ def getInlineEnumSlotCode(slotCode, desc, required, propertyName, title):
     return code
 
 def getStringSlotCode(desc, required, propertyName, title, slotCode):
-    print(propertyName)
-    print(slotCode)
     multivalued = utils.isMultivalued(slotCode)
     minCardinality = utils.getMinCardinality(slotCode)
     maxCardinality = utils.getMaxCardinality(slotCode)   
@@ -129,8 +127,6 @@ def getStringSlotCode(desc, required, propertyName, title, slotCode):
     return code
 
 def getTextareaSlotCode(desc, required, propertyName, title, slotCode):
-    print(propertyName)
-    print(slotCode)
     multivalued = utils.isMultivalued(slotCode)
     minCardinality = utils.getMinCardinality(slotCode)
     maxCardinality = utils.getMaxCardinality(slotCode)   
