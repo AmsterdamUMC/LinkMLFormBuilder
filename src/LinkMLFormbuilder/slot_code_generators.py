@@ -11,14 +11,14 @@ def getNumberSlotCode(slotCode, desc, required, propertyName, title):
     code = '''<div class="mb-3">
     <div class="input-group">
       <span class="input-group-text" id="{propertyName}-addon">{title}</span>
-      <input type="number" class="form-control" id="{propertyName}" aria-describedby="{propertyName}-addon {propertyName}-description" {required}>
+      <input type="number" class="form-control" id="{propertyName}" name="{propertyName}" aria-describedby="{propertyName}-addon {propertyName}-description" {required}>
     </div>'''.format(propertyName = propertyName, required = required, desc = utils.capitalizeLabel(desc), title = utils.capitalizeLabel(title), rangeDeclaration = rangeDeclaration)
 
     if (multivalued):
         for i in range(maxCardinality-1):
             code += '''<div class="input-group">
         <span class="input-group-text hideField" id="{propertyName}-addon">{title}</span>
-        <input type="number" class="form-control" id="{propertyName}{n}" aria-describedby="{propertyName}-addon {propertyName}-description">
+        <input type="number" class="form-control" id="{propertyName}{n}" name="{propertyName}{n}" aria-describedby="{propertyName}-addon {propertyName}-description">
         </div>'''.format(propertyName = propertyName, required = required, title = utils.capitalizeLabel(title), n = i+2)
         cardinalityStatement = ''' This field requires at least {minCardinality} value(s)'''.format(minCardinality = minCardinality)
 
@@ -64,7 +64,7 @@ def getEnumSlotCode(slotCode, content, desc, required, propertyName, title):
       if (constants.PERMISSIBLE_VALUES in enumCode):
         code += getPermissibleValuesCode(enumCode.get(constants.PERMISSIBLE_VALUES), enumName, multivalued, required)
       else:
-        code += '''<div class='answer-options'>\n<span class='values-from-dynamic'>{enumName}:</span>\n<textarea rows="6" class="form-control" id="{propertyName}"></textarea></div>'''.format(enumName = utils.capitalizeLabel(enumName), propertyName = enumCode.get(constants.NAME))
+        code += '''<div class='answer-options'>\n<span class='values-from-dynamic'>{enumName}:</span>\n<textarea rows="6" class="form-control" id="{propertyName}" name="{propertyName}"></textarea></div>'''.format(enumName = utils.capitalizeLabel(enumName), propertyName = enumCode.get(constants.NAME))
     code += "</div>\n"        
     return code
 
@@ -97,7 +97,7 @@ def getInlineEnumSlotCode(slotCode, desc, required, propertyName, title):
     if (constants.PERMISSIBLE_VALUES in enumCode):
         code += getPermissibleValuesCode(enumCode.get(constants.PERMISSIBLE_VALUES), enumName, multivalued, required)
     else:
-      code += '''<div class='answer-options'>\n<span class='values-from-dynamic'>{enumName}:</span>\n<textarea rows="6" class="form-control" id="{enumNameNoSpace}"></textarea>\n</div>\n'''.format(enumName = utils.capitalizeLabel(enumName), propertyName = enumCode.get(constants.NAME), enumNameNoSpace = enumName.replace(" ", "_"))
+      code += '''<div class='answer-options'>\n<span class='values-from-dynamic'>{enumName}:</span>\n<textarea rows="6" class="form-control" id="{enumNameNoSpace}" name="{enumNameNoSpace}"></textarea>\n</div>\n'''.format(enumName = utils.capitalizeLabel(enumName), propertyName = enumCode.get(constants.NAME), enumNameNoSpace = enumName.replace(" ", "_"))
     code += "</div>\n"     
     return code
 
@@ -110,14 +110,14 @@ def getStringSlotCode(desc, required, propertyName, title, slotCode):
     code =  '''<div class="mb-3">
     <div class="input-group">
       <span class="input-group-text" id="{propertyName}-addon">{title}</span>
-      <input type="text" class="form-control" id="{propertyName}" aria-describedby="{propertyName}-addon {propertyName}-description" {required}>
+      <input type="text" class="form-control" id="{propertyName}" name="{propertyName}" aria-describedby="{propertyName}-addon {propertyName}-description" {required}>
     </div>
     '''.format(propertyName = propertyName, required = required, title = utils.capitalizeLabel(title))
     if (multivalued):
         for i in range(maxCardinality-1):
             code += '''<div class="input-group">
       <span class="input-group-text hideField" id="{propertyName}-addon">{title}</span>
-      <input type="text" class="form-control" id="{propertyName}{n}" aria-describedby="{propertyName}-addon {propertyName}-description">
+      <input type="text" class="form-control" id="{propertyName}{n}" name="{propertyName}{n}" aria-describedby="{propertyName}-addon {propertyName}-description">
     </div>'''.format(propertyName = propertyName, required = required, title = utils.capitalizeLabel(title), n = i+2)
         cardinalityStatement = ''' This field requires at least {minCardinality} value(s)'''.format(minCardinality = minCardinality)
 
@@ -135,14 +135,14 @@ def getTextareaSlotCode(desc, required, propertyName, title, slotCode):
     code = '''<div class="mb-3">
     <div class="input-group">
       <span class="input-group-text" id="{propertyName}-addon">{title}</span>
-      <textarea rows="6" class="form-control" id="{propertyName}" aria-describedby="{propertyName}-addon {propertyName}-description" {required}></textarea>
+      <textarea rows="6" class="form-control" id="{propertyName}" name="{propertyName}" aria-describedby="{propertyName}-addon {propertyName}-description" {required}></textarea>
     </div>'''.format(propertyName = propertyName, required = required, desc = utils.capitalizeLabel(desc), title = utils.capitalizeLabel(title))
 
     if (multivalued):
         for i in range(maxCardinality-1):
             code += '''<div class="input-group">
       <span class="input-group-text hideField" id="{propertyName}-addon">{title}</span>
-      <textarea rows="6" class="form-control" id="{propertyName}{n}" aria-describedby="{propertyName}-addon {propertyName}-description"></textarea>
+      <textarea rows="6" class="form-control" id="{propertyName}{n}" name="{propertyName}{n}" aria-describedby="{propertyName}-addon {propertyName}-description"></textarea>
     </div>'''.format(propertyName = propertyName, required = required, title = utils.capitalizeLabel(title), n = i+2)
         cardinalityStatement = ''' This field requires at least {minCardinality} value(s)'''.format(minCardinality = minCardinality)
 
