@@ -35,10 +35,10 @@ def getBooleanSlotCode(desc, required, propertyName, title):
     code += '''<div class="form-text" id="{propertyName}-description">{desc}</div>\n'''.format(propertyName = propertyName, desc = utils.capitalizeLabel(desc))
     code += "<div class='answer-options'>\n"
     code += '''<div class="form-check">
-                  <input class="form-check-input" type="radio" name="{enumName}" id="{item}" {required}>
+                  <input class="form-check-input" type="radio" name="{enumName}" id="{item}" value="{item}" {required}>
                   <label class="form-check-label" for="{item}">{item}</label></div>\n'''.format(enumName = propertyName, item = "True", required = required)
     code += '''<div class="form-check">
-                  <input class="form-check-input" type="radio" name="{enumName}" id="{item}" {required}>
+                  <input class="form-check-input" type="radio" name="{enumName}" id="{item}" value="{item}" {required}>
                   <label class="form-check-label" for="{item}">{item}</label></div>\n'''.format(enumName = propertyName, item = "False", required = required)
     code += "</div>\n</div>\n"     
     return code
@@ -73,11 +73,11 @@ def getPermissibleValuesCode(permissible_values, enumName, multivalued, required
     for value in permissible_values:
       if (not multivalued):
         code += '''<div class="form-check">
-            <input class="form-check-input" type="radio" name="{enumName}" id="{itemNoSpace}" {required}>
+            <input class="form-check-input" type="radio" name="{enumName}" id="{itemNoSpace}" value="{itemNoSpace}" {required}>
             <label class="form-check-label" for="{itemNoSpace}">{itemCap}</label></div>\n'''.format(enumName = enumName.replace(" ", "_"), required = required, itemNoSpace = value.replace(" ", "_"), itemCap = utils.capitalizeLabel(value))
       else:
             code += '''<div class="form-check">
-            <input class="form-check-input" type="checkbox" name="{enumName}" id="{itemNoSpace}" {required}>
+            <input class="form-check-input" type="checkbox" name="{enumName}" id="{itemNoSpace}" value="{itemNoSpace}" {required}>
             <label class="form-check-label" for="{itemNoSpace}">{itemCap}</label></div>\n'''.format(enumName = enumName.replace(" ", "_"), required = required, itemNoSpace = value.replace(" ", "_"), itemCap = utils.capitalizeLabel(value))
     return code + "</div>\n"
 

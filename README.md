@@ -48,6 +48,9 @@ optional arguments:
 ```
 
 ## Changelog
+### Version 0.1.11
+- Add value fields to radio buttons so they show up in FormData
+- Fix issue with inline attributes and slots without a name field
 ### Version 0.1.10
 - Add name fields to input and textareas
 ### Version 0.1.9

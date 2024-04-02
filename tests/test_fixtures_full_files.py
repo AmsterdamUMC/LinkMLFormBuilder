@@ -822,16 +822,16 @@ def patient_partial_form_expected():
 <div class='answer-options'>
 <span class='values-from'>GeslachtCodelijst:</span>
 <div class="form-check">
-                  <input class="form-check-input" type="radio" name="GeslachtCodelijst" id="Undifferentiated" >
+                  <input class="form-check-input" type="radio" name="GeslachtCodelijst" id="Undifferentiated" value="Undifferentiated">
                   <label class="form-check-label" for="Undifferentiated">Undifferentiated</label></div>
 <div class="form-check">
-                  <input class="form-check-input" type="radio" name="GeslachtCodelijst" id="Male" >
+                  <input class="form-check-input" type="radio" name="GeslachtCodelijst" id="Male" value="Male">
                   <label class="form-check-label" for="Male">Male</label></div>
 <div class="form-check">
-                  <input class="form-check-input" type="radio" name="GeslachtCodelijst" id="Female" >
+                  <input class="form-check-input" type="radio" name="GeslachtCodelijst" id="Female" value="Female">
                   <label class="form-check-label" for="Female">Female</label></div>
 <div class="form-check">
-                  <input class="form-check-input" type="radio" name="GeslachtCodelijst" id="Unknown" >
+                  <input class="form-check-input" type="radio" name="GeslachtCodelijst" id="Unknown" value="Unknown">
                   <label class="form-check-label" for="Unknown">Unknown</label></div>
 </div>
 </div>
@@ -843,10 +843,10 @@ def patient_partial_form_expected():
 <div class="form-text" id="nl_zorg_Patient_MeerlingIndicator-description"></div>
 <div class='answer-options'>
 <div class="form-check">
-                  <input class="form-check-input" type="radio" name="nl_zorg_Patient_MeerlingIndicator" id="True" >
+                  <input class="form-check-input" type="radio" name="nl_zorg_Patient_MeerlingIndicator" id="True" value="True">
                   <label class="form-check-label" for="True">True</label></div>
 <div class="form-check">
-                  <input class="form-check-input" type="radio" name="nl_zorg_Patient_MeerlingIndicator" id="False" >
+                  <input class="form-check-input" type="radio" name="nl_zorg_Patient_MeerlingIndicator" id="False" value="False">
                   <label class="form-check-label" for="False">False</label></div>
 </div>
 </div>
@@ -858,10 +858,10 @@ def patient_partial_form_expected():
 <div class="form-text" id="nl_zorg_Patient_OverlijdensIndicator-description"></div>
 <div class='answer-options'>
 <div class="form-check">
-                  <input class="form-check-input" type="radio" name="nl_zorg_Patient_OverlijdensIndicator" id="True" >
+                  <input class="form-check-input" type="radio" name="nl_zorg_Patient_OverlijdensIndicator" id="True" value="True">
                   <label class="form-check-label" for="True">True</label></div>
 <div class="form-check">
-                  <input class="form-check-input" type="radio" name="nl_zorg_Patient_OverlijdensIndicator" id="False" >
+                  <input class="form-check-input" type="radio" name="nl_zorg_Patient_OverlijdensIndicator" id="False" value="False">
                   <label class="form-check-label" for="False">False</label></div>
 </div>
 </div>
@@ -897,10 +897,10 @@ def patient_partial_form_expected():
 <div class='answer-options'>
 <span class='values-from'>AanduidingBijNummerCodelijst:</span>
 <div class="form-check">
-                  <input class="form-check-input" type="radio" name="AanduidingBijNummerCodelijst" id="Tegenover" >
+                  <input class="form-check-input" type="radio" name="AanduidingBijNummerCodelijst" id="Tegenover" value="Tegenover">
                   <label class="form-check-label" for="Tegenover">Tegenover</label></div>
 <div class="form-check">
-                  <input class="form-check-input" type="radio" name="AanduidingBijNummerCodelijst" id="Bij" >
+                  <input class="form-check-input" type="radio" name="AanduidingBijNummerCodelijst" id="Bij" value="Bij">
                   <label class="form-check-label" for="Bij">Bij</label></div>
 </div>
 </div>
@@ -1034,10 +1034,10 @@ def three_zibs_form_expected():
 <div class='answer-options'>
 <span class='values-from'>GeslachtCodelijst:</span>
 <div class="form-check">
-                  <input class="form-check-input" type="radio" name="GeslachtCodelijst" id="Male" >
+                  <input class="form-check-input" type="radio" name="GeslachtCodelijst" id="Male" value="Male">
                   <label class="form-check-label" for="Male">Male</label></div>
 <div class="form-check">
-                  <input class="form-check-input" type="radio" name="GeslachtCodelijst" id="Female" >
+                  <input class="form-check-input" type="radio" name="GeslachtCodelijst" id="Female" value="Female">
                   <label class="form-check-label" for="Female">Female</label></div>
 </div>
 </div>
@@ -1049,10 +1049,10 @@ def three_zibs_form_expected():
 <div class="form-text" id="nl_zorg_Patient_OverlijdensIndicator-description"></div>
 <div class='answer-options'>
 <div class="form-check">
-                  <input class="form-check-input" type="radio" name="nl_zorg_Patient_OverlijdensIndicator" id="True" >
+                  <input class="form-check-input" type="radio" name="nl_zorg_Patient_OverlijdensIndicator" id="True" value="True">
                   <label class="form-check-label" for="True">True</label></div>
 <div class="form-check">
-                  <input class="form-check-input" type="radio" name="nl_zorg_Patient_OverlijdensIndicator" id="False" >
+                  <input class="form-check-input" type="radio" name="nl_zorg_Patient_OverlijdensIndicator" id="False" value="False">
                   <label class="form-check-label" for="False">False</label></div>
 </div>
 </div>
@@ -1097,16 +1097,16 @@ def three_zibs_form_expected():
 <div class='answer-options'>
 <span class='values-from'>AlertNaamCodelijst:</span>
 <div class="form-check">
-                  <input class="form-check-input" type="radio" name="AlertNaamCodelijst" id="drager_van_infectie" >
+                  <input class="form-check-input" type="radio" name="AlertNaamCodelijst" id="drager_van_infectie" value="drager_van_infectie">
                   <label class="form-check-label" for="drager_van_infectie">Drager_van_infectie</label></div>
 <div class="form-check">
-                  <input class="form-check-input" type="radio" name="AlertNaamCodelijst" id="drager_van_carbapenemresistente_Enterobacteriaceae" >
+                  <input class="form-check-input" type="radio" name="AlertNaamCodelijst" id="drager_van_carbapenemresistente_Enterobacteriaceae" value="drager_van_carbapenemresistente_Enterobacteriaceae">
                   <label class="form-check-label" for="drager_van_carbapenemresistente_Enterobacteriaceae">Drager_van_carbapenemresistente_Enterobacteriaceae</label></div>
 <div class="form-check">
-                  <input class="form-check-input" type="radio" name="AlertNaamCodelijst" id="slachtoffer_van_kindermishandeling" >
+                  <input class="form-check-input" type="radio" name="AlertNaamCodelijst" id="slachtoffer_van_kindermishandeling" value="slachtoffer_van_kindermishandeling">
                   <label class="form-check-label" for="slachtoffer_van_kindermishandeling">Slachtoffer_van_kindermishandeling</label></div>
 <div class="form-check">
-                  <input class="form-check-input" type="radio" name="AlertNaamCodelijst" id="Other" >
+                  <input class="form-check-input" type="radio" name="AlertNaamCodelijst" id="Other" value="Other">
                   <label class="form-check-label" for="Other">Other</label></div>
 </div>
 </div>
@@ -1126,7 +1126,7 @@ def three_zibs_form_expected():
 <div class='answer-options'>
 <span class='values-from'>AlertTypeCodelijst:</span>
 <div class="form-check">
-                  <input class="form-check-input" type="radio" name="AlertTypeCodelijst" id="Alert" >
+                  <input class="form-check-input" type="radio" name="AlertTypeCodelijst" id="Alert" value="Alert">
                   <label class="form-check-label" for="Alert">Alert</label></div>
 </div>
 </div>
@@ -1148,13 +1148,13 @@ def three_zibs_form_expected():
 <div class='answer-options'>
 <span class='values-from'>WoningAanpassingCodelijst:</span>
 <div class="form-check">
-                  <input class="form-check-input" type="radio" name="WoningAanpassingCodelijst" id="badstoel_en/of_douchestoel" >
+                  <input class="form-check-input" type="radio" name="WoningAanpassingCodelijst" id="badstoel_en/of_douchestoel" value="badstoel_en/of_douchestoel">
                   <label class="form-check-label" for="badstoel_en/of_douchestoel">Badstoel_en/of_douchestoel</label></div>
 <div class="form-check">
-                  <input class="form-check-input" type="radio" name="WoningAanpassingCodelijst" id="traplift" >
+                  <input class="form-check-input" type="radio" name="WoningAanpassingCodelijst" id="traplift" value="traplift">
                   <label class="form-check-label" for="traplift">Traplift</label></div>
 <div class="form-check">
-                  <input class="form-check-input" type="radio" name="WoningAanpassingCodelijst" id="aangepast_toilet" >
+                  <input class="form-check-input" type="radio" name="WoningAanpassingCodelijst" id="aangepast_toilet" value="aangepast_toilet">
                   <label class="form-check-label" for="aangepast_toilet">Aangepast_toilet</label></div>
 </div>
 </div>
@@ -1167,7 +1167,7 @@ def three_zibs_form_expected():
 <div class='answer-options'>
 <span class='values-from'>WoonOmstandigheidCodelijst:</span>
 <div class="form-check">
-                  <input class="form-check-input" type="radio" name="WoonOmstandigheidCodelijst" id="huis_bevat_trap" >
+                  <input class="form-check-input" type="radio" name="WoonOmstandigheidCodelijst" id="huis_bevat_trap" value="huis_bevat_trap">
                   <label class="form-check-label" for="huis_bevat_trap">Huis_bevat_trap</label></div>
 </div>
 </div>
@@ -1602,37 +1602,37 @@ def tutorial5_yaml_expected():
 <p class='form-description'>Form description: </p>
 <div class="mb-3">
     <div class="input-group">
-      <span class="input-group-text" id="None-addon">Id</span>
-      <textarea rows="6" class="form-control" id="None" name="None" aria-describedby="None-addon None-description" ></textarea>
-    </div><div class="form-text" id="None-description"></div>
+      <span class="input-group-text" id="id-addon">Id</span>
+      <textarea rows="6" class="form-control" id="id" name="id" aria-describedby="id-addon id-description" ></textarea>
+    </div><div class="form-text" id="id-description"></div>
   </div>
 <div class="mb-3">
     <div class="input-group">
-      <span class="input-group-text" id="None-addon">Full_name</span>
-      <textarea rows="6" class="form-control" id="None" name="None" aria-describedby="None-addon None-description" required></textarea>
-    </div><div class="form-text" id="None-description">Name of the person</div>
+      <span class="input-group-text" id="full_name-addon">Full_name</span>
+      <textarea rows="6" class="form-control" id="full_name" name="full_name" aria-describedby="full_name-addon full_name-description" required></textarea>
+    </div><div class="form-text" id="full_name-description">Name of the person</div>
   </div>
 <div class="mb-3">
     <div class="input-group">
-      <span class="input-group-text" id="None-addon">Aliases</span>
-      <textarea rows="6" class="form-control" id="None" name="None" aria-describedby="None-addon None-description" ></textarea>
+      <span class="input-group-text" id="aliases-addon">Aliases</span>
+      <textarea rows="6" class="form-control" id="aliases" name="aliases" aria-describedby="aliases-addon aliases-description" ></textarea>
     </div><div class="input-group">
-      <span class="input-group-text hideField" id="None-addon">Aliases</span>
-      <textarea rows="6" class="form-control" id="None2" name="None2" aria-describedby="None-addon None-description"></textarea>
-    </div><div class="form-text" id="None-description">Other names for the person This field requires at least 1 value(s)</div>
+      <span class="input-group-text hideField" id="aliases-addon">Aliases</span>
+      <textarea rows="6" class="form-control" id="aliases2" name="aliases2" aria-describedby="aliases-addon aliases-description"></textarea>
+    </div><div class="form-text" id="aliases-description">Other names for the person This field requires at least 1 value(s)</div>
   </div>
 <div class="mb-3">
     <div class="input-group">
-      <span class="input-group-text" id="None-addon">Phone</span>
-      <textarea rows="6" class="form-control" id="None" name="None" aria-describedby="None-addon None-description" ></textarea>
-    </div><div class="form-text" id="None-description"></div>
+      <span class="input-group-text" id="phone-addon">Phone</span>
+      <textarea rows="6" class="form-control" id="phone" name="phone" aria-describedby="phone-addon phone-description" ></textarea>
+    </div><div class="form-text" id="phone-description"></div>
   </div>
 <div class="mb-3">
     <div class="input-group">
-      <span class="input-group-text" id="None-addon">Age</span>
-      <input type="number" class="form-control" id="None" name="None" aria-describedby="None-addon None-description" >
+      <span class="input-group-text" id="age-addon">Age</span>
+      <input type="number" class="form-control" id="age" name="age" aria-describedby="age-addon age-description" >
     </div>
-    <div class="form-text" id="None-description"> The value for this field should be between 0 and 200</div>
+    <div class="form-text" id="age-description"> The value for this field should be between 0 and 200</div>
   </div>
 <h2>Container</h2>
 <p class='form-description'>Form description: </p>
@@ -1640,37 +1640,37 @@ def tutorial5_yaml_expected():
 <p class='form-description'>Form description: </p>
 <div class="mb-3">
     <div class="input-group">
-      <span class="input-group-text" id="None-addon">Id</span>
-      <textarea rows="6" class="form-control" id="None" name="None" aria-describedby="None-addon None-description" ></textarea>
-    </div><div class="form-text" id="None-description"></div>
+      <span class="input-group-text" id="id-addon">Id</span>
+      <textarea rows="6" class="form-control" id="id" name="id" aria-describedby="id-addon id-description" ></textarea>
+    </div><div class="form-text" id="id-description"></div>
   </div>
 <div class="mb-3">
     <div class="input-group">
-      <span class="input-group-text" id="None-addon">Full_name</span>
-      <textarea rows="6" class="form-control" id="None" name="None" aria-describedby="None-addon None-description" required></textarea>
-    </div><div class="form-text" id="None-description">Name of the person</div>
+      <span class="input-group-text" id="full_name-addon">Full_name</span>
+      <textarea rows="6" class="form-control" id="full_name" name="full_name" aria-describedby="full_name-addon full_name-description" required></textarea>
+    </div><div class="form-text" id="full_name-description">Name of the person</div>
   </div>
 <div class="mb-3">
     <div class="input-group">
-      <span class="input-group-text" id="None-addon">Aliases</span>
-      <textarea rows="6" class="form-control" id="None" name="None" aria-describedby="None-addon None-description" ></textarea>
+      <span class="input-group-text" id="aliases-addon">Aliases</span>
+      <textarea rows="6" class="form-control" id="aliases" name="aliases" aria-describedby="aliases-addon aliases-description" ></textarea>
     </div><div class="input-group">
-      <span class="input-group-text hideField" id="None-addon">Aliases</span>
-      <textarea rows="6" class="form-control" id="None2" name="None2" aria-describedby="None-addon None-description"></textarea>
-    </div><div class="form-text" id="None-description">Other names for the person This field requires at least 1 value(s)</div>
+      <span class="input-group-text hideField" id="aliases-addon">Aliases</span>
+      <textarea rows="6" class="form-control" id="aliases2" name="aliases2" aria-describedby="aliases-addon aliases-description"></textarea>
+    </div><div class="form-text" id="aliases-description">Other names for the person This field requires at least 1 value(s)</div>
   </div>
 <div class="mb-3">
     <div class="input-group">
-      <span class="input-group-text" id="None-addon">Phone</span>
-      <textarea rows="6" class="form-control" id="None" name="None" aria-describedby="None-addon None-description" ></textarea>
-    </div><div class="form-text" id="None-description"></div>
+      <span class="input-group-text" id="phone-addon">Phone</span>
+      <textarea rows="6" class="form-control" id="phone" name="phone" aria-describedby="phone-addon phone-description" ></textarea>
+    </div><div class="form-text" id="phone-description"></div>
   </div>
 <div class="mb-3">
     <div class="input-group">
-      <span class="input-group-text" id="None-addon">Age</span>
-      <input type="number" class="form-control" id="None" name="None" aria-describedby="None-addon None-description" >
+      <span class="input-group-text" id="age-addon">Age</span>
+      <input type="number" class="form-control" id="age" name="age" aria-describedby="age-addon age-description" >
     </div>
-    <div class="form-text" id="None-description"> The value for this field should be between 0 and 200</div>
+    <div class="form-text" id="age-description"> The value for this field should be between 0 and 200</div>
   </div>
 </body>
 </html>

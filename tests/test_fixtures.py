@@ -245,49 +245,49 @@ def simple_enum_slot_expected():
 <div class='answer-options'>
 <span class='values-from'>Measurement location valueset:</span>
 <div class="form-check">
-                <input class="form-check-input" type="radio" name="Measurement_location_valueset" id="upper_arm_structure" >
+                <input class="form-check-input" type="radio" name="Measurement_location_valueset" id="upper_arm_structure" value="upper_arm_structure" >
                 <label class="form-check-label" for="upper_arm_structure">Upper arm structure</label></div>
 <div class="form-check">
-                <input class="form-check-input" type="radio" name="Measurement_location_valueset" id="right_upper_arm_structure" >
+                <input class="form-check-input" type="radio" name="Measurement_location_valueset" id="right_upper_arm_structure" value="right_upper_arm_structure" >
                 <label class="form-check-label" for="right_upper_arm_structure">Right upper arm structure</label></div>
 <div class="form-check">
-                <input class="form-check-input" type="radio" name="Measurement_location_valueset" id="left_upper_arm_structure" >
+                <input class="form-check-input" type="radio" name="Measurement_location_valueset" id="left_upper_arm_structure" value="left_upper_arm_structure">
                 <label class="form-check-label" for="left_upper_arm_structure">Left upper arm structure</label></div>
 <div class="form-check">
-                <input class="form-check-input" type="radio" name="Measurement_location_valueset" id="thigh_structure" >
+                <input class="form-check-input" type="radio" name="Measurement_location_valueset" id="thigh_structure" value="thigh_structure">
                 <label class="form-check-label" for="thigh_structure">Thigh structure</label></div>
 <div class="form-check">
-                <input class="form-check-input" type="radio" name="Measurement_location_valueset" id="right_thigh_structure" >
+                <input class="form-check-input" type="radio" name="Measurement_location_valueset" id="right_thigh_structure" value="right_thigh_structure" >
                 <label class="form-check-label" for="right_thigh_structure">Right thigh structure</label></div>
 <div class="form-check">
-                <input class="form-check-input" type="radio" name="Measurement_location_ valueset" id="left_thigh_structure" >
+                <input class="form-check-input" type="radio" name="Measurement_location_ valueset" id="left_thigh_structure" value="left_thigh_structure">
                 <label class="form-check-label" for="left_thigh_structure">Left thigh structure</label></div>
 <div class="form-check">
-                <input class="form-check-input" type="radio" name="Measurement_location_valueset" id="wrist_region_structure" >
+                <input class="form-check-input" type="radio" name="Measurement_location_valueset" id="wrist_region_structure" value="wrist_region_structure">
                 <label class="form-check-label" for="wrist_region_structure">Wrist region structure</label></div>
 <div class="form-check">
-                <input class="form-check-input" type="radio" name="Measurement_location_valueset" id="right_wrist_region_structure" >
+                <input class="form-check-input" type="radio" name="Measurement_location_valueset" id="right_wrist_region_structure" value="right_wrist_region_structure">
                 <label class="form-check-label" for="right_wrist_region_structure">Right wrist region structure</label></div>
 <div class="form-check">
-                <input class="form-check-input" type="radio" name="Measurement_location_valueset" id="left_wrist_region_structure" >
+                <input class="form-check-input" type="radio" name="Measurement_location_valueset" id="left_wrist_region_structure" value="left_wrist_region_structure" >
                 <label class="form-check-label" for="left_wrist_region_structure">Left wrist region structure</label></div>
 <div class="form-check">
-                <input class="form-check-input" type="radio" name="Measurement_location_valueset" id="finger_structure" >
+                <input class="form-check-input" type="radio" name="Measurement_location_valueset" id="finger_structure" value="finger_structure" >
                 <label class="form-check-label" for="finger_structure">Finger structure</label></div>
 <div class="form-check">
-                <input class="form-check-input" type="radio" name="Measurement_location_valueset" id="ankle_region_structure" >
+                <input class="form-check-input" type="radio" name="Measurement_location_valueset" id="ankle_region_structure" value="ankle_region_structure">
                 <label class="form-check-label" for="ankle_region_structure">Ankle region structure</label></div>
 <div class="form-check">
-                <input class="form-check-input" type="radio" name="Measurement_location_valueset" id="right_ankle_region_structure" >
+                <input class="form-check-input" type="radio" name="Measurement_location_valueset" id="right_ankle_region_structure" value="right_ankle_region_structure">
                 <label class="form-check-label" for="right_ankle_region_structure">Right ankle region structure</label></div>
 <div class="form-check">
-                <input class="form-check-input" type="radio" name="Measurement_location_valueset" id="left_ankle_region_structure" >
+                <input class="form-check-input" type="radio" name="Measurement_location_valueset" id="left_ankle_region_structure" value="left_ankle_region_structure">
                 <label class="form-check-label" for="left_ankle_region_structure">Left ankle region structure</label></div>
 <div class="form-check">
-                <input class="form-check-input" type="radio" name="Measurement_location_valueset" id="toe_structure" >
+                <input class="form-check-input" type="radio" name="Measurement_location_valueset" id="toe_structure" value="toe_structure">
                 <label class="form-check-label" for="toe_structure">Toe structure</label></div>
 <div class="form-check">
-                <input class="form-check-input" type="radio" name="Measurement_location_valueset" id="intra-arterial" >
+                <input class="form-check-input" type="radio" name="Measurement_location_valueset" id="intra-arterial" value="intra-arterial">
                 <label class="form-check-label" for="intra-arterial">Intra-arterial</label></div>
 </div>
 </div>'''
@@ -350,19 +350,19 @@ def inlined_static_enum_slot_expected():
 <div class='answer-options'>
 <span class='values-from'>Patient body position valueset:</span>
 <div class="form-check">
-                <input class="form-check-input" type="radio" name="Patient_body_position_valueset" id="sitting_position" >
+                <input class="form-check-input" type="radio" name="Patient_body_position_valueset" id="sitting_position" value="sitting_position">
                 <label class="form-check-label" for="sitting_position">Sitting position</label></div>
 <div class="form-check">
-                <input class="form-check-input" type="radio" name="Patient_body_position_valueset" id="lying_position" >
+                <input class="form-check-input" type="radio" name="Patient_body_position_valueset" id="lying_position" value="lying_position">
                 <label class="form-check-label" for="lying_position">Lying position</label></div>
 <div class="form-check">
-                <input class="form-check-input" type="radio" name="Patient_body_position_valueset" id="standing_position" >
+                <input class="form-check-input" type="radio" name="Patient_body_position_valueset" id="standing_position" value="standing_position">
                 <label class="form-check-label" for="standing_position">Standing position</label></div>
 <div class="form-check">
-                <input class="form-check-input" type="radio" name="Patient_body_position_valueset" id="tilted_position" >
+                <input class="form-check-input" type="radio" name="Patient_body_position_valueset" id="tilted_position" value="tilted_position">
                 <label class="form-check-label" for="tilted_position">Tilted position</label></div>
 <div class="form-check">
-                <input class="form-check-input" type="radio" name="Patient_body_position_valueset" id="trendelenburg_position" >
+                <input class="form-check-input" type="radio" name="Patient_body_position_valueset" id="trendelenburg_position" value="trendelenburg_position">
                 <label class="form-check-label" for="trendelenburg_position">Trendelenburg position</label></div>
 </div>
 </div>
@@ -482,7 +482,6 @@ def multivalued_textarea_slot_expected():
 <div class="form-text" id="explanatory_statement-description">Additional information that cannot be coded This field requires at least 1 value(s)</div>
 </div>'''
 
-
 @pytest.fixture(scope='session')
 def simple_textarea_slot_default_range_expected():
     return '''<div class="mb-3">
@@ -515,10 +514,10 @@ def simple_boolean_slot_expected():
 <div class="form-text" id="nl_zorg_Patient_MeerlingIndicator-description"></div>
 <div class='answer-options'>
 <div class="form-check">
-                  <input class="form-check-input" type="radio" name="nl_zorg_Patient_MeerlingIndicator" id="True" >
+                  <input class="form-check-input" type="radio" name="nl_zorg_Patient_MeerlingIndicator" id="True" value="True" >
                   <label class="form-check-label" for="True">True</label></div>
 <div class="form-check">
-                  <input class="form-check-input" type="radio" name="nl_zorg_Patient_MeerlingIndicator" id="False" >
+                  <input class="form-check-input" type="radio" name="nl_zorg_Patient_MeerlingIndicator" id="False" value="False" >
                   <label class="form-check-label" for="False">False</label></div>
 </div>
 </div>'''
@@ -533,10 +532,10 @@ def simple_boolean_slot_default_range_expected():
 <div class="form-text" id="default_range_slot-description">Default range slot description</div>
 <div class='answer-options'>
 <div class="form-check">
-                  <input class="form-check-input" type="radio" name="default_range_slot" id="True" >
+                  <input class="form-check-input" type="radio" name="default_range_slot" id="True" value="True">
                   <label class="form-check-label" for="True">True</label></div>
 <div class="form-check">
-                  <input class="form-check-input" type="radio" name="default_range_slot" id="False" >
+                  <input class="form-check-input" type="radio" name="default_range_slot" id="False" value="False">
                   <label class="form-check-label" for="False">False</label></div>
 </div>
 </div>'''
