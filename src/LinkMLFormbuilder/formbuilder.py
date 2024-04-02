@@ -26,6 +26,7 @@ def getSlotFormCode(slotCode, content, default_range, subclasses, level, key):
     desc = utils.extractDescription(slotCode)
     required = constants.REQUIRED if (constants.REQUIRED in slotCode and slotCode.get(constants.REQUIRED) == True) else ""
     propertyName = slotCode.get(constants.NAME)
+    if (propertyName == None): propertyName = key
     title = utils.extractSlotName(slotCode, key)
     
     if (constants.VALUES_FROM in slotCode or (constants.RANGE in slotCode and constants.ENUMS in content and slotCode.get(constants.RANGE) in content.get(constants.ENUMS))):
