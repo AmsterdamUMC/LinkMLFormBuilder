@@ -764,10 +764,13 @@ def patient_partial_form_expected():
         background-color: #f8f9fa;
         border: 1px solid #dee2e6;
         border-radius: 0.375rem;
-        width: 20%;
         float: left;
         min-height: 34px;
         white-space: pre-wrap;
+    }
+
+    .width20 {
+        width: 20%
     }
 
     .form-control {
@@ -784,7 +787,7 @@ def patient_partial_form_expected():
     }
 
     .hideField {
-        visibility: hidden;
+        display: none !important;
     }
 
     .form-check {
@@ -808,11 +811,38 @@ def patient_partial_form_expected():
     h2 {
         width: 100vw;
     }
+
+    .answer-options {
+        padding-left: 0.667px;
+    }
+
+    details {
+        border: 1px solid #dee2e6;
+        border-radius: 0.375rem;
+        padding: 0.5em 0.5em 0;
+        width: fit-content;
+        margin-bottom: 0.5rem;
+    }
+    
+    summary {
+        font-weight: bold;
+        margin: -0.5em -0.5em 0;
+        padding: 0.5em;
+    }
+    
+    details[open] {
+        padding: 0.5em;
+    }
+    
+    details[open] summary {
+        border-bottom: 1px solid #dee2e6;
+        margin-bottom: 0.5em;
+    }
 </style>
 <body>
 <h1>Zorginformatiebouwstenen_(ZIB)_2020 (Zorginformatiebouwstenen (ZIB) 2020 / Health and Care Information Models (HCIM) 2020)</h1>
 <h2>Nl.zorg.Patient (nl.zorg.Patient)</h2>
-<p class='form-description'>Form description: Concept Een persoon die medische, psychische, paramedische of verpleegkundige zorg ontvangt. In sommige zorgsectoren wordt in plaats van de term patient de term client of deelnemer gebruikt. Purpose Het vastleggen van de relevante gegevens ten behoeve van identificatie van de patiënt, voor administratieve doeleinden en procesondersteuning. Evidence Base Hoewel de term Patiënt niet in alle zorgsectoren gebruikt wordt, is er niet voor gekozen de naam van de zib te wijzigen in Persoon als overkoepelende aanduiding voor patiënt, cliënt, deelnemer, etc. omdat het begrip Persoon breder is dan het hier bedoelde concept. Zorgverleners en Contactpersonen zijn uiteindelijk ook personen.De naam en adresgegevens zijn gebaseerd op de gegevensset van de Gemeentelijk Basis Administratie (GBA) en op de Nederlandse implementatiehandleiding HL7v3 Basiscomponenten.De gegevens die bij de wettelijk verplichte verificatie van een BSN door de SBV-Z worden opgeleverd zijn eveneens conform de GBA specificatie.Daarnaast is bij het vaststellen van de set gekeken naar de in de AWBZ zorg gebruikte AZR (AWBZ-brede zorgregistratie) gegevensset.Gebruik van patiënt- en persoonsgegevens dient te voldoen aan de Wet Bescherming Persoonsgegevens. In deze wet wordt beschreven dat het verboden is om niet-noodzakelijke persoonsgegevens te verwerken en dat op een nadenkende en fatsoenlijke wijze met verkregen persoonsgegevens omgegaan wordt (Kohnstamm, 2006). Patiëntgegevens vastgelegd in een (elektronisch) patiëntendossier of in een elektronisch bericht dienen in de context van de Wet Bescherming Persoonsgegevens beschouwd te worden. Daarnaast dienen gezondheidszorginstellingen te voldoen aan de norm Informatiebeveiliging NEN 7510. Het toezicht op naleving van de WBP ligt bij het college Bescherming persoonsgegevens (CBP). Voor het toezicht op de informatiebeveiliging in de zorg zijn het CBP en de Inspectie voor de gezondheidszorg (IGZ) gezamenlijk verantwoordelijk (CBP, IGZ, 2008).Om die redenen zijn een aantal persoonsgegevens, die in sommige landen als administratieve gegevens beschouwd worden, niet in deze bouwsteen maar in de bouwstenen voor de Sociale Anamnese opgenomen. Example Instances  Instructions Indien zowel een naam als een identificatienummer wordt meegegeven, moet, voor verificatiedoeleinden, de naam overeenkomen met de naam die bij het identifcatienummer geregistreerd is. References 1. DCM Patientgegevens V0.91. [Online] Beschikbaar op http//www.nictiz.nl/uploaded/FILES/htmlcontent/dcm/Nictiz/DCMPatientgegevens_V_0.91loNL.pdf [Geraadpleegd 23 februari 2015].2. Implementatiehandleiding HL7v3 Basiscomponenten, Stichting HL7 Nederland [Online] Beschikbaar op http//www.hl7.nl/images/downloads/Implementatiehandleiding%20HL7v3%20Basiscomponenten%20%202.3NL_secure.pdf [Geraadpleegd 23 februari 2015]. Revision History Publicatieversie 1.0 (15-02-2013)-Publicatieversie 1.1 (01-07-2013)Bevat ZIB-33.Publicatieversie 2.0 (01-04-2015)Bevat ZIB-62, ZIB-67, ZIB-96, ZIB-97, ZIB-98, ZIB-99, ZIB-100, ZIB-102, ZIB-121, ZIB-257, ZIB-258, ZIB-259, ZIB-260, ZIB-261, ZIB-262, ZIB-303, ZIB-308, ZIB-349, ZIB-350, ZIB-351, ZIB-353.Incl. algemene wijzigingsverzoeken ZIB-94, ZIB-154, ZIB-200, ZIB-201, ZIB-309, ZIB-324, ZIB-326.Publicatieversie 2.0.1 (22-05-2015)Bevat ZIB-385, ZIB-374.Publicatieversie 3.0 (01-05-2016)Bevat ZIB-453.Publicatieversie 3.1 (04-09-2017)Bevat ZIB-429, ZIB-430, ZIB-442, ZIB-471, ZIB-491, ZIB-564.Publicatieversie 3.1.1 (01-10-2018)Bevat ZIB-647.Publicatieversie 3.2 (01-09-2020)Bevat ZIB-961, ZIB-1029, ZIB-1189. (Concept A person who receives medical, psychological, paramedical or nursing care. In some care settings, the term client or participant is used instead of the term patient. Purpose Recording relevant information to identify the patient for administrative purposes and process support. Evidence Base Although the term Patient is not used in all care settings, it has been decided not to change the name of the zib to Person as the overall name for Patient, Client, Participant, etc. because the concept Person is broader than the concept referred to here. Healthprofessionals and contact persons are ultimately also Persons.The name and address information is based on the information set of the Municipal Personal Records Database (GBA) and on the Dutch Implementation Guide HL7v3 Basic Components. The information for the legally required verification of a social security number provided by the SBV-Z also follows GBA specifications. Furthermore, the AZR (AWBZ-wide healthcare registration) data set used in AWBZ healthcare served as a base in determining the set. Use of patient and personal details must follow the Personal Data Protection Act. This law prohibits processing non-essential personal data and mandates decent and reasonable processing of obtained personal data (Kohnstamm, 2006). Patient data recorded in (electronic) patient records or in digital messages must be handled in the context of the Personal Data Protection Act. Furthermore, healthcare centers must meet the Information Security NEN 7510 standard. Observance of the PDPA is monitored by the Dutch Data Protection Authority (CBP). The CBP and the Healthcare Inspectorate (IGZ) are jointly responsible for monitoring information security in healthcare (CBP, IGZ, 2008). For those reasons, some personal data, seen in some countries as administrative data, are not included in this information model but in the information models for the Social Anamnesis. Example Instances  Instructions If both a name and an identification number are given, the name must match the name registered under that identification number, for verification purposes.)</p>
+<details><summary style="display:list-item">Form description</summary>Concept Een persoon die medische, psychische, paramedische of verpleegkundige zorg ontvangt. In sommige zorgsectoren wordt in plaats van de term patient de term client of deelnemer gebruikt. Purpose Het vastleggen van de relevante gegevens ten behoeve van identificatie van de patiënt, voor administratieve doeleinden en procesondersteuning. Evidence Base Hoewel de term Patiënt niet in alle zorgsectoren gebruikt wordt, is er niet voor gekozen de naam van de zib te wijzigen in Persoon als overkoepelende aanduiding voor patiënt, cliënt, deelnemer, etc. omdat het begrip Persoon breder is dan het hier bedoelde concept. Zorgverleners en Contactpersonen zijn uiteindelijk ook personen.De naam en adresgegevens zijn gebaseerd op de gegevensset van de Gemeentelijk Basis Administratie (GBA) en op de Nederlandse implementatiehandleiding HL7v3 Basiscomponenten.De gegevens die bij de wettelijk verplichte verificatie van een BSN door de SBV-Z worden opgeleverd zijn eveneens conform de GBA specificatie.Daarnaast is bij het vaststellen van de set gekeken naar de in de AWBZ zorg gebruikte AZR (AWBZ-brede zorgregistratie) gegevensset.Gebruik van patiënt- en persoonsgegevens dient te voldoen aan de Wet Bescherming Persoonsgegevens. In deze wet wordt beschreven dat het verboden is om niet-noodzakelijke persoonsgegevens te verwerken en dat op een nadenkende en fatsoenlijke wijze met verkregen persoonsgegevens omgegaan wordt (Kohnstamm, 2006). Patiëntgegevens vastgelegd in een (elektronisch) patiëntendossier of in een elektronisch bericht dienen in de context van de Wet Bescherming Persoonsgegevens beschouwd te worden. Daarnaast dienen gezondheidszorginstellingen te voldoen aan de norm Informatiebeveiliging NEN 7510. Het toezicht op naleving van de WBP ligt bij het college Bescherming persoonsgegevens (CBP). Voor het toezicht op de informatiebeveiliging in de zorg zijn het CBP en de Inspectie voor de gezondheidszorg (IGZ) gezamenlijk verantwoordelijk (CBP, IGZ, 2008).Om die redenen zijn een aantal persoonsgegevens, die in sommige landen als administratieve gegevens beschouwd worden, niet in deze bouwsteen maar in de bouwstenen voor de Sociale Anamnese opgenomen. Example Instances  Instructions Indien zowel een naam als een identificatienummer wordt meegegeven, moet, voor verificatiedoeleinden, de naam overeenkomen met de naam die bij het identifcatienummer geregistreerd is. References 1. DCM Patientgegevens V0.91. [Online] Beschikbaar op http//www.nictiz.nl/uploaded/FILES/htmlcontent/dcm/Nictiz/DCMPatientgegevens_V_0.91loNL.pdf [Geraadpleegd 23 februari 2015].2. Implementatiehandleiding HL7v3 Basiscomponenten, Stichting HL7 Nederland [Online] Beschikbaar op http//www.hl7.nl/images/downloads/Implementatiehandleiding%20HL7v3%20Basiscomponenten%20%202.3NL_secure.pdf [Geraadpleegd 23 februari 2015]. Revision History Publicatieversie 1.0 (15-02-2013)-Publicatieversie 1.1 (01-07-2013)Bevat ZIB-33.Publicatieversie 2.0 (01-04-2015)Bevat ZIB-62, ZIB-67, ZIB-96, ZIB-97, ZIB-98, ZIB-99, ZIB-100, ZIB-102, ZIB-121, ZIB-257, ZIB-258, ZIB-259, ZIB-260, ZIB-261, ZIB-262, ZIB-303, ZIB-308, ZIB-349, ZIB-350, ZIB-351, ZIB-353.Incl. algemene wijzigingsverzoeken ZIB-94, ZIB-154, ZIB-200, ZIB-201, ZIB-309, ZIB-324, ZIB-326.Publicatieversie 2.0.1 (22-05-2015)Bevat ZIB-385, ZIB-374.Publicatieversie 3.0 (01-05-2016)Bevat ZIB-453.Publicatieversie 3.1 (04-09-2017)Bevat ZIB-429, ZIB-430, ZIB-442, ZIB-471, ZIB-491, ZIB-564.Publicatieversie 3.1.1 (01-10-2018)Bevat ZIB-647.Publicatieversie 3.2 (01-09-2020)Bevat ZIB-961, ZIB-1029, ZIB-1189. (Concept A person who receives medical, psychological, paramedical or nursing care. In some care settings, the term client or participant is used instead of the term patient. Purpose Recording relevant information to identify the patient for administrative purposes and process support. Evidence Base Although the term Patient is not used in all care settings, it has been decided not to change the name of the zib to Person as the overall name for Patient, Client, Participant, etc. because the concept Person is broader than the concept referred to here. Healthprofessionals and contact persons are ultimately also Persons.The name and address information is based on the information set of the Municipal Personal Records Database (GBA) and on the Dutch Implementation Guide HL7v3 Basic Components. The information for the legally required verification of a social security number provided by the SBV-Z also follows GBA specifications. Furthermore, the AZR (AWBZ-wide healthcare registration) data set used in AWBZ healthcare served as a base in determining the set. Use of patient and personal details must follow the Personal Data Protection Act. This law prohibits processing non-essential personal data and mandates decent and reasonable processing of obtained personal data (Kohnstamm, 2006). Patient data recorded in (electronic) patient records or in digital messages must be handled in the context of the Personal Data Protection Act. Furthermore, healthcare centers must meet the Information Security NEN 7510 standard. Observance of the PDPA is monitored by the Dutch Data Protection Authority (CBP). The CBP and the Healthcare Inspectorate (IGZ) are jointly responsible for monitoring information security in healthcare (CBP, IGZ, 2008). For those reasons, some personal data, seen in some countries as administrative data, are not included in this information model but in the information models for the Social Anamnesis. Example Instances  Instructions If both a name and an identification number are given, the name must match the name registered under that identification number, for verification purposes.)</details>
 <div class="mb-3">
             <div class="input-group">
 <span class="input-group-text">Geslacht (Geslacht / Gender)</span>
@@ -866,25 +896,24 @@ def patient_partial_form_expected():
 </div>
 </div>
 <h3>NlZorgPatientAdresgegevensContainer (Adresgegevens / AddressInformation)</h3>
-<p class='form-description'>Form description: Adresgegevens van de patiënt. (Patients address information.)</p>
-<div class="mb-3">
+<details><summary style="display:list-item">Form description</summary>Adresgegevens van de patiënt. (Patients address information.)</details><div class="mb-3">
     <div class="input-group">
-      <span class="input-group-text" id="nl_zorg_part_Adresgegevens_Huisnummer-addon">Huisnummer (Huisnummer / HouseNumber)</span>
-      <textarea rows="6" class="form-control" id="nl_zorg_part_Adresgegevens_Huisnummer" name="nl_zorg_part_Adresgegevens_Huisnummer" aria-describedby="nl_zorg_part_Adresgegevens_Huisnummer-addon nl_zorg_part_Adresgegevens_Huisnummer-description" ></textarea>
+      <span class="input-group-text width20" id="nl_zorg_part_Adresgegevens_Huisnummer-addon">Huisnummer (Huisnummer / HouseNumber)</span>
+      <textarea rows="2" class="form-control" id="nl_zorg_part_Adresgegevens_Huisnummer" name="nl_zorg_part_Adresgegevens_Huisnummer" aria-describedby="nl_zorg_part_Adresgegevens_Huisnummer-addon nl_zorg_part_Adresgegevens_Huisnummer-description" ></textarea>
     </div>
     <div class="form-text" id="nl_zorg_part_Adresgegevens_Huisnummer-description"></div>
   </div>
 <div class="mb-3">
     <div class="input-group">
-      <span class="input-group-text" id="nl_zorg_part_Adresgegevens_Huisnummerletter-addon">Huisnummerletter (Huisnummerletter / HouseNumberLetter)</span>
-      <textarea rows="6" class="form-control" id="nl_zorg_part_Adresgegevens_Huisnummerletter" name="nl_zorg_part_Adresgegevens_Huisnummerletter" aria-describedby="nl_zorg_part_Adresgegevens_Huisnummerletter-addon nl_zorg_part_Adresgegevens_Huisnummerletter-description" ></textarea>
+      <span class="input-group-text width20" id="nl_zorg_part_Adresgegevens_Huisnummerletter-addon">Huisnummerletter (Huisnummerletter / HouseNumberLetter)</span>
+      <textarea rows="2" class="form-control" id="nl_zorg_part_Adresgegevens_Huisnummerletter" name="nl_zorg_part_Adresgegevens_Huisnummerletter" aria-describedby="nl_zorg_part_Adresgegevens_Huisnummerletter-addon nl_zorg_part_Adresgegevens_Huisnummerletter-description" ></textarea>
     </div>
     <div class="form-text" id="nl_zorg_part_Adresgegevens_Huisnummerletter-description"></div>
   </div>
 <div class="mb-3">
     <div class="input-group">
-      <span class="input-group-text" id="nl_zorg_part_Adresgegevens_Huisnummertoevoeging-addon">Huisnummertoevoeging (Huisnummertoevoeging / HouseNumberAddition)</span>
-      <textarea rows="6" class="form-control" id="nl_zorg_part_Adresgegevens_Huisnummertoevoeging" name="nl_zorg_part_Adresgegevens_Huisnummertoevoeging" aria-describedby="nl_zorg_part_Adresgegevens_Huisnummertoevoeging-addon nl_zorg_part_Adresgegevens_Huisnummertoevoeging-description" ></textarea>
+      <span class="input-group-text width20" id="nl_zorg_part_Adresgegevens_Huisnummertoevoeging-addon">Huisnummertoevoeging (Huisnummertoevoeging / HouseNumberAddition)</span>
+      <textarea rows="2" class="form-control" id="nl_zorg_part_Adresgegevens_Huisnummertoevoeging" name="nl_zorg_part_Adresgegevens_Huisnummertoevoeging" aria-describedby="nl_zorg_part_Adresgegevens_Huisnummertoevoeging-addon nl_zorg_part_Adresgegevens_Huisnummertoevoeging-description" ></textarea>
     </div>
     <div class="form-text" id="nl_zorg_part_Adresgegevens_Huisnummertoevoeging-description"></div>
   </div>
@@ -906,15 +935,15 @@ def patient_partial_form_expected():
 </div>
 <div class="mb-3">
     <div class="input-group">
-      <span class="input-group-text" id="nl_zorg_part_Adresgegevens_Gemeente-addon">Gemeente (Gemeente / Municipality)</span>
-      <textarea rows="6" class="form-control" id="nl_zorg_part_Adresgegevens_Gemeente" name="nl_zorg_part_Adresgegevens_Gemeente" aria-describedby="nl_zorg_part_Adresgegevens_Gemeente-addon nl_zorg_part_Adresgegevens_Gemeente-description" ></textarea>
+      <span class="input-group-text width20" id="nl_zorg_part_Adresgegevens_Gemeente-addon">Gemeente (Gemeente / Municipality)</span>
+      <textarea rows="2" class="form-control" id="nl_zorg_part_Adresgegevens_Gemeente" name="nl_zorg_part_Adresgegevens_Gemeente" aria-describedby="nl_zorg_part_Adresgegevens_Gemeente-addon nl_zorg_part_Adresgegevens_Gemeente-description" ></textarea>
     </div>
     <div class="form-text" id="nl_zorg_part_Adresgegevens_Gemeente-description"></div>
   </div>
 <div class="mb-3">
     <div class="input-group">
-      <span class="input-group-text" id="nl_zorg_part_Adresgegevens_Land-addon">Land (Land / Country)</span>
-      <textarea rows="6" class="form-control" id="nl_zorg_part_Adresgegevens_Land" name="nl_zorg_part_Adresgegevens_Land" aria-describedby="nl_zorg_part_Adresgegevens_Land-addon nl_zorg_part_Adresgegevens_Land-description" ></textarea>
+      <span class="input-group-text width20" id="nl_zorg_part_Adresgegevens_Land-addon">Land (Land / Country)</span>
+      <textarea rows="2" class="form-control" id="nl_zorg_part_Adresgegevens_Land" name="nl_zorg_part_Adresgegevens_Land" aria-describedby="nl_zorg_part_Adresgegevens_Land-addon nl_zorg_part_Adresgegevens_Land-description" ></textarea>
     </div>
     <div class="form-text" id="nl_zorg_part_Adresgegevens_Land-description"></div>
   </div>
@@ -976,10 +1005,13 @@ def three_zibs_form_expected():
         background-color: #f8f9fa;
         border: 1px solid #dee2e6;
         border-radius: 0.375rem;
-        width: 20%;
         float: left;
         min-height: 34px;
         white-space: pre-wrap;
+    }
+
+    .width20 {
+        width: 20%
     }
 
     .form-control {
@@ -996,7 +1028,7 @@ def three_zibs_form_expected():
     }
 
     .hideField {
-        visibility: hidden;
+        display: none !important;
     }
 
     .form-check {
@@ -1020,11 +1052,38 @@ def three_zibs_form_expected():
     h2 {
         width: 100vw;
     }
+
+    .answer-options {
+        padding-left: 0.667px;
+    }
+
+    details {
+        border: 1px solid #dee2e6;
+        border-radius: 0.375rem;
+        padding: 0.5em 0.5em 0;
+        width: fit-content;
+        margin-bottom: 0.5rem;
+    }
+    
+    summary {
+        font-weight: bold;
+        margin: -0.5em -0.5em 0;
+        padding: 0.5em;
+    }
+    
+    details[open] {
+        padding: 0.5em;
+    }
+    
+    details[open] summary {
+        border-bottom: 1px solid #dee2e6;
+        margin-bottom: 0.5em;
+    }
 </style>
 <body>
 <h1>3Zorginformatiebouwstenen_(ZIB)_2020 (Zorginformatiebouwstenen (ZIB) 2020 / Health and Care Information Models (HCIM) 2020)</h1>
 <h2>Nl.zorg.Patient (nl.zorg.Patient)</h2>
-<p class='form-description'>Form description: Concept Een persoon die medische, psychische, paramedische of verpleegkundige zorg ontvangt. In sommige zorgsectoren wordt in plaats van de term patient de term client of deelnemer gebruikt. Purpose Het vastleggen van de relevante gegevens ten behoeve van identificatie van de patiënt, voor administratieve doeleinden en procesondersteuning. Evidence Base Hoewel de term Patiënt niet in alle zorgsectoren gebruikt wordt, is er niet voor gekozen de naam van de zib te wijzigen in Persoon als overkoepelende aanduiding voor patiënt, cliënt, deelnemer, etc. omdat het begrip Persoon breder is dan het hier bedoelde concept. Zorgverleners en Contactpersonen zijn uiteindelijk ook personen.De naam en adresgegevens zijn gebaseerd op de gegevensset van de Gemeentelijk Basis Administratie (GBA) en op de Nederlandse implementatiehandleiding HL7v3 Basiscomponenten.De gegevens die bij de wettelijk verplichte verificatie van een BSN door de SBV-Z worden opgeleverd zijn eveneens conform de GBA specificatie.Daarnaast is bij het vaststellen van de set gekeken naar de in de AWBZ zorg gebruikte AZR (AWBZ-brede zorgregistratie) gegevensset.Gebruik van patiënt- en persoonsgegevens dient te voldoen aan de Wet Bescherming Persoonsgegevens. In deze wet wordt beschreven dat het verboden is om niet-noodzakelijke persoonsgegevens te verwerken en dat op een nadenkende en fatsoenlijke wijze met verkregen persoonsgegevens omgegaan wordt (Kohnstamm, 2006). Patiëntgegevens vastgelegd in een (elektronisch) patiëntendossier of in een elektronisch bericht dienen in de context van de Wet Bescherming Persoonsgegevens beschouwd te worden. Daarnaast dienen gezondheidszorginstellingen te voldoen aan de norm Informatiebeveiliging NEN 7510. Het toezicht op naleving van de WBP ligt bij het college Bescherming persoonsgegevens (CBP). Voor het toezicht op de informatiebeveiliging in de zorg zijn het CBP en de Inspectie voor de gezondheidszorg (IGZ) gezamenlijk verantwoordelijk (CBP, IGZ, 2008).Om die redenen zijn een aantal persoonsgegevens, die in sommige landen als administratieve gegevens beschouwd worden, niet in deze bouwsteen maar in de bouwstenen voor de Sociale Anamnese opgenomen. Example Instances  Instructions Indien zowel een naam als een identificatienummer wordt meegegeven, moet, voor verificatiedoeleinden, de naam overeenkomen met de naam die bij het identifcatienummer geregistreerd is. References 1. DCM Patientgegevens V0.91. [Online] Beschikbaar op http//www.nictiz.nl/uploaded/FILES/htmlcontent/dcm/Nictiz/DCMPatientgegevens_V_0.91loNL.pdf [Geraadpleegd 23 februari 2015].2. Implementatiehandleiding HL7v3 Basiscomponenten, Stichting HL7 Nederland [Online] Beschikbaar op http//www.hl7.nl/images/downloads/Implementatiehandleiding%20HL7v3%20Basiscomponenten%20%202.3NL_secure.pdf [Geraadpleegd 23 februari 2015]. Revision History Publicatieversie 1.0 (15-02-2013)-Publicatieversie 1.1 (01-07-2013)Bevat ZIB-33.Publicatieversie 2.0 (01-04-2015)Bevat ZIB-62, ZIB-67, ZIB-96, ZIB-97, ZIB-98, ZIB-99, ZIB-100, ZIB-102, ZIB-121, ZIB-257, ZIB-258, ZIB-259, ZIB-260, ZIB-261, ZIB-262, ZIB-303, ZIB-308, ZIB-349, ZIB-350, ZIB-351, ZIB-353.Incl. algemene wijzigingsverzoeken ZIB-94, ZIB-154, ZIB-200, ZIB-201, ZIB-309, ZIB-324, ZIB-326.Publicatieversie 2.0.1 (22-05-2015)Bevat ZIB-385, ZIB-374.Publicatieversie 3.0 (01-05-2016)Bevat ZIB-453.Publicatieversie 3.1 (04-09-2017)Bevat ZIB-429, ZIB-430, ZIB-442, ZIB-471, ZIB-491, ZIB-564.Publicatieversie 3.1.1 (01-10-2018)Bevat ZIB-647.Publicatieversie 3.2 (01-09-2020)Bevat ZIB-961, ZIB-1029, ZIB-1189. (Concept A person who receives medical, psychological, paramedical or nursing care. In some care settings, the term client or participant is used instead of the term patient. Purpose Recording relevant information to identify the patient for administrative purposes and process support. Evidence Base Although the term Patient is not used in all care settings, it has been decided not to change the name of the zib to Person as the overall name for Patient, Client, Participant, etc. because the concept Person is broader than the concept referred to here. Healthprofessionals and contact persons are ultimately also Persons.The name and address information is based on the information set of the Municipal Personal Records Database (GBA) and on the Dutch Implementation Guide HL7v3 Basic Components. The information for the legally required verification of a social security number provided by the SBV-Z also follows GBA specifications. Furthermore, the AZR (AWBZ-wide healthcare registration) data set used in AWBZ healthcare served as a base in determining the set. Use of patient and personal details must follow the Personal Data Protection Act. This law prohibits processing non-essential personal data and mandates decent and reasonable processing of obtained personal data (Kohnstamm, 2006). Patient data recorded in (electronic) patient records or in digital messages must be handled in the context of the Personal Data Protection Act. Furthermore, healthcare centers must meet the Information Security NEN 7510 standard. Observance of the PDPA is monitored by the Dutch Data Protection Authority (CBP). The CBP and the Healthcare Inspectorate (IGZ) are jointly responsible for monitoring information security in healthcare (CBP, IGZ, 2008). For those reasons, some personal data, seen in some countries as administrative data, are not included in this information model but in the information models for the Social Anamnesis. Example Instances  Instructions If both a name and an identification number are given, the name must match the name registered under that identification number, for verification purposes.)</p>
+<details><summary style="display:list-item">Form description</summary>Concept Een persoon die medische, psychische, paramedische of verpleegkundige zorg ontvangt. In sommige zorgsectoren wordt in plaats van de term patient de term client of deelnemer gebruikt. Purpose Het vastleggen van de relevante gegevens ten behoeve van identificatie van de patiënt, voor administratieve doeleinden en procesondersteuning. Evidence Base Hoewel de term Patiënt niet in alle zorgsectoren gebruikt wordt, is er niet voor gekozen de naam van de zib te wijzigen in Persoon als overkoepelende aanduiding voor patiënt, cliënt, deelnemer, etc. omdat het begrip Persoon breder is dan het hier bedoelde concept. Zorgverleners en Contactpersonen zijn uiteindelijk ook personen.De naam en adresgegevens zijn gebaseerd op de gegevensset van de Gemeentelijk Basis Administratie (GBA) en op de Nederlandse implementatiehandleiding HL7v3 Basiscomponenten.De gegevens die bij de wettelijk verplichte verificatie van een BSN door de SBV-Z worden opgeleverd zijn eveneens conform de GBA specificatie.Daarnaast is bij het vaststellen van de set gekeken naar de in de AWBZ zorg gebruikte AZR (AWBZ-brede zorgregistratie) gegevensset.Gebruik van patiënt- en persoonsgegevens dient te voldoen aan de Wet Bescherming Persoonsgegevens. In deze wet wordt beschreven dat het verboden is om niet-noodzakelijke persoonsgegevens te verwerken en dat op een nadenkende en fatsoenlijke wijze met verkregen persoonsgegevens omgegaan wordt (Kohnstamm, 2006). Patiëntgegevens vastgelegd in een (elektronisch) patiëntendossier of in een elektronisch bericht dienen in de context van de Wet Bescherming Persoonsgegevens beschouwd te worden. Daarnaast dienen gezondheidszorginstellingen te voldoen aan de norm Informatiebeveiliging NEN 7510. Het toezicht op naleving van de WBP ligt bij het college Bescherming persoonsgegevens (CBP). Voor het toezicht op de informatiebeveiliging in de zorg zijn het CBP en de Inspectie voor de gezondheidszorg (IGZ) gezamenlijk verantwoordelijk (CBP, IGZ, 2008).Om die redenen zijn een aantal persoonsgegevens, die in sommige landen als administratieve gegevens beschouwd worden, niet in deze bouwsteen maar in de bouwstenen voor de Sociale Anamnese opgenomen. Example Instances  Instructions Indien zowel een naam als een identificatienummer wordt meegegeven, moet, voor verificatiedoeleinden, de naam overeenkomen met de naam die bij het identifcatienummer geregistreerd is. References 1. DCM Patientgegevens V0.91. [Online] Beschikbaar op http//www.nictiz.nl/uploaded/FILES/htmlcontent/dcm/Nictiz/DCMPatientgegevens_V_0.91loNL.pdf [Geraadpleegd 23 februari 2015].2. Implementatiehandleiding HL7v3 Basiscomponenten, Stichting HL7 Nederland [Online] Beschikbaar op http//www.hl7.nl/images/downloads/Implementatiehandleiding%20HL7v3%20Basiscomponenten%20%202.3NL_secure.pdf [Geraadpleegd 23 februari 2015]. Revision History Publicatieversie 1.0 (15-02-2013)-Publicatieversie 1.1 (01-07-2013)Bevat ZIB-33.Publicatieversie 2.0 (01-04-2015)Bevat ZIB-62, ZIB-67, ZIB-96, ZIB-97, ZIB-98, ZIB-99, ZIB-100, ZIB-102, ZIB-121, ZIB-257, ZIB-258, ZIB-259, ZIB-260, ZIB-261, ZIB-262, ZIB-303, ZIB-308, ZIB-349, ZIB-350, ZIB-351, ZIB-353.Incl. algemene wijzigingsverzoeken ZIB-94, ZIB-154, ZIB-200, ZIB-201, ZIB-309, ZIB-324, ZIB-326.Publicatieversie 2.0.1 (22-05-2015)Bevat ZIB-385, ZIB-374.Publicatieversie 3.0 (01-05-2016)Bevat ZIB-453.Publicatieversie 3.1 (04-09-2017)Bevat ZIB-429, ZIB-430, ZIB-442, ZIB-471, ZIB-491, ZIB-564.Publicatieversie 3.1.1 (01-10-2018)Bevat ZIB-647.Publicatieversie 3.2 (01-09-2020)Bevat ZIB-961, ZIB-1029, ZIB-1189. (Concept A person who receives medical, psychological, paramedical or nursing care. In some care settings, the term client or participant is used instead of the term patient. Purpose Recording relevant information to identify the patient for administrative purposes and process support. Evidence Base Although the term Patient is not used in all care settings, it has been decided not to change the name of the zib to Person as the overall name for Patient, Client, Participant, etc. because the concept Person is broader than the concept referred to here. Healthprofessionals and contact persons are ultimately also Persons.The name and address information is based on the information set of the Municipal Personal Records Database (GBA) and on the Dutch Implementation Guide HL7v3 Basic Components. The information for the legally required verification of a social security number provided by the SBV-Z also follows GBA specifications. Furthermore, the AZR (AWBZ-wide healthcare registration) data set used in AWBZ healthcare served as a base in determining the set. Use of patient and personal details must follow the Personal Data Protection Act. This law prohibits processing non-essential personal data and mandates decent and reasonable processing of obtained personal data (Kohnstamm, 2006). Patient data recorded in (electronic) patient records or in digital messages must be handled in the context of the Personal Data Protection Act. Furthermore, healthcare centers must meet the Information Security NEN 7510 standard. Observance of the PDPA is monitored by the Dutch Data Protection Authority (CBP). The CBP and the Healthcare Inspectorate (IGZ) are jointly responsible for monitoring information security in healthcare (CBP, IGZ, 2008). For those reasons, some personal data, seen in some countries as administrative data, are not included in this information model but in the information models for the Social Anamnesis. Example Instances  Instructions If both a name and an identification number are given, the name must match the name registered under that identification number, for verification purposes.)</details>
 <div class="mb-3">
             <div class="input-group">
 <span class="input-group-text">Geslacht (Geslacht / Gender)</span>
@@ -1057,37 +1116,37 @@ def three_zibs_form_expected():
 </div>
 </div>
 <h3>NlZorgPatientAdresgegevensContainer (Adresgegevens / AddressInformation)</h3>
-<p class='form-description'>Form description: Adresgegevens van de patiënt. (Patients address information.)</p>
+<details><summary style="display:list-item">Form description</summary>Adresgegevens van de patiënt. (Patients address information.)</details>
 <div class="mb-3">
     <div class="input-group">
-      <span class="input-group-text" id="nl_zorg_part_Adresgegevens_Huisnummer-addon">Huisnummer (Huisnummer / HouseNumber)</span>
-      <textarea rows="6" class="form-control" id="nl_zorg_part_Adresgegevens_Huisnummer" name="nl_zorg_part_Adresgegevens_Huisnummer" aria-describedby="nl_zorg_part_Adresgegevens_Huisnummer-addon nl_zorg_part_Adresgegevens_Huisnummer-description" ></textarea>
+      <span class="input-group-text width20" id="nl_zorg_part_Adresgegevens_Huisnummer-addon">Huisnummer (Huisnummer / HouseNumber)</span>
+      <textarea rows="2" class="form-control" id="nl_zorg_part_Adresgegevens_Huisnummer" name="nl_zorg_part_Adresgegevens_Huisnummer" aria-describedby="nl_zorg_part_Adresgegevens_Huisnummer-addon nl_zorg_part_Adresgegevens_Huisnummer-description" ></textarea>
     </div>
     <div class="form-text" id="nl_zorg_part_Adresgegevens_Huisnummer-description"></div>
   </div>
 <div class="mb-3">
     <div class="input-group">
-      <span class="input-group-text" id="nl_zorg_part_Adresgegevens_Huisnummerletter-addon">Huisnummerletter (Huisnummerletter / HouseNumberLetter)</span>
-      <textarea rows="6" class="form-control" id="nl_zorg_part_Adresgegevens_Huisnummerletter" name="nl_zorg_part_Adresgegevens_Huisnummerletter" aria-describedby="nl_zorg_part_Adresgegevens_Huisnummerletter-addon nl_zorg_part_Adresgegevens_Huisnummerletter-description" ></textarea>
+      <span class="input-group-text width20" id="nl_zorg_part_Adresgegevens_Huisnummerletter-addon">Huisnummerletter (Huisnummerletter / HouseNumberLetter)</span>
+      <textarea rows="2" class="form-control" id="nl_zorg_part_Adresgegevens_Huisnummerletter" name="nl_zorg_part_Adresgegevens_Huisnummerletter" aria-describedby="nl_zorg_part_Adresgegevens_Huisnummerletter-addon nl_zorg_part_Adresgegevens_Huisnummerletter-description" ></textarea>
     </div>
     <div class="form-text" id="nl_zorg_part_Adresgegevens_Huisnummerletter-description"></div>
   </div>
 <div class="mb-3">
     <div class="input-group">
-      <span class="input-group-text" id="nl_zorg_part_Adresgegevens_Huisnummertoevoeging-addon">Huisnummertoevoeging (Huisnummertoevoeging / HouseNumberAddition)</span>
-      <textarea rows="6" class="form-control" id="nl_zorg_part_Adresgegevens_Huisnummertoevoeging" name="nl_zorg_part_Adresgegevens_Huisnummertoevoeging"  aria-describedby="nl_zorg_part_Adresgegevens_Huisnummertoevoeging-addon nl_zorg_part_Adresgegevens_Huisnummertoevoeging-description" ></textarea>
+      <span class="input-group-text width20" id="nl_zorg_part_Adresgegevens_Huisnummertoevoeging-addon">Huisnummertoevoeging (Huisnummertoevoeging / HouseNumberAddition)</span>
+      <textarea rows="2" class="form-control" id="nl_zorg_part_Adresgegevens_Huisnummertoevoeging" name="nl_zorg_part_Adresgegevens_Huisnummertoevoeging"  aria-describedby="nl_zorg_part_Adresgegevens_Huisnummertoevoeging-addon nl_zorg_part_Adresgegevens_Huisnummertoevoeging-description" ></textarea>
     </div>
     <div class="form-text" id="nl_zorg_part_Adresgegevens_Huisnummertoevoeging-description"></div>
   </div>
 <div class="mb-3">
     <div class="input-group">
-      <span class="input-group-text" id="nl_zorg_part_Adresgegevens_Gemeente-addon">Gemeente (Gemeente / Municipality)</span>
-      <textarea rows="6" class="form-control" id="nl_zorg_part_Adresgegevens_Gemeente"  name="nl_zorg_part_Adresgegevens_Gemeente" aria-describedby="nl_zorg_part_Adresgegevens_Gemeente-addon nl_zorg_part_Adresgegevens_Gemeente-description" ></textarea>
+      <span class="input-group-text width20" id="nl_zorg_part_Adresgegevens_Gemeente-addon">Gemeente (Gemeente / Municipality)</span>
+      <textarea rows="2" class="form-control" id="nl_zorg_part_Adresgegevens_Gemeente"  name="nl_zorg_part_Adresgegevens_Gemeente" aria-describedby="nl_zorg_part_Adresgegevens_Gemeente-addon nl_zorg_part_Adresgegevens_Gemeente-description" ></textarea>
     </div>
     <div class="form-text" id="nl_zorg_part_Adresgegevens_Gemeente-description"></div>
   </div>
 <h2>Nl.zorg.Alert (nl.zorg.Alert)</h2>
-<p class='form-description'>Form description: Concept Een alert beschrijft een klinisch of administratief feit dat onder de aandacht van de gebruikers van de klinische systemen wordt gebracht, om er bij het vormen van diagnostisch en therapeutisch beleid of bij de omgang met de patiënt rekening mee te houden, meestal wegens een veiligheidsrisico. Aandoeningen, die de overgevoeligheid van het lichaam voor een stof beschrijven, zich uitend in een specifieke fysiologische reactie na blootstelling, worden allergieën genoemd. Deze worden in een aparte bouwsteen beschrevenWaarschuwingen voor niet allergische aandoeningen kunnen betreffen Een aandoening, conditie of diagnose die beschouwd kan worden als contra-indicatie voor het ondergaan van een bepaalde therapie, zoals zwangerschap of een verlengd QT-syndroom;  Verminderde functie van een orgaansysteem (hartfalen, verminder lever- of nierfunctie, verminderde afweer);  Kans op verspreiding van bepaalde micro-organismen (multiresistente bacterie, tuberkelbacterie, HIV, HBV, Ebola virus);  Andere risico’s.  Purpose Het vastleggen en doorgeven van aandoeningen of condities die aandacht behoeven, is een belangrijk onderdeel van de medische registratie. Het raakt de kern van patiëntveiligheid. In de uitvoering van onderzoek en behandeling moet veelal continu rekening worden gehouden met deze, als waarschuwing gemarkeerde, patiëntkenmerken. Ze verschaffen informatie die belangrijk is in relatie met de conditie van de patiënt en de opties die een zorgverlener heeft voor therapie. Aandoeningen die als Alert worden geregistreerd of overgedragen, kunnen ook als Probleem worden beschreven. Het verschil is hierin gelegen, dat de zorgverlener het probleem heeft aangemerkt als Alert = waarschuwing. In veel gevallen zal overdracht onderworpen zijn aan sterke privacy regels, aangezien de waarschuwing niet altijd een adequate reactie van de geïnformeerde omgeving kan uitlokken. Example Instances  Instructions Indien sprake is van een contra-indicatie die tevens van belang is voor de medicatieveiligheid dient deze ook via de g-standaard (Thesaurus 40) te worden vastgelegd.  Zie hiervoor de bouwsteen MedicatieContraIndicatie Revision History Publicatieversie 1.0 (01-04-2015)Bevat ZIB-109, ZIB-132, ZIB-203, ZIB-204, ZIB-306, ZIB-308, ZIB-352.Incl. algemene wijzigingsverzoeken ZIB-94, ZIB-154, ZIB-200, ZIB-201, ZIB-309, ZIB-324, ZIB-326.Publicatieversie 3.0 (01-05-2016)Bevat ZIB-438, ZIB-453, ZIB-574.Publicatieversie 3.1 (04-09-2017)Bevat ZIB-546.Publicatieversie 3.2 (31-12-2017)Bevat ZIB-593. Publicatieversie 3.3 (26-02-2019)Bevat ZIB-682. Publicatieversie 3.4 (06-07-2019)Bevat ZIB-813. Publicatieversie 4.0 (31-01-2020)Bevat ZIB-905, ZIB-526.Publicatieversie 4.1 (01-09-2020)Bevat ZIB-1160, ZIB-1209. (Concept An alert describes a clinical or administrative fact brought to the attention of the users of the clinical systems to be taken into account when shaping diagnostic and therapeutic policy or in dealing with the patient, usually because of a safety risk. Disorders that describe the body’s sensitivity to a substance which results in a specific physiological reaction after being exposed to that substance are referred to as allergies. These are described in a separate information model. Warnings for non-allergic disorders can concern A disorder, condition or diagnosis which can be considered as a contraindication for undergoing a certain type of therapy, such as pregnancy or long QT syndrome;  Impaired functioning of an organ system (heart failure, impaired liver or kidney function, weakened immune system);  Risk of spreading certain microorganisms (multi-resistant bacteria, tubercle bacilli, HIV, HBV, Ebola virus);  Other risks  Purpose Documenting and entering disorders or conditions that require attention is an important part of medical registration. It concerns the core of patient safety. In the execution of research and treatment, these patient characteristics - which are marked as a warning - constantly have to be taken into account. They provide information that is important for the patient’s condition and the options a healthcare provider has for therapy. Disorders that are registered or transferred as an Alert can also be described as a Problem. The difference is in the fact that the healthcare provider considers the problem as an Alert = warning. In many cases, transfer will be subject to strict privacy rules, as the warning will not always elicit an adequate reaction in the informed environment. Example Instances  Instructions If there is a contraindication which is also important for medication safety, it should also be registered via the g-standard (Thesaurus 40).  See further HCIM MedicationContraIndication.)</p>
+<details><summary style="display:list-item">Form description</summary>Concept Een alert beschrijft een klinisch of administratief feit dat onder de aandacht van de gebruikers van de klinische systemen wordt gebracht, om er bij het vormen van diagnostisch en therapeutisch beleid of bij de omgang met de patiënt rekening mee te houden, meestal wegens een veiligheidsrisico. Aandoeningen, die de overgevoeligheid van het lichaam voor een stof beschrijven, zich uitend in een specifieke fysiologische reactie na blootstelling, worden allergieën genoemd. Deze worden in een aparte bouwsteen beschrevenWaarschuwingen voor niet allergische aandoeningen kunnen betreffen Een aandoening, conditie of diagnose die beschouwd kan worden als contra-indicatie voor het ondergaan van een bepaalde therapie, zoals zwangerschap of een verlengd QT-syndroom;  Verminderde functie van een orgaansysteem (hartfalen, verminder lever- of nierfunctie, verminderde afweer);  Kans op verspreiding van bepaalde micro-organismen (multiresistente bacterie, tuberkelbacterie, HIV, HBV, Ebola virus);  Andere risico’s.  Purpose Het vastleggen en doorgeven van aandoeningen of condities die aandacht behoeven, is een belangrijk onderdeel van de medische registratie. Het raakt de kern van patiëntveiligheid. In de uitvoering van onderzoek en behandeling moet veelal continu rekening worden gehouden met deze, als waarschuwing gemarkeerde, patiëntkenmerken. Ze verschaffen informatie die belangrijk is in relatie met de conditie van de patiënt en de opties die een zorgverlener heeft voor therapie. Aandoeningen die als Alert worden geregistreerd of overgedragen, kunnen ook als Probleem worden beschreven. Het verschil is hierin gelegen, dat de zorgverlener het probleem heeft aangemerkt als Alert = waarschuwing. In veel gevallen zal overdracht onderworpen zijn aan sterke privacy regels, aangezien de waarschuwing niet altijd een adequate reactie van de geïnformeerde omgeving kan uitlokken. Example Instances  Instructions Indien sprake is van een contra-indicatie die tevens van belang is voor de medicatieveiligheid dient deze ook via de g-standaard (Thesaurus 40) te worden vastgelegd.  Zie hiervoor de bouwsteen MedicatieContraIndicatie Revision History Publicatieversie 1.0 (01-04-2015)Bevat ZIB-109, ZIB-132, ZIB-203, ZIB-204, ZIB-306, ZIB-308, ZIB-352.Incl. algemene wijzigingsverzoeken ZIB-94, ZIB-154, ZIB-200, ZIB-201, ZIB-309, ZIB-324, ZIB-326.Publicatieversie 3.0 (01-05-2016)Bevat ZIB-438, ZIB-453, ZIB-574.Publicatieversie 3.1 (04-09-2017)Bevat ZIB-546.Publicatieversie 3.2 (31-12-2017)Bevat ZIB-593. Publicatieversie 3.3 (26-02-2019)Bevat ZIB-682. Publicatieversie 3.4 (06-07-2019)Bevat ZIB-813. Publicatieversie 4.0 (31-01-2020)Bevat ZIB-905, ZIB-526.Publicatieversie 4.1 (01-09-2020)Bevat ZIB-1160, ZIB-1209. (Concept An alert describes a clinical or administrative fact brought to the attention of the users of the clinical systems to be taken into account when shaping diagnostic and therapeutic policy or in dealing with the patient, usually because of a safety risk. Disorders that describe the body’s sensitivity to a substance which results in a specific physiological reaction after being exposed to that substance are referred to as allergies. These are described in a separate information model. Warnings for non-allergic disorders can concern A disorder, condition or diagnosis which can be considered as a contraindication for undergoing a certain type of therapy, such as pregnancy or long QT syndrome;  Impaired functioning of an organ system (heart failure, impaired liver or kidney function, weakened immune system);  Risk of spreading certain microorganisms (multi-resistant bacteria, tubercle bacilli, HIV, HBV, Ebola virus);  Other risks  Purpose Documenting and entering disorders or conditions that require attention is an important part of medical registration. It concerns the core of patient safety. In the execution of research and treatment, these patient characteristics - which are marked as a warning - constantly have to be taken into account. They provide information that is important for the patient’s condition and the options a healthcare provider has for therapy. Disorders that are registered or transferred as an Alert can also be described as a Problem. The difference is in the fact that the healthcare provider considers the problem as an Alert = warning. In many cases, transfer will be subject to strict privacy rules, as the warning will not always elicit an adequate reaction in the informed environment. Example Instances  Instructions If there is a contraindication which is also important for medication safety, it should also be registered via the g-standard (Thesaurus 40).  See further HCIM MedicationContraIndication.)</details>
 <div class="mb-3">
             <div class="input-group">
 <span class="input-group-text">AlertNaam (AlertNaam / AlertName)</span>
@@ -1112,7 +1171,7 @@ def three_zibs_form_expected():
 </div>
 <div class="mb-3">
     <div class="input-group">
-      <span class="input-group-text" id="nl_zorg_Alert_BeginDatumTijd-addon">BeginDatumTijd (BeginDatumTijd / StartDateTime)</span>
+      <span class="input-group-text width20" id="nl_zorg_Alert_BeginDatumTijd-addon">BeginDatumTijd (BeginDatumTijd / StartDateTime)</span>
       <input type="text" class="form-control" id="nl_zorg_Alert_BeginDatumTijd" name="nl_zorg_Alert_BeginDatumTijd" aria-describedby="nl_zorg_Alert_BeginDatumTijd-addon nl_zorg_Alert_BeginDatumTijd-description" >
     </div>
     <div class="form-text" id="nl_zorg_Alert_BeginDatumTijd-description"></div>
@@ -1132,13 +1191,13 @@ def three_zibs_form_expected():
 </div>
 <div class="mb-3">
     <div class="input-group">
-      <span class="input-group-text" id="nl_zorg_Alert_Toelichting-addon">Toelichting (Toelichting / Comment)</span>
-      <textarea rows="6" class="form-control" id="nl_zorg_Alert_Toelichting" name="nl_zorg_Alert_Toelichting" aria-describedby="nl_zorg_Alert_Toelichting-addon nl_zorg_Alert_Toelichting-description" ></textarea>
+      <span class="input-group-text width20" id="nl_zorg_Alert_Toelichting-addon">Toelichting (Toelichting / Comment)</span>
+      <textarea rows="2" class="form-control" id="nl_zorg_Alert_Toelichting" name="nl_zorg_Alert_Toelichting" aria-describedby="nl_zorg_Alert_Toelichting-addon nl_zorg_Alert_Toelichting-description" ></textarea>
     </div>
     <div class="form-text" id="nl_zorg_Alert_Toelichting-description"></div>
   </div>
 <h2>Nl.zorg.Woonsituatie (nl.zorg.Woonsituatie / nl.zorg.LivingSituation)</h2>
-<p class='form-description'>Form description: Concept De woonsituatie is de fysieke omgeving waarin de patiënt normaliter woont, slaapt, kleding bewaart, enz. Purpose Het doel is om de huidige woonsituatie van de patiënt in kaart te brengen. Dit in verband met huidige of eventuele toekomstige problemen die de patiënt ondervindt of zou kunnen ondervinden met betrekking tot het wonen in relatie met ziekte en de (toekomstige) beperkingen van de patiënt. Het vragen naar de woonsituatie van de patiënt kent meerdere redenen. Zo kan de woonsituatie van belang zijn bij de wens zelfstandig in de eigen woning te willen blijven wonen in het geval van ziekte en/of beperkingen (WMO, 2011; CIZ, 2011). Daarnaast is de woonsituatie van belang bij het inschatten van het valrisico, met name bij alleenwonenden (CMO, richtlijn valpreventie, 2004).  Example Instances  Revision History Publicatieversie 1.0 (15-02-2013)Publicatieversie 1.1 (01-07-2013)Publicatieversie 1.2 (01-04-2015)Bevat ZIB-162, ZIB-283, ZIB-284, ZIB-308.Incl. algemene wijzigingsverzoeken ZIB-94, ZIB-154, ZIB-200, ZIB-201, ZIB-309, ZIB-324, ZIB-326.Publicatieversie 3.0 (01-05-2016)Bevat ZIB-453.Publicatieversie 3.1 (04-09-2017)Bevat ZIB-561, ZIB-564.Publicatieversie 3.2 (01-10-2018)Bevat ZIB-653.Publicatieversie 3.3 (01-09-2020)Bevat ZIB-694, ZIB-769, ZIB-810. (Concept The living situation is the physical environment in which the patient normally lives, sleeps, keeps their clothing, etc. Purpose The goal is to take stock of the patient’s current living situation. This is in regard to any current or future problems the patient encounters or could encounter when living with the disease and the patient’s (future) constraints. There are many reasons to ask about the patient’s living situation. The living situation can be relevant in the patient’s wish to live in their own home independently in the event of disease and/or disability (WMO, 2011; CIZ, 2011). Furthermore, the living situation is important in evaluating the risks of falling, particularly among people living alone (CMO, guidelines for fall prevention, 2004). Example Instances )</p>
+<details><summary style="display:list-item">Form description</summary>Concept De woonsituatie is de fysieke omgeving waarin de patiënt normaliter woont, slaapt, kleding bewaart, enz. Purpose Het doel is om de huidige woonsituatie van de patiënt in kaart te brengen. Dit in verband met huidige of eventuele toekomstige problemen die de patiënt ondervindt of zou kunnen ondervinden met betrekking tot het wonen in relatie met ziekte en de (toekomstige) beperkingen van de patiënt. Het vragen naar de woonsituatie van de patiënt kent meerdere redenen. Zo kan de woonsituatie van belang zijn bij de wens zelfstandig in de eigen woning te willen blijven wonen in het geval van ziekte en/of beperkingen (WMO, 2011; CIZ, 2011). Daarnaast is de woonsituatie van belang bij het inschatten van het valrisico, met name bij alleenwonenden (CMO, richtlijn valpreventie, 2004).  Example Instances  Revision History Publicatieversie 1.0 (15-02-2013)Publicatieversie 1.1 (01-07-2013)Publicatieversie 1.2 (01-04-2015)Bevat ZIB-162, ZIB-283, ZIB-284, ZIB-308.Incl. algemene wijzigingsverzoeken ZIB-94, ZIB-154, ZIB-200, ZIB-201, ZIB-309, ZIB-324, ZIB-326.Publicatieversie 3.0 (01-05-2016)Bevat ZIB-453.Publicatieversie 3.1 (04-09-2017)Bevat ZIB-561, ZIB-564.Publicatieversie 3.2 (01-10-2018)Bevat ZIB-653.Publicatieversie 3.3 (01-09-2020)Bevat ZIB-694, ZIB-769, ZIB-810. (Concept The living situation is the physical environment in which the patient normally lives, sleeps, keeps their clothing, etc. Purpose The goal is to take stock of the patient’s current living situation. This is in regard to any current or future problems the patient encounters or could encounter when living with the disease and the patient’s (future) constraints. There are many reasons to ask about the patient’s living situation. The living situation can be relevant in the patient’s wish to live in their own home independently in the event of disease and/or disability (WMO, 2011; CIZ, 2011). Furthermore, the living situation is important in evaluating the risks of falling, particularly among people living alone (CMO, guidelines for fall prevention, 2004). Example Instances)</details>
 <div class="mb-3">
             <div class="input-group">
 <span class="input-group-text">WoningAanpassing (WoningAanpassing / HomeAdaption)</span>
@@ -1272,10 +1331,13 @@ def tutorial1_yaml_expected():
         background-color: #f8f9fa;
         border: 1px solid #dee2e6;
         border-radius: 0.375rem;
-        width: 20%;
         float: left;
         min-height: 34px;
         white-space: pre-wrap;
+    }
+
+    .width20 {
+        width: 20%
     }
 
     .form-control {
@@ -1292,7 +1354,7 @@ def tutorial1_yaml_expected():
     }
 
     .hideField {
-        visibility: hidden;
+        display: none !important;
     }
 
     .form-check {
@@ -1316,11 +1378,38 @@ def tutorial1_yaml_expected():
     h2 {
         width: 100vw;
     }
+
+    .answer-options {
+        padding-left: 0.667px;
+    }
+
+    details {
+        border: 1px solid #dee2e6;
+        border-radius: 0.375rem;
+        padding: 0.5em 0.5em 0;
+        width: fit-content;
+        margin-bottom: 0.5rem;
+    }
+    
+    summary {
+        font-weight: bold;
+        margin: -0.5em -0.5em 0;
+        padding: 0.5em;
+    }
+    
+    details[open] {
+        padding: 0.5em;
+    }
+    
+    details[open] summary {
+        border-bottom: 1px solid #dee2e6;
+        margin-bottom: 0.5em;
+    }
 </style>
 <body>
 <h1>personinfo</h1>
 <h2>Person</h2>
-<p class='form-description'>Form description: </p>
+<details><summary style="display:list-item">Form description</summary></details>
 </body>
 </html>
 """
@@ -1401,10 +1490,13 @@ def tutorial1_no_name_yaml_expected():
         background-color: #f8f9fa;
         border: 1px solid #dee2e6;
         border-radius: 0.375rem;
-        width: 20%;
         float: left;
         min-height: 34px;
         white-space: pre-wrap;
+    }
+
+    .width20 {
+        width: 20%
     }
 
     .form-control {
@@ -1421,7 +1513,7 @@ def tutorial1_no_name_yaml_expected():
     }
 
     .hideField {
-        visibility: hidden;
+        display: none !important;
     }
 
     .form-check {
@@ -1445,11 +1537,38 @@ def tutorial1_no_name_yaml_expected():
     h2 {
         width: 100vw;
     }
+
+    .answer-options {
+        padding-left: 0.667px;
+    }
+
+    details {
+        border: 1px solid #dee2e6;
+        border-radius: 0.375rem;
+        padding: 0.5em 0.5em 0;
+        width: fit-content;
+        margin-bottom: 0.5rem;
+    }
+    
+    summary {
+        font-weight: bold;
+        margin: -0.5em -0.5em 0;
+        padding: 0.5em;
+    }
+    
+    details[open] {
+        padding: 0.5em;
+    }
+    
+    details[open] summary {
+        border-bottom: 1px solid #dee2e6;
+        margin-bottom: 0.5em;
+    }
 </style>
 <body>
 <h1>default</h1>
 <h2>Person</h2>
-<p class='form-description'>Form description: </p>
+<details><summary style="display:list-item">Form description</summary></details>
 </body>
 </html>
 """
@@ -1551,10 +1670,13 @@ def tutorial5_yaml_expected():
         background-color: #f8f9fa;
         border: 1px solid #dee2e6;
         border-radius: 0.375rem;
-        width: 20%;
         float: left;
         min-height: 34px;
         white-space: pre-wrap;
+    }
+
+    .width20 {
+        width: 20%
     }
 
     .form-control {
@@ -1571,7 +1693,7 @@ def tutorial5_yaml_expected():
     }
 
     .hideField {
-        visibility: hidden;
+        display: none !important;
     }
 
     .form-check {
@@ -1595,79 +1717,106 @@ def tutorial5_yaml_expected():
     h2 {
         width: 100vw;
     }
+
+    .answer-options {
+        padding-left: 0.667px;
+    }
+
+    details {
+        border: 1px solid #dee2e6;
+        border-radius: 0.375rem;
+        padding: 0.5em 0.5em 0;
+        width: fit-content;
+        margin-bottom: 0.5rem;
+    }
+    
+    summary {
+        font-weight: bold;
+        margin: -0.5em -0.5em 0;
+        padding: 0.5em;
+    }
+    
+    details[open] {
+        padding: 0.5em;
+    }
+    
+    details[open] summary {
+        border-bottom: 1px solid #dee2e6;
+        margin-bottom: 0.5em;
+    }
 </style>
 <body>
 <h1>personinfo5</h1>
 <h2>Person</h2>
-<p class='form-description'>Form description: </p>
+<details><summary style="display:list-item">Form description</summary></details>
 <div class="mb-3">
     <div class="input-group">
-      <span class="input-group-text" id="id-addon">Id</span>
-      <textarea rows="6" class="form-control" id="id" name="id" aria-describedby="id-addon id-description" ></textarea>
+      <span class="input-group-text width20" id="id-addon">Id</span>
+      <textarea rows="2" class="form-control" id="id" name="id" aria-describedby="id-addon id-description" ></textarea>
     </div><div class="form-text" id="id-description"></div>
   </div>
 <div class="mb-3">
     <div class="input-group">
-      <span class="input-group-text" id="full_name-addon">Full_name</span>
-      <textarea rows="6" class="form-control" id="full_name" name="full_name" aria-describedby="full_name-addon full_name-description" required></textarea>
+      <span class="input-group-text width20" id="full_name-addon">Full_name</span>
+      <textarea rows="2" class="form-control" id="full_name" name="full_name" aria-describedby="full_name-addon full_name-description" required></textarea>
     </div><div class="form-text" id="full_name-description">Name of the person</div>
   </div>
 <div class="mb-3">
     <div class="input-group">
-      <span class="input-group-text" id="aliases-addon">Aliases</span>
-      <textarea rows="6" class="form-control" id="aliases" name="aliases" aria-describedby="aliases-addon aliases-description" ></textarea>
+      <span class="input-group-text width20" id="aliases-addon">Aliases</span>
+      <textarea rows="2" class="form-control" id="aliases" name="aliases" aria-describedby="aliases-addon aliases-description" ></textarea>
     </div><div class="input-group">
-      <span class="input-group-text hideField" id="aliases-addon">Aliases</span>
-      <textarea rows="6" class="form-control" id="aliases2" name="aliases2" aria-describedby="aliases-addon aliases-description"></textarea>
+      <span class="input-group-text width20 hideField" id="aliases-addon">Aliases</span>
+      <textarea rows="2" class="form-control" id="aliases2" name="aliases2" aria-describedby="aliases-addon aliases-description"></textarea>
     </div><div class="form-text" id="aliases-description">Other names for the person This field requires at least 1 value(s)</div>
   </div>
 <div class="mb-3">
     <div class="input-group">
-      <span class="input-group-text" id="phone-addon">Phone</span>
-      <textarea rows="6" class="form-control" id="phone" name="phone" aria-describedby="phone-addon phone-description" ></textarea>
+      <span class="input-group-text width20" id="phone-addon">Phone</span>
+      <textarea rows="2" class="form-control" id="phone" name="phone" aria-describedby="phone-addon phone-description" ></textarea>
     </div><div class="form-text" id="phone-description"></div>
   </div>
 <div class="mb-3">
     <div class="input-group">
-      <span class="input-group-text" id="age-addon">Age</span>
+      <span class="input-group-text width20" id="age-addon">Age</span>
       <input type="number" class="form-control" id="age" name="age" aria-describedby="age-addon age-description" >
     </div>
     <div class="form-text" id="age-description"> The value for this field should be between 0 and 200</div>
   </div>
 <h2>Container</h2>
-<p class='form-description'>Form description: </p>
+<details><summary style="display:list-item">Form description</summary></details>
 <h3>persons</h3>
-<p class='form-description'>Form description: </p>
+<details><summary style="display:list-item">Form description</summary></details>
 <div class="mb-3">
     <div class="input-group">
-      <span class="input-group-text" id="id-addon">Id</span>
-      <textarea rows="6" class="form-control" id="id" name="id" aria-describedby="id-addon id-description" ></textarea>
+      <span class="input-group-text width20" id="id-addon">Id</span>
+      <textarea rows="2" class="form-control" id="id" name="id" aria-describedby="id-addon id-description" ></textarea>
     </div><div class="form-text" id="id-description"></div>
   </div>
 <div class="mb-3">
     <div class="input-group">
-      <span class="input-group-text" id="full_name-addon">Full_name</span>
-      <textarea rows="6" class="form-control" id="full_name" name="full_name" aria-describedby="full_name-addon full_name-description" required></textarea>
+      <span class="input-group-text width20" id="full_name-addon">Full_name</span>
+      <textarea rows="2" class="form-control" id="full_name" name="full_name" aria-describedby="full_name-addon full_name-description" required></textarea>
     </div><div class="form-text" id="full_name-description">Name of the person</div>
   </div>
 <div class="mb-3">
     <div class="input-group">
-      <span class="input-group-text" id="aliases-addon">Aliases</span>
-      <textarea rows="6" class="form-control" id="aliases" name="aliases" aria-describedby="aliases-addon aliases-description" ></textarea>
+      <span class="input-group-text width20" id="aliases-addon">Aliases</span>
+      <textarea rows="2" class="form-control" id="aliases" name="aliases" aria-describedby="aliases-addon aliases-description" ></textarea>
     </div><div class="input-group">
-      <span class="input-group-text hideField" id="aliases-addon">Aliases</span>
-      <textarea rows="6" class="form-control" id="aliases2" name="aliases2" aria-describedby="aliases-addon aliases-description"></textarea>
+      <span class="input-group-text width20 hideField" id="aliases-addon">Aliases</span>
+      <textarea rows="2" class="form-control" id="aliases2" name="aliases2" aria-describedby="aliases-addon aliases-description"></textarea>
     </div><div class="form-text" id="aliases-description">Other names for the person This field requires at least 1 value(s)</div>
   </div>
 <div class="mb-3">
     <div class="input-group">
-      <span class="input-group-text" id="phone-addon">Phone</span>
-      <textarea rows="6" class="form-control" id="phone" name="phone" aria-describedby="phone-addon phone-description" ></textarea>
+      <span class="input-group-text width20" id="phone-addon">Phone</span>
+      <textarea rows="2" class="form-control" id="phone" name="phone" aria-describedby="phone-addon phone-description" ></textarea>
     </div><div class="form-text" id="phone-description"></div>
   </div>
 <div class="mb-3">
     <div class="input-group">
-      <span class="input-group-text" id="age-addon">Age</span>
+      <span class="input-group-text width20" id="age-addon">Age</span>
       <input type="number" class="form-control" id="age" name="age" aria-describedby="age-addon age-description" >
     </div>
     <div class="form-text" id="age-description"> The value for this field should be between 0 and 200</div>
@@ -1675,3 +1824,152 @@ def tutorial5_yaml_expected():
 </body>
 </html>
 """
+
+@pytest.fixture(scope = 'session')
+def three_zibs_form_expected_html_false():
+    return """
+    <h1>3Zorginformatiebouwstenen_(ZIB)_2020 (Zorginformatiebouwstenen (ZIB) 2020 / Health and Care Information Models (HCIM) 2020)</h1>
+<h2>Nl.zorg.Patient (nl.zorg.Patient)</h2>
+<p class='form-description'>Form description: Concept Een persoon die medische, psychische, paramedische of verpleegkundige zorg ontvangt. In sommige zorgsectoren wordt in plaats van de term patient de term client of deelnemer gebruikt. Purpose Het vastleggen van de relevante gegevens ten behoeve van identificatie van de patiënt, voor administratieve doeleinden en procesondersteuning. Evidence Base Hoewel de term Patiënt niet in alle zorgsectoren gebruikt wordt, is er niet voor gekozen de naam van de zib te wijzigen in Persoon als overkoepelende aanduiding voor patiënt, cliënt, deelnemer, etc. omdat het begrip Persoon breder is dan het hier bedoelde concept. Zorgverleners en Contactpersonen zijn uiteindelijk ook personen.De naam en adresgegevens zijn gebaseerd op de gegevensset van de Gemeentelijk Basis Administratie (GBA) en op de Nederlandse implementatiehandleiding HL7v3 Basiscomponenten.De gegevens die bij de wettelijk verplichte verificatie van een BSN door de SBV-Z worden opgeleverd zijn eveneens conform de GBA specificatie.Daarnaast is bij het vaststellen van de set gekeken naar de in de AWBZ zorg gebruikte AZR (AWBZ-brede zorgregistratie) gegevensset.Gebruik van patiënt- en persoonsgegevens dient te voldoen aan de Wet Bescherming Persoonsgegevens. In deze wet wordt beschreven dat het verboden is om niet-noodzakelijke persoonsgegevens te verwerken en dat op een nadenkende en fatsoenlijke wijze met verkregen persoonsgegevens omgegaan wordt (Kohnstamm, 2006). Patiëntgegevens vastgelegd in een (elektronisch) patiëntendossier of in een elektronisch bericht dienen in de context van de Wet Bescherming Persoonsgegevens beschouwd te worden. Daarnaast dienen gezondheidszorginstellingen te voldoen aan de norm Informatiebeveiliging NEN 7510. Het toezicht op naleving van de WBP ligt bij het college Bescherming persoonsgegevens (CBP). Voor het toezicht op de informatiebeveiliging in de zorg zijn het CBP en de Inspectie voor de gezondheidszorg (IGZ) gezamenlijk verantwoordelijk (CBP, IGZ, 2008).Om die redenen zijn een aantal persoonsgegevens, die in sommige landen als administratieve gegevens beschouwd worden, niet in deze bouwsteen maar in de bouwstenen voor de Sociale Anamnese opgenomen. Example Instances  Instructions Indien zowel een naam als een identificatienummer wordt meegegeven, moet, voor verificatiedoeleinden, de naam overeenkomen met de naam die bij het identifcatienummer geregistreerd is. References 1. DCM Patientgegevens V0.91. [Online] Beschikbaar op http//www.nictiz.nl/uploaded/FILES/htmlcontent/dcm/Nictiz/DCMPatientgegevens_V_0.91loNL.pdf [Geraadpleegd 23 februari 2015].2. Implementatiehandleiding HL7v3 Basiscomponenten, Stichting HL7 Nederland [Online] Beschikbaar op http//www.hl7.nl/images/downloads/Implementatiehandleiding%20HL7v3%20Basiscomponenten%20%202.3NL_secure.pdf [Geraadpleegd 23 februari 2015]. Revision History Publicatieversie 1.0 (15-02-2013)-Publicatieversie 1.1 (01-07-2013)Bevat ZIB-33.Publicatieversie 2.0 (01-04-2015)Bevat ZIB-62, ZIB-67, ZIB-96, ZIB-97, ZIB-98, ZIB-99, ZIB-100, ZIB-102, ZIB-121, ZIB-257, ZIB-258, ZIB-259, ZIB-260, ZIB-261, ZIB-262, ZIB-303, ZIB-308, ZIB-349, ZIB-350, ZIB-351, ZIB-353.Incl. algemene wijzigingsverzoeken ZIB-94, ZIB-154, ZIB-200, ZIB-201, ZIB-309, ZIB-324, ZIB-326.Publicatieversie 2.0.1 (22-05-2015)Bevat ZIB-385, ZIB-374.Publicatieversie 3.0 (01-05-2016)Bevat ZIB-453.Publicatieversie 3.1 (04-09-2017)Bevat ZIB-429, ZIB-430, ZIB-442, ZIB-471, ZIB-491, ZIB-564.Publicatieversie 3.1.1 (01-10-2018)Bevat ZIB-647.Publicatieversie 3.2 (01-09-2020)Bevat ZIB-961, ZIB-1029, ZIB-1189. (Concept A person who receives medical, psychological, paramedical or nursing care. In some care settings, the term client or participant is used instead of the term patient. Purpose Recording relevant information to identify the patient for administrative purposes and process support. Evidence Base Although the term Patient is not used in all care settings, it has been decided not to change the name of the zib to Person as the overall name for Patient, Client, Participant, etc. because the concept Person is broader than the concept referred to here. Healthprofessionals and contact persons are ultimately also Persons.The name and address information is based on the information set of the Municipal Personal Records Database (GBA) and on the Dutch Implementation Guide HL7v3 Basic Components. The information for the legally required verification of a social security number provided by the SBV-Z also follows GBA specifications. Furthermore, the AZR (AWBZ-wide healthcare registration) data set used in AWBZ healthcare served as a base in determining the set. Use of patient and personal details must follow the Personal Data Protection Act. This law prohibits processing non-essential personal data and mandates decent and reasonable processing of obtained personal data (Kohnstamm, 2006). Patient data recorded in (electronic) patient records or in digital messages must be handled in the context of the Personal Data Protection Act. Furthermore, healthcare centers must meet the Information Security NEN 7510 standard. Observance of the PDPA is monitored by the Dutch Data Protection Authority (CBP). The CBP and the Healthcare Inspectorate (IGZ) are jointly responsible for monitoring information security in healthcare (CBP, IGZ, 2008). For those reasons, some personal data, seen in some countries as administrative data, are not included in this information model but in the information models for the Social Anamnesis. Example Instances  Instructions If both a name and an identification number are given, the name must match the name registered under that identification number, for verification purposes.)</p>
+<div class="mb-3">
+            <div class="input-group">
+<span class="input-group-text">Geslacht (Geslacht / Gender)</span>
+<input type="text" class="form-control hideField">
+</div>
+<div class="form-text" id="nl_zorg_Patient_Geslacht-description"></div>
+<div class='answer-options'>
+<span class='values-from'>GeslachtCodelijst:</span>
+<div class="form-check">
+            <input class="form-check-input" type="radio" name="GeslachtCodelijst" id="Male" value="Male" >
+            <label class="form-check-label" for="Male">Male</label></div>
+<div class="form-check">
+            <input class="form-check-input" type="radio" name="GeslachtCodelijst" id="Female" value="Female" >
+            <label class="form-check-label" for="Female">Female</label></div>
+</div>
+</div>
+<div class="mb-3">
+            <div class="input-group">
+<span class="input-group-text">OverlijdensIndicator (OverlijdensIndicator / DeathIndicator)</span>
+<input type="text" class="form-control hideField">
+</div>
+<div class="form-text" id="nl_zorg_Patient_OverlijdensIndicator-description"></div>
+<div class='answer-options'>
+<div class="form-check">
+                  <input class="form-check-input" type="radio" name="nl_zorg_Patient_OverlijdensIndicator" id="True" value="True" >
+                  <label class="form-check-label" for="True">True</label></div>
+<div class="form-check">
+                  <input class="form-check-input" type="radio" name="nl_zorg_Patient_OverlijdensIndicator" id="False" value="False" >
+                  <label class="form-check-label" for="False">False</label></div>
+</div>
+</div>
+<h3>NlZorgPatientAdresgegevensContainer (Adresgegevens / AddressInformation)</h3>
+<p class='form-description'>Form description: Adresgegevens van de patiënt. (Patients address information.)</p>
+<div class="mb-3">
+    <div class="input-group">
+      <span class="input-group-text width20" id="nl_zorg_part_Adresgegevens_Huisnummer-addon">Huisnummer (Huisnummer / HouseNumber)</span>
+      <textarea rows="6" class="form-control" id="nl_zorg_part_Adresgegevens_Huisnummer" name="nl_zorg_part_Adresgegevens_Huisnummer" aria-describedby="nl_zorg_part_Adresgegevens_Huisnummer-addon nl_zorg_part_Adresgegevens_Huisnummer-description" ></textarea>
+    </div><div class="form-text" id="nl_zorg_part_Adresgegevens_Huisnummer-description"></div>
+  </div>
+<div class="mb-3">
+    <div class="input-group">
+      <span class="input-group-text width20" id="nl_zorg_part_Adresgegevens_Huisnummerletter-addon">Huisnummerletter (Huisnummerletter / HouseNumberLetter)</span>
+      <textarea rows="6" class="form-control" id="nl_zorg_part_Adresgegevens_Huisnummerletter" name="nl_zorg_part_Adresgegevens_Huisnummerletter" aria-describedby="nl_zorg_part_Adresgegevens_Huisnummerletter-addon nl_zorg_part_Adresgegevens_Huisnummerletter-description" ></textarea>
+    </div><div class="form-text" id="nl_zorg_part_Adresgegevens_Huisnummerletter-description"></div>
+  </div>
+<div class="mb-3">
+    <div class="input-group">
+      <span class="input-group-text width20" id="nl_zorg_part_Adresgegevens_Huisnummertoevoeging-addon">Huisnummertoevoeging (Huisnummertoevoeging / HouseNumberAddition)</span>
+      <textarea rows="6" class="form-control" id="nl_zorg_part_Adresgegevens_Huisnummertoevoeging" name="nl_zorg_part_Adresgegevens_Huisnummertoevoeging" aria-describedby="nl_zorg_part_Adresgegevens_Huisnummertoevoeging-addon nl_zorg_part_Adresgegevens_Huisnummertoevoeging-description" ></textarea>
+    </div><div class="form-text" id="nl_zorg_part_Adresgegevens_Huisnummertoevoeging-description"></div>
+  </div>
+<div class="mb-3">
+    <div class="input-group">
+      <span class="input-group-text width20" id="nl_zorg_part_Adresgegevens_Gemeente-addon">Gemeente (Gemeente / Municipality)</span>
+      <textarea rows="6" class="form-control" id="nl_zorg_part_Adresgegevens_Gemeente" name="nl_zorg_part_Adresgegevens_Gemeente" aria-describedby="nl_zorg_part_Adresgegevens_Gemeente-addon nl_zorg_part_Adresgegevens_Gemeente-description" ></textarea>
+    </div><div class="form-text" id="nl_zorg_part_Adresgegevens_Gemeente-description"></div>
+  </div>
+<h2>Nl.zorg.Alert (nl.zorg.Alert)</h2>
+<p class='form-description'>Form description: Concept Een alert beschrijft een klinisch of administratief feit dat onder de aandacht van de gebruikers van de klinische systemen wordt gebracht, om er bij het vormen van diagnostisch en therapeutisch beleid of bij de omgang met de patiënt rekening mee te houden, meestal wegens een veiligheidsrisico. Aandoeningen, die de overgevoeligheid van het lichaam voor een stof beschrijven, zich uitend in een specifieke fysiologische reactie na blootstelling, worden allergieën genoemd. Deze worden in een aparte bouwsteen beschrevenWaarschuwingen voor niet allergische aandoeningen kunnen betreffen Een aandoening, conditie of diagnose die beschouwd kan worden als contra-indicatie voor het ondergaan van een bepaalde therapie, zoals zwangerschap of een verlengd QT-syndroom;  Verminderde functie van een orgaansysteem (hartfalen, verminder lever- of nierfunctie, verminderde afweer);  Kans op verspreiding van bepaalde micro-organismen (multiresistente bacterie, tuberkelbacterie, HIV, HBV, Ebola virus);  Andere risico’s.  Purpose Het vastleggen en doorgeven van aandoeningen of condities die aandacht behoeven, is een belangrijk onderdeel van de medische registratie. Het raakt de kern van patiëntveiligheid. In de uitvoering van onderzoek en behandeling moet veelal continu rekening worden gehouden met deze, als waarschuwing gemarkeerde, patiëntkenmerken. Ze verschaffen informatie die belangrijk is in relatie met de conditie van de patiënt en de opties die een zorgverlener heeft voor therapie. Aandoeningen die als Alert worden geregistreerd of overgedragen, kunnen ook als Probleem worden beschreven. Het verschil is hierin gelegen, dat de zorgverlener het probleem heeft aangemerkt als Alert = waarschuwing. In veel gevallen zal overdracht onderworpen zijn aan sterke privacy regels, aangezien de waarschuwing niet altijd een adequate reactie van de geïnformeerde omgeving kan uitlokken. Example Instances  Instructions Indien sprake is van een contra-indicatie die tevens van belang is voor de medicatieveiligheid dient deze ook via de g-standaard (Thesaurus 40) te worden vastgelegd.  Zie hiervoor de bouwsteen MedicatieContraIndicatie Revision History Publicatieversie 1.0 (01-04-2015)Bevat ZIB-109, ZIB-132, ZIB-203, ZIB-204, ZIB-306, ZIB-308, ZIB-352.Incl. algemene wijzigingsverzoeken ZIB-94, ZIB-154, ZIB-200, ZIB-201, ZIB-309, ZIB-324, ZIB-326.Publicatieversie 3.0 (01-05-2016)Bevat ZIB-438, ZIB-453, ZIB-574.Publicatieversie 3.1 (04-09-2017)Bevat ZIB-546.Publicatieversie 3.2 (31-12-2017)Bevat ZIB-593. Publicatieversie 3.3 (26-02-2019)Bevat ZIB-682. Publicatieversie 3.4 (06-07-2019)Bevat ZIB-813. Publicatieversie 4.0 (31-01-2020)Bevat ZIB-905, ZIB-526.Publicatieversie 4.1 (01-09-2020)Bevat ZIB-1160, ZIB-1209. (Concept An alert describes a clinical or administrative fact brought to the attention of the users of the clinical systems to be taken into account when shaping diagnostic and therapeutic policy or in dealing with the patient, usually because of a safety risk. Disorders that describe the body’s sensitivity to a substance which results in a specific physiological reaction after being exposed to that substance are referred to as allergies. These are described in a separate information model. Warnings for non-allergic disorders can concern A disorder, condition or diagnosis which can be considered as a contraindication for undergoing a certain type of therapy, such as pregnancy or long QT syndrome;  Impaired functioning of an organ system (heart failure, impaired liver or kidney function, weakened immune system);  Risk of spreading certain microorganisms (multi-resistant bacteria, tubercle bacilli, HIV, HBV, Ebola virus);  Other risks  Purpose Documenting and entering disorders or conditions that require attention is an important part of medical registration. It concerns the core of patient safety. In the execution of research and treatment, these patient characteristics - which are marked as a warning - constantly have to be taken into account. They provide information that is important for the patient’s condition and the options a healthcare provider has for therapy. Disorders that are registered or transferred as an Alert can also be described as a Problem. The difference is in the fact that the healthcare provider considers the problem as an Alert = warning. In many cases, transfer will be subject to strict privacy rules, as the warning will not always elicit an adequate reaction in the informed environment. Example Instances  Instructions If there is a contraindication which is also important for medication safety, it should also be registered via the g-standard (Thesaurus 40).  See further HCIM MedicationContraIndication.)</p>
+<div class="mb-3">
+            <div class="input-group">
+<span class="input-group-text">AlertNaam (AlertNaam / AlertName)</span>
+<input type="text" class="form-control hideField">
+</div>
+<div class="form-text" id="nl_zorg_Alert_AlertNaam-description"></div>
+<div class='answer-options'>
+<span class='values-from'>AlertNaamCodelijst:</span>
+<div class="form-check">
+            <input class="form-check-input" type="radio" name="AlertNaamCodelijst" id="drager_van_infectie" value="drager_van_infectie" >
+            <label class="form-check-label" for="drager_van_infectie">Drager_van_infectie</label></div>
+<div class="form-check">
+            <input class="form-check-input" type="radio" name="AlertNaamCodelijst" id="drager_van_carbapenemresistente_Enterobacteriaceae" value="drager_van_carbapenemresistente_Enterobacteriaceae" >
+            <label class="form-check-label" for="drager_van_carbapenemresistente_Enterobacteriaceae">Drager_van_carbapenemresistente_Enterobacteriaceae</label></div>
+<div class="form-check">
+            <input class="form-check-input" type="radio" name="AlertNaamCodelijst" id="slachtoffer_van_kindermishandeling" value="slachtoffer_van_kindermishandeling" >
+            <label class="form-check-label" for="slachtoffer_van_kindermishandeling">Slachtoffer_van_kindermishandeling</label></div>
+<div class="form-check">
+            <input class="form-check-input" type="radio" name="AlertNaamCodelijst" id="Other" value="Other" >
+            <label class="form-check-label" for="Other">Other</label></div>
+</div>
+</div>
+<div class="mb-3">
+    <div class="input-group">
+      <span class="input-group-text width20" id="nl_zorg_Alert_BeginDatumTijd-addon">BeginDatumTijd (BeginDatumTijd / StartDateTime)</span>
+      <input type="text" class="form-control" id="nl_zorg_Alert_BeginDatumTijd" name="nl_zorg_Alert_BeginDatumTijd" aria-describedby="nl_zorg_Alert_BeginDatumTijd-addon nl_zorg_Alert_BeginDatumTijd-description" >
+    </div>
+    <div class="form-text" id="nl_zorg_Alert_BeginDatumTijd-description"></div>
+  </div>
+<div class="mb-3">
+            <div class="input-group">
+<span class="input-group-text">AlertType (AlertType)</span>
+<input type="text" class="form-control hideField">
+</div>
+<div class="form-text" id="nl_zorg_Alert_AlertType-description"></div>
+<div class='answer-options'>
+<span class='values-from'>AlertTypeCodelijst:</span>
+<div class="form-check">
+            <input class="form-check-input" type="radio" name="AlertTypeCodelijst" id="Alert" value="Alert" >
+            <label class="form-check-label" for="Alert">Alert</label></div>
+</div>
+</div>
+<div class="mb-3">
+    <div class="input-group">
+      <span class="input-group-text width20" id="nl_zorg_Alert_Toelichting-addon">Toelichting (Toelichting / Comment)</span>
+      <textarea rows="6" class="form-control" id="nl_zorg_Alert_Toelichting" name="nl_zorg_Alert_Toelichting" aria-describedby="nl_zorg_Alert_Toelichting-addon nl_zorg_Alert_Toelichting-description" ></textarea>
+    </div><div class="form-text" id="nl_zorg_Alert_Toelichting-description"></div>
+  </div>
+<h2>Nl.zorg.Woonsituatie (nl.zorg.Woonsituatie / nl.zorg.LivingSituation)</h2>
+<p class='form-description'>Form description: Concept De woonsituatie is de fysieke omgeving waarin de patiënt normaliter woont, slaapt, kleding bewaart, enz. Purpose Het doel is om de huidige woonsituatie van de patiënt in kaart te brengen. Dit in verband met huidige of eventuele toekomstige problemen die de patiënt ondervindt of zou kunnen ondervinden met betrekking tot het wonen in relatie met ziekte en de (toekomstige) beperkingen van de patiënt. Het vragen naar de woonsituatie van de patiënt kent meerdere redenen. Zo kan de woonsituatie van belang zijn bij de wens zelfstandig in de eigen woning te willen blijven wonen in het geval van ziekte en/of beperkingen (WMO, 2011; CIZ, 2011). Daarnaast is de woonsituatie van belang bij het inschatten van het valrisico, met name bij alleenwonenden (CMO, richtlijn valpreventie, 2004).  Example Instances  Revision History Publicatieversie 1.0 (15-02-2013)Publicatieversie 1.1 (01-07-2013)Publicatieversie 1.2 (01-04-2015)Bevat ZIB-162, ZIB-283, ZIB-284, ZIB-308.Incl. algemene wijzigingsverzoeken ZIB-94, ZIB-154, ZIB-200, ZIB-201, ZIB-309, ZIB-324, ZIB-326.Publicatieversie 3.0 (01-05-2016)Bevat ZIB-453.Publicatieversie 3.1 (04-09-2017)Bevat ZIB-561, ZIB-564.Publicatieversie 3.2 (01-10-2018)Bevat ZIB-653.Publicatieversie 3.3 (01-09-2020)Bevat ZIB-694, ZIB-769, ZIB-810. (Concept The living situation is the physical environment in which the patient normally lives, sleeps, keeps their clothing, etc. Purpose The goal is to take stock of the patient’s current living situation. This is in regard to any current or future problems the patient encounters or could encounter when living with the disease and the patient’s (future) constraints. There are many reasons to ask about the patient’s living situation. The living situation can be relevant in the patient’s wish to live in their own home independently in the event of disease and/or disability (WMO, 2011; CIZ, 2011). Furthermore, the living situation is important in evaluating the risks of falling, particularly among people living alone (CMO, guidelines for fall prevention, 2004). Example Instances)</p>
+<div class="mb-3">
+            <div class="input-group">
+<span class="input-group-text">WoningAanpassing (WoningAanpassing / HomeAdaption)</span>
+<input type="text" class="form-control hideField">
+</div>
+<div class="form-text" id="nl_zorg_Woonsituatie_WoningAanpassing-description"></div>
+<div class='answer-options'>
+<span class='values-from'>WoningAanpassingCodelijst:</span>
+<div class="form-check">
+            <input class="form-check-input" type="radio" name="WoningAanpassingCodelijst" id="badstoel_en/of_douchestoel" value="badstoel_en/of_douchestoel" >
+            <label class="form-check-label" for="badstoel_en/of_douchestoel">Badstoel_en/of_douchestoel</label></div>
+<div class="form-check">
+            <input class="form-check-input" type="radio" name="WoningAanpassingCodelijst" id="traplift" value="traplift" >
+            <label class="form-check-label" for="traplift">Traplift</label></div>
+<div class="form-check">
+            <input class="form-check-input" type="radio" name="WoningAanpassingCodelijst" id="aangepast_toilet" value="aangepast_toilet" >
+            <label class="form-check-label" for="aangepast_toilet">Aangepast_toilet</label></div>
+</div>
+</div>
+<div class="mb-3">
+            <div class="input-group">
+<span class="input-group-text">WoonOmstandigheid (WoonOmstandigheid / LivingCondition)</span>
+<input type="text" class="form-control hideField">
+</div>
+<div class="form-text" id="nl_zorg_Woonsituatie_WoonOmstandigheid-description"></div>
+<div class='answer-options'>
+<span class='values-from'>WoonOmstandigheidCodelijst:</span>
+<div class="form-check">
+            <input class="form-check-input" type="radio" name="WoonOmstandigheidCodelijst" id="huis_bevat_trap" value="huis_bevat_trap" >
+            <label class="form-check-label" for="huis_bevat_trap">Huis_bevat_trap</label></div>
+</div>
+</div>
+    """
