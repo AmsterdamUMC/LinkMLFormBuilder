@@ -1,12 +1,15 @@
 import argparse
 import yaml
 from LinkMLFormbuilder import utils
+# import utils
 import os
 import pdfkit
 from LinkMLFormbuilder import slot_code_generators
+# import slot_code_generators
 from shutil import which
 import pkg_resources
 from LinkMLFormbuilder import constants
+# import constants
 import warnings
 
 def retrieveFileContent(yamlfile):
@@ -39,7 +42,7 @@ def getSlotFormCode(slotCode, content, default_range, subclasses, level, key):
         elif (slotCode.get(constants.RANGE) == "integer" or slotCode.get(constants.RANGE) == "float"):
             return slot_code_generators.getNumberSlotCode(slotCode, desc, required, propertyName, title)
         elif (slotCode.get(constants.RANGE) == "string"): #assume textarea
-            return slot_code_generators.getTextareaSlotCode(desc, required, propertyName, title, slotCode)
+            return slot_code_generators.getTextareaSlotCode(desc, required, propertyName, title, slotCode, html_only)
         elif (slotCode.get(constants.RANGE) == "boolean"):
             return slot_code_generators.getBooleanSlotCode(desc, required, propertyName, title)
         else: # this is a basic pdf, so datetime should not be a datetime field, but a textfield
@@ -49,7 +52,7 @@ def getSlotFormCode(slotCode, content, default_range, subclasses, level, key):
             if (default_range == "integer" or default_range == "float"):
                 return slot_code_generators.getNumberSlotCode(slotCode, desc, required, propertyName, title)
             elif (default_range == "string"): #assume textarea
-                return slot_code_generators.getTextareaSlotCode(desc, required, propertyName, title, slotCode)
+                return slot_code_generators.getTextareaSlotCode(desc, required, propertyName, title, slotCode, html_only)
             elif (default_range == "boolean"):
                 return slot_code_generators.getBooleanSlotCode(desc, required, propertyName, title)
             else: # this is a basic pdf, so datetime should not be a datetime field, but a textfield
@@ -60,7 +63,11 @@ def getSlotFormCode(slotCode, content, default_range, subclasses, level, key):
 def getClassFormCode(classCode, content, default_range, subclasses, level, key):
     title = utils.extractName(classCode, key)
     code = '''<h{level}>{title}</h{level}>\n'''.format(level = level + 1, title = title)
-    code += "<p class='form-description'>Form description: " + utils.capitalizeLabel(utils.extractDescription(classCode)) + "</p>\n"
+    global html_only
+    if(html_only == True):
+        code += "<details><summary style=\"display:list-item\">Form description</summary>" + utils.capitalizeLabel(utils.extractDescription(classCode)) + "</details>"
+    else:
+        code += "<p class='form-description'>Form description: " + utils.capitalizeLabel(utils.extractDescription(classCode)) + "</p>\n"
     if (constants.IS_A in classCode): # process superclass first
         superClassName = classCode.get(constants.IS_A)
         superClassCode = content.get(constants.CLASSES).get(superClassName)
@@ -93,7 +100,9 @@ def getClassFormCode(classCode, content, default_range, subclasses, level, key):
     return code
 
 
-def buildForm(content, html_only, output_directory, name, testEnv = False):
+def buildForm(content, html_only_in, output_directory, name, testEnv = False):
+    global html_only
+    html_only = html_only_in #extra storage for test purposes
     if (constants.NAME not in content and name == constants.DEFAULT): 
         warnings.warn("WARNING: The model metadata does not contain a 'name' field. Please make sure your model is valid")
     NAME = name if (name != constants.DEFAULT) else (content.get(constants.NAME) if constants.NAME in content else "formDefault")
@@ -159,7 +168,7 @@ def buildForm(content, html_only, output_directory, name, testEnv = False):
 def cli():
     if (which("wkhtmltopdf") is None):
         #install somehow, for now: error
-        os.error("wkhtmltopdf is not installed, please install from: https://wkhtmltopdf.org/downloads.html")
+        raise ImportError("wkhtmltopdf is not installed, please install from: https://wkhtmltopdf.org/downloads.html")
         exit(1)
     
     parser = argparse.ArgumentParser("linkmlformbuilder")
@@ -168,7 +177,9 @@ def cli():
     parser.add_argument("-dir", "--output_directory", dest="output_directory", help="Specify an output directory, the current working directory is used when this value not provided or the flag is missing", nargs="?", default=constants.CWD, const=constants.CWD)
     parser.add_argument("--name", help="Specify an alternative file name, do not specify a file extension. By default, the filename of the yamlfile is used for the HTML and optionally PDF files", nargs="?", default=constants.DEFAULT, const=constants.DEFAULT)
     args = parser.parse_args()
-    buildForm(retrieveFileContent(args.yamlfile), args.html_only, args.output_directory, args.name)
+    global html_only
+    html_only = args.html_only
+    buildForm(retrieveFileContent(args.yamlfile), html_only, args.output_directory, args.name)
 
 if __name__ == "__main__":
     cli()
