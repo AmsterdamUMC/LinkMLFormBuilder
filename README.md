@@ -48,6 +48,8 @@ optional arguments:
 ```
 
 ## Changelog
+### Version 1.0.0
+- UI update for html-only forms
 ### Version 0.1.11
 - Add value fields to radio buttons so they show up in FormData
 - Fix issue with inline attributes and slots without a name field

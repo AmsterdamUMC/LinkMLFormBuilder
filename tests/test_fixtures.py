@@ -35,7 +35,7 @@ def simple_int_slot():
 def simple_int_slot_expected():
     return '''<div class="mb-3">
     <div class="input-group">
-      <span class="input-group-text" id="systolic_pressure-addon">Systolic pressure</span>
+      <span class="input-group-text width20" id="systolic_pressure-addon">Systolic pressure</span>
       <input type="number" class="form-control" id="systolic_pressure" name="systolic_pressure" aria-describedby="systolic_pressure-addon systolic_pressure-description" required>
     </div>
     <div class="form-text" id="systolic_pressure-description">Systolic pressure in mmHg </div>
@@ -45,7 +45,7 @@ def simple_int_slot_expected():
 def simple_int_slot_default_range_expected():
     return '''<div class="mb-3">
     <div class="input-group">
-      <span class="input-group-text" id="default_range_slot-addon">Default range slot</span>
+      <span class="input-group-text width20" id="default_range_slot-addon">Default range slot</span>
       <input type="number" class="form-control" id="default_range_slot" name="default_range_slot" aria-describedby="default_range_slot-addon default_range_slot-description">
     </div>
     <div class="form-text" id="default_range_slot-description">Default range slot description</div>
@@ -71,7 +71,7 @@ def min_and_max_range_int_slot():
 def min_and_max_range_int_slot_expected():
     return '''<div class="mb-3">
     <div class="input-group">
-      <span class="input-group-text" id="systolic_pressure-addon">Systolic pressure</span>
+      <span class="input-group-text width20" id="systolic_pressure-addon">Systolic pressure</span>
       <input type="number" class="form-control" id="systolic_pressure" name="systolic_pressure" aria-describedby="systolic_pressure-addon systolic_pressure-description" required>
     </div>
     <div class="form-text" id="systolic_pressure-description">Systolic pressure in mmHg The value for this field should be between 0 and 250</div>
@@ -96,7 +96,7 @@ def min_range_int_slot():
 def min_range_int_slot_expected():
     return '''<div class="mb-3">
     <div class="input-group">
-      <span class="input-group-text" id="systolic_pressure-addon">Systolic pressure</span>
+      <span class="input-group-text width20" id="systolic_pressure-addon">Systolic pressure</span>
       <input type="number" class="form-control" id="systolic_pressure" name="systolic_pressure" aria-describedby="systolic_pressure-addon systolic_pressure-description" required>
     </div>
     <div class="form-text" id="systolic_pressure-description">Systolic pressure in mmHg The value for this field should be equal to or greater than 0</div>
@@ -121,7 +121,7 @@ def max_range_int_slot():
 def max_range_int_slot_expected():
     return '''<div class="mb-3">
     <div class="input-group">
-      <span class="input-group-text" id="systolic_pressure-addon">Systolic pressure</span>
+      <span class="input-group-text width20" id="systolic_pressure-addon">Systolic pressure</span>
       <input type="number" class="form-control" id="systolic_pressure" name="systolic_pressure" aria-describedby="systolic_pressure-addon systolic_pressure-description" required>
     </div>
     <div class="form-text" id="systolic_pressure-description">Systolic pressure in mmHg The value for this field should be equal to or smaller than 250</div>
@@ -147,15 +147,15 @@ def multivalued_int_slot():
 def multivalued_int_slot_expected():
     return '''<div class="mb-3">
     <div class="input-group">
-      <span class="input-group-text" id="systolic_pressure-addon">Systolic pressure</span>
+      <span class="input-group-text width20" id="systolic_pressure-addon">Systolic pressure</span>
       <input type="number" class="form-control" id="systolic_pressure" name="systolic_pressure" aria-describedby="systolic_pressure-addon systolic_pressure-description" required>
     </div>
     <div class="input-group">
-      <span class="input-group-text hideField" id="systolic_pressure-addon">Systolic pressure</span>
+      <span class="input-group-text width20 hideField" id="systolic_pressure-addon">Systolic pressure</span>
       <input type="number" class="form-control" id="systolic_pressure2" name="systolic_pressure2" aria-describedby="systolic_pressure-addon systolic_pressure-description">
     </div>
     <div class="input-group">
-      <span class="input-group-text hideField" id="systolic_pressure-addon">Systolic pressure</span>
+      <span class="input-group-text width20 hideField" id="systolic_pressure-addon">Systolic pressure</span>
       <input type="number" class="form-control" id="systolic_pressure3" name="systolic_pressure3" aria-describedby="systolic_pressure-addon systolic_pressure-description">
     </div>
     <div class="form-text" id="systolic_pressure-description">Systolic pressure in mmHg This field requires at least 1 value(s)</div>
@@ -176,7 +176,7 @@ def simple_datetime_slot():
 def simple_datetime_slot_expected():
     return '''<div class="mb-3">
     <div class="input-group">
-    <span class="input-group-text" id="measurement_datetime-addon">Measurement datetime</span>
+    <span class="input-group-text width20" id="measurement_datetime-addon">Measurement datetime</span>
     <input type="text" class="form-control" id="measurement_datetime" name="measurement_datetime" aria-describedby="measurement_datetime-addon measurement_datetime-description" required>
     </div>
     <div class="form-text" id="measurement_datetime-description">The date and time at which the measurement took place</div>
@@ -199,15 +199,15 @@ def multivalued_datetime_slot():
 def multivalued_datetime_slot_expected():
     return '''<div class="mb-3">
     <div class="input-group">
-    <span class="input-group-text" id="measurement_datetime-addon">Measurement datetime</span>
+    <span class="input-group-text width20" id="measurement_datetime-addon">Measurement datetime</span>
     <input type="text" class="form-control" id="measurement_datetime" name="measurement_datetime" aria-describedby="measurement_datetime-addon measurement_datetime-description" required>
     </div>
     <div class="input-group">
-    <span class="input-group-text hideField" id="measurement_datetime-addon">Measurement datetime</span>
+    <span class="input-group-text width20 hideField" id="measurement_datetime-addon">Measurement datetime</span>
     <input type="text" class="form-control" id="measurement_datetime2" name="measurement_datetime2" aria-describedby="measurement_datetime-addon measurement_datetime-description">
     </div>
     <div class="input-group">
-    <span class="input-group-text hideField" id="measurement_datetime-addon">Measurement datetime</span>
+    <span class="input-group-text width20 hideField" id="measurement_datetime-addon">Measurement datetime</span>
     <input type="text" class="form-control" id="measurement_datetime3" name="measurement_datetime3" aria-describedby="measurement_datetime-addon measurement_datetime-description">
     </div>
     <div class="form-text" id="measurement_datetime-description">The date and time at which the measurement took place This field requires at least 1 value(s)</div>
@@ -217,7 +217,7 @@ def multivalued_datetime_slot_expected():
 def simple_datetime_slot_default_range_expected():
     return '''<div class="mb-3">
     <div class="input-group">
-    <span class="input-group-text" id="default_range_slot-addon">Default range slot</span>
+    <span class="input-group-text width20" id="default_range_slot-addon">Default range slot</span>
     <input type="text" class="form-control" id="default_range_slot" name="default_range_slot" aria-describedby="default_range_slot-addon default_range_slot-description">
     </div>
     <div class="form-text" id="default_range_slot-description">Default range slot description</div>
@@ -416,7 +416,7 @@ def simple_float_slot():
 def simple_float_slot_expected():
     return '''<div class="mb-3">
 <div class="input-group">
-    <span class="input-group-text" id="mean_arterial_pressure-addon">Mean arterial pressure</span>
+    <span class="input-group-text width20" id="mean_arterial_pressure-addon">Mean arterial pressure</span>
     <input type="number" class="form-control" id="mean_arterial_pressure" name="mean_arterial_pressure" aria-describedby="mean_arterial_pressure-addon mean_arterial_pressure-description" >
 </div>
 <div class="form-text" id="mean_arterial_pressure-description">The average arterial pressure throughout one cardiac cycle, systole, and diastole in mmHg </div>
@@ -426,7 +426,7 @@ def simple_float_slot_expected():
 def simple_float_slot_default_range_expected():
     return '''<div class="mb-3">
     <div class="input-group">
-      <span class="input-group-text" id="default_range_slot-addon">Default range slot</span>
+      <span class="input-group-text width20" id="default_range_slot-addon">Default range slot</span>
       <input type="number" class="form-control" id="default_range_slot" name="default_range_slot" aria-describedby="default_range_slot-addon default_range_slot-description">
     </div>
     <div class="form-text" id="default_range_slot-description">Default range slot description</div>
@@ -446,8 +446,8 @@ def simple_textarea_slot():
 def simple_textarea_slot_expected():
     return '''<div class="mb-3">
 <div class="input-group">
-    <span class="input-group-text" id="explanatory_statement-addon">Explanatory statement</span>
-    <textarea rows="6" class="form-control" id="explanatory_statement" name="explanatory_statement" aria-describedby="explanatory_statement-addon explanatory_statement-description" ></textarea>
+    <span class="input-group-text width20" id="explanatory_statement-addon">Explanatory statement</span>
+    <textarea rows="2" class="form-control" id="explanatory_statement" name="explanatory_statement" aria-describedby="explanatory_statement-addon explanatory_statement-description" ></textarea>
 </div>
 <div class="form-text" id="explanatory_statement-description">Additional information that cannot be coded</div>
 </div>'''
@@ -468,15 +468,15 @@ def multivalued_textarea_slot():
 def multivalued_textarea_slot_expected():
     return '''<div class="mb-3">
 <div class="input-group">
-    <span class="input-group-text" id="explanatory_statement-addon">Explanatory statement</span>
+    <span class="input-group-text width20" id="explanatory_statement-addon">Explanatory statement</span>
     <textarea rows="6" class="form-control" id="explanatory_statement" name="explanatory_statement" aria-describedby="explanatory_statement-addon explanatory_statement-description" ></textarea>
 </div>
 <div class="input-group">
-    <span class="input-group-text hideField" id="explanatory_statement-addon">Explanatory statement</span>
+    <span class="input-group-text width20 hideField" id="explanatory_statement-addon">Explanatory statement</span>
     <textarea rows="6" class="form-control" id="explanatory_statement2" name="explanatory_statement2" aria-describedby="explanatory_statement-addon explanatory_statement-description" ></textarea>
 </div>
 <div class="input-group">
-    <span class="input-group-text hideField" id="explanatory_statement-addon">Explanatory statement</span>
+    <span class="input-group-text width20 hideField" id="explanatory_statement-addon">Explanatory statement</span>
     <textarea rows="6" class="form-control" id="explanatory_statement3" name="explanatory_statement3" aria-describedby="explanatory_statement-addon explanatory_statement-description"></textarea>
 </div>
 <div class="form-text" id="explanatory_statement-description">Additional information that cannot be coded This field requires at least 1 value(s)</div>
@@ -486,8 +486,8 @@ def multivalued_textarea_slot_expected():
 def simple_textarea_slot_default_range_expected():
     return '''<div class="mb-3">
 <div class="input-group">
-    <span class="input-group-text" id="default_range_slot-addon">Default range slot</span>
-    <textarea rows="6" class="form-control" id="default_range_slot" name="default_range_slot" aria-describedby="default_range_slot-addon default_range_slot-description" ></textarea>
+    <span class="input-group-text width20" id="default_range_slot-addon">Default range slot</span>
+    <textarea rows="2" class="form-control" id="default_range_slot" name="default_range_slot" aria-describedby="default_range_slot-addon default_range_slot-description" ></textarea>
 </div>
 <div class="form-text" id="default_range_slot-description">Default range slot description</div>
 </div>'''

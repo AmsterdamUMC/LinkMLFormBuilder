@@ -23,7 +23,7 @@ def test_simple_float_slot(yamlfile, default_range, simple_float_slot, simple_fl
 
 def test_simple_textarea_slot(yamlfile, default_range, simple_textarea_slot, simple_textarea_slot_expected):
     assert normalize(getSlotFormCode(simple_textarea_slot, yamlfile, default_range, [], 1, "")) == normalize(simple_textarea_slot_expected)
-    assert normalize(getTextareaSlotCode(extractDescription(simple_textarea_slot), "", simple_textarea_slot.get("name"), extractSlotName(simple_textarea_slot, ""), simple_textarea_slot)) == normalize(simple_textarea_slot_expected)
+    assert normalize(getTextareaSlotCode(extractDescription(simple_textarea_slot), "", simple_textarea_slot.get("name"), extractSlotName(simple_textarea_slot, ""), simple_textarea_slot, True)) == normalize(simple_textarea_slot_expected)
 
 def test_simple_boolean_slot(yaml_patient_partial, default_range, simple_boolean_slot, simple_boolean_slot_expected):
     assert normalize(getSlotFormCode(simple_boolean_slot, yaml_patient_partial, default_range, [], 1, "")) == normalize(simple_boolean_slot_expected)
@@ -69,7 +69,7 @@ def test_multivalued_int_slot(multivalued_int_slot, multivalued_int_slot_expecte
     assert normalize(getNumberSlotCode(multivalued_int_slot, extractDescription(multivalued_int_slot), "required", multivalued_int_slot.get("name"), extractSlotName(multivalued_int_slot, ""))) == normalize(multivalued_int_slot_expected)
 
 def test_multivalued_textarea_slot(multivalued_textarea_slot, multivalued_textarea_slot_expected):
-    assert normalize(getTextareaSlotCode(extractDescription(multivalued_textarea_slot), "", multivalued_textarea_slot.get("name"), extractSlotName(multivalued_textarea_slot, ""), multivalued_textarea_slot)) == normalize(multivalued_textarea_slot_expected)
+    assert normalize(getTextareaSlotCode(extractDescription(multivalued_textarea_slot), "", multivalued_textarea_slot.get("name"), extractSlotName(multivalued_textarea_slot, ""), multivalued_textarea_slot, False)) == normalize(multivalued_textarea_slot_expected)
 
 def test_multivalued_datetime_slot(multivalued_datetime_slot, multivalued_datetime_slot_expected):
     assert normalize(getStringSlotCode(extractDescription(multivalued_datetime_slot), "required", multivalued_datetime_slot.get("name"), extractSlotName(multivalued_datetime_slot, ""), multivalued_datetime_slot)) == normalize(multivalued_datetime_slot_expected)
