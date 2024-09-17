@@ -1,4 +1,4 @@
-# LinkML formbuilder
+# LinkML formbuilder 
 &copy; Amsterdam UMC, 2024
 
 This CLI tool converts LinkML models into HTML and PDF forms. It does **not** check for model validity and thus might crash or show errors when used with an invalid model. Use the official LinkML tools to check whether your model is valid. 
